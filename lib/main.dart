@@ -14,6 +14,7 @@ class DictionDash extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: LandingScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
