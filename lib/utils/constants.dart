@@ -20,6 +20,11 @@ const kGrayColor100 = Color(0xFFF8F8F8);
 
 // TEXT STYLES
 
+const kOswaldXSmall = TextStyle(
+  fontFamily: 'Oswald',
+  fontSize: 18,
+);
+
 const kOswaldSmall = TextStyle(
   fontFamily: 'Oswald',
   fontSize: 25,
@@ -41,7 +46,7 @@ const kOswaldLarge = TextStyle(
   fontSize: 46,
 );
 
-const kOswaldExtraLarge = TextStyle(
+const kOswaldXLarge = TextStyle(
   fontFamily: 'Oswald',
   fontSize: 64,
 );

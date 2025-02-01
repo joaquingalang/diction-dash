@@ -36,9 +36,12 @@ class LandingScreen extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
-                          'assets/images/logo.png',
-                          width: 300,
+                        Hero(
+                          tag: 'app-logo',
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                            width: 300,
+                          ),
                         ),
                         Text(
                           'WELCOME TO',
@@ -84,7 +87,7 @@ class LandingScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

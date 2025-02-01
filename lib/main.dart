@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/screens/landing_screen.dart';
+import 'package:diction_dash/screens/login_screen.dart';
+import 'package:diction_dash/screens/register_screen.dart';
 
 void main() {
   runApp(
@@ -13,7 +15,7 @@ class DictionDash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LandingScreen(),
+      home: RegisterScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
