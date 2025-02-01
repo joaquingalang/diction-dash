@@ -9,7 +9,6 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
@@ -23,43 +22,45 @@ class LoginScreen extends StatelessWidget {
         ),
         title: Image.asset(
           'assets/images/diction_dash.png',
-          width: 300,
+          width: kAppBarTitleSize,
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Hero(
-            tag: 'app-logo',
-            child: Image.asset(
-              'assets/images/logo.png',
-              width: 250,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Hero(
+              tag: 'app-logo',
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: 250,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('   Login your account', style: kOswaldXSmall),
-                ProfileTextFormField(
-                  icon: Icons.mail,
-                  hintText: 'Email',
-                ),
-                ProfileTextFormField(
-                  icon: Icons.lock,
-                  hintText: 'Password',
-                ),
-                RoundedRectangleButton(
-                  onPressed: () {},
-                  child: Center(
-                    child: Text('LOGIN', style: kButtonTextStyle),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text('   Login your account', style: kOswaldXSmall),
+                  ProfileTextFormField(
+                    icon: Icons.mail,
+                    hintText: 'Email',
                   ),
-                ),
-              ],
+                  ProfileTextFormField(
+                    icon: Icons.lock,
+                    hintText: 'Password',
+                  ),
+                  RoundedRectangleButton(
+                    onPressed: () {},
+                    child: Center(
+                      child: Text('LOGIN', style: kButtonTextStyle),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

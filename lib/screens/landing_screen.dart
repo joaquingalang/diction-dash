@@ -53,7 +53,7 @@ class LandingScreen extends StatelessWidget {
                             letterSpacing: 6,
                           ),
                         ),
-                        Image.asset('assets/images/diction_dash.png')
+                        Image.asset('assets/images/diction_dash.png', width: 350)
                       ],
                     )
                   ],
