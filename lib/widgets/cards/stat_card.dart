@@ -24,7 +24,7 @@ class StatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         child: GestureDetector(
           onTap: onPressed,
           child: Container(
@@ -49,21 +49,10 @@ class StatCard extends StatelessWidget {
                       children: [
                         Text(text, style: kOswaldSmall),
                         // Use Stack to overlay text on the progress bar
-                        Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 10.0),
-                          width: double.infinity,
-                          height: 20, // Set the height for the progress bar
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                                20), // Set the border radius
-                            color:
-                            kGrayColor100, // Background color of the progress bar
-                          ),
-                          child: MinigameLevelBar(
-                            level: level,
-                            currentExp: currentExp,
-                            maxExp: maxExp,
-                          ),
+                        MinigameLevelBar(
+                          level: level,
+                          currentExp: currentExp,
+                          maxExp: maxExp,
                         ),
                       ],
                     ),

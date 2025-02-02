@@ -8,6 +8,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     // Widget Dimensions For Responsiveness
     double screenHeight = MediaQuery.sizeOf(context).height;
     double cardHeight = (screenHeight / 6.7).toInt() * 5;
@@ -65,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   // User Level Bar
-                  UserLevelBar(level: 6, currentExp: 100, maxExp: 600),
+                  UserLevelBar(level: 6, currentExp: 200, maxExp: 600),
 
                   // Offset
                   SizedBox(height: 10),
