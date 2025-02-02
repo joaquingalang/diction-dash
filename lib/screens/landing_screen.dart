@@ -9,11 +9,17 @@ class LandingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final double fixedSize = MediaQuery.of(context).size.width / 2;
     return Scaffold(
+
+      // Page Background Color
       backgroundColor: kOrangeColor600,
+
+      // Page Body
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
+
+            // Fox Logo & Welcome Message
             Expanded(
               flex: 4,
               child: SizedBox(
@@ -36,6 +42,8 @@ class LandingScreen extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+
+                        // Fox Logo
                         Hero(
                           tag: 'app-logo',
                           child: Image.asset(
@@ -43,6 +51,8 @@ class LandingScreen extends StatelessWidget {
                             width: 300,
                           ),
                         ),
+
+                        // Welcome Message
                         Text(
                           'WELCOME TO',
                           style: TextStyle(
@@ -53,6 +63,8 @@ class LandingScreen extends StatelessWidget {
                             letterSpacing: 6,
                           ),
                         ),
+
+                        // Diction Dash Text Logo
                         Image.asset('assets/images/diction_dash.png', width: 350)
                       ],
                     )
@@ -60,6 +72,8 @@ class LandingScreen extends StatelessWidget {
                 ),
               ),
             ),
+
+            // Login & Register Buttons
             Expanded(
               flex: 3,
               child: Column(
@@ -67,7 +81,9 @@ class LandingScreen extends StatelessWidget {
                 children: [
                   OvalButton(
                     color: Colors.white,
-                    onPressed: () {},
+                    onPressed: () {
+                      // TODO: Redirect to login screen.
+                    },
                     child: const Center(
                       child: Text(
                         'LOG IN',
@@ -77,7 +93,9 @@ class LandingScreen extends StatelessWidget {
                   ),
                   OvalButton(
                     borderColor: Colors.white,
-                    onPressed: () {},
+                    onPressed: () {
+                      // TODO: Redirect to register screen.
+                    },
                     child: const Center(
                       child: Text(
                         'REGISTER',

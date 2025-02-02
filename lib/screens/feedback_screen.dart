@@ -8,6 +8,8 @@ class FeedbackScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      // Page App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
@@ -25,11 +27,17 @@ class FeedbackScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+
+      // Page Body
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+
+            // For Offset
             SizedBox(),
+
+            // Fox Logo & Feedback Message
             Column(
               children: [
                 Image.asset('assets/images/logo_eyes_closed.png', width: 250),
@@ -46,9 +54,15 @@ class FeedbackScreen extends StatelessWidget {
                 ),
               ],
             ),
+
+            // For Offset
             SizedBox(),
+
+            // Proceed To Next Page Button
             RoundedRectangleButton(
-              onPressed: () {},
+              onPressed: () {
+                // TODO: Redirect to home screen.
+              },
               child: Center(
                 child: Text(
                   'PROCEED',

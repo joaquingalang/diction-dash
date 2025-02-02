@@ -4,6 +4,7 @@ import 'package:diction_dash/screens/login_screen.dart';
 import 'package:diction_dash/screens/register_screen.dart';
 import 'package:diction_dash/screens/fluency_screen.dart';
 import 'package:diction_dash/screens/feedback_screen.dart';
+import 'package:diction_dash/screens/home_screen.dart';
 
 void main() {
   runApp(
@@ -17,7 +18,7 @@ class DictionDash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LandingScreen(),
+      home: HomeScreen(),
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.white,
       ),

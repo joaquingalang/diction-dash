@@ -47,7 +47,7 @@ class OvalInfoButton extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // TODO : RFLUTTER ALERT
+                    // TODO: Implement rflutter alerts.
                   },
                   child: const Icon(
                     Icons.info,
