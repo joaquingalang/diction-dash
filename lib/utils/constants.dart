@@ -22,6 +22,10 @@ const Color kGrayColor100 = Color(0xFFF8F8F8);
 
 
 // TEXT STYLES
+const TextStyle kFontWeightBold = TextStyle(
+  fontWeight: FontWeight.bold,
+);
+
 const TextStyle kOswaldXSmall = TextStyle(
   fontFamily: 'Oswald',
   fontSize: 18,
@@ -65,6 +69,12 @@ const TextStyle kSubtext20 = TextStyle(
   color: Colors.black,
 );
 
+const TextStyle kSubtext24 = TextStyle(
+  fontSize: 24,
+  fontWeight: FontWeight.normal,
+  color: Colors.black,
+);
+
 const TextStyle kSubtext32 = TextStyle(
   fontSize: 32,
   fontWeight: FontWeight.normal,
@@ -99,4 +109,10 @@ const TextStyle kButtonTextStyleOrange = TextStyle(
   fontSize: 24,
   fontWeight: FontWeight.bold,
   color: kOrangeColor600,
+);
+
+const TextStyle kHiddenWordTextStyle = TextStyle(
+  color: kOrangeColor500,
+  fontSize: 26,
+  fontWeight: FontWeight.bold,
 );

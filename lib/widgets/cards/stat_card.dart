@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
-import 'package:diction_dash/widgets/linear_progress_indicators/minigame_level_bar.dart';
+import 'package:diction_dash/widgets/progress_bars/minigame_level_bar.dart';
 
 class StatCard extends StatelessWidget {
   const StatCard({

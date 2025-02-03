@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
-import 'package:diction_dash/widgets/linear_progress_indicators/user_level_bar.dart';
+import 'package:diction_dash/widgets/progress_bars/user_level_bar.dart';
 import 'package:diction_dash/widgets/cards/stat_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,7 +8,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // Widget Dimensions For Responsiveness
     double screenHeight = MediaQuery.sizeOf(context).height;
     double cardHeight = (screenHeight / 6.7).toInt() * 5;
@@ -46,11 +45,12 @@ class HomeScreen extends StatelessWidget {
               width: double.infinity,
               height: cardHeight,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  )),
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
 
               // Card Content
               child: Column(

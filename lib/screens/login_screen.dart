@@ -11,7 +11,6 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       // Page App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -35,7 +34,6 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-
             // Fox Hero Logo
             Hero(
               tag: 'app-logo',
@@ -51,7 +49,6 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   // Instruction Text
                   const Text('   Login your account', style: kOswaldXSmall),
 
@@ -65,6 +62,14 @@ class LoginScreen extends StatelessWidget {
                   ProfileTextFormField(
                     icon: Icons.lock,
                     hintText: 'Password',
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      'Forgot Password   ',
+                      style: kSubtext15,
+                    ),
                   ),
 
                   // Login Button
