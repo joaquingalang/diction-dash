@@ -1,0 +1,120 @@
+import 'package:flutter/material.dart';
+import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
+import 'package:diction_dash/widgets/buttons/oval_button.dart';
+
+class ComprehensionScreen extends StatelessWidget {
+  const ComprehensionScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // Minigame App Bar
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.close,
+            color: kGrayColor500,
+            size: 35,
+          ),
+        ),
+        title: QuestionBar(currentItem: 1, maxItems: 10),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.help,
+              color: kGrayColor500,
+              size: 35,
+            ),
+          ),
+
+          // Offset
+          SizedBox(width: 8),
+        ],
+      ),
+
+      // Page Body
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+
+            // Countdown Bar
+            // TODO: Add QuestionBar
+
+            // Offset
+            SizedBox(height: 30),
+
+            // Comprehension Minigame Instruction
+            RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                style: kSubtext20,
+                children: [
+                  TextSpan(text: 'Comprehend ', style: kFontWeightBold),
+                  TextSpan(
+                      text: 'the sentence\nand answer the given question.'),
+                ],
+              ),
+            ),
+
+            // Comprehension Question
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                'The cat jumped onto the windowsill and watched the birds outside.\n\nWhat did the cat do?',
+                style: kSubtext20,
+                textAlign: TextAlign.center,
+              ),
+            ),
+
+            // Choices
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  OvalButton(
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 25),
+                      child: Text('enjoyed the view', style: kButtonTextStyle),
+                    ),
+                  ),
+                  OvalButton(
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 25),
+                      child: Text('leaped from a window', style: kButtonTextStyle),
+                    ),
+                  ),
+                  OvalButton(
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 25),
+                      child: Text('hissed at the dog', style: kButtonTextStyle),
+                    ),
+                  ),
+                  OvalButton(
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 25),
+                      child: Text('watched the birds outside', style: kButtonTextStyle),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -25,6 +25,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       // Minigame App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -62,7 +63,9 @@ class _SpellingScreenState extends State<SpellingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+
             // Countdown Bar
+            // TODO: Add CountdownBar
 
             // Spelling Minigame Instructions
             RichText(
