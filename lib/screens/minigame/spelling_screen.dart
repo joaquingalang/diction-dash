@@ -4,7 +4,7 @@ import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/text_fields/spelling_answer_text_field.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 
-// TODO: Separate SpellingScreen with SpellingQuestionBody
+// TODO: Separate SpellingScreen with SpellingQuestion
 
 class SpellingScreen extends StatefulWidget {
   const SpellingScreen({super.key});

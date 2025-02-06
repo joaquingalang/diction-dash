@@ -18,7 +18,7 @@ class CountdownBar extends StatefulWidget {
 }
 
 class _CountdownBarState extends State<CountdownBar>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Color?> _colorAnimation;
 
@@ -44,6 +44,7 @@ class _CountdownBarState extends State<CountdownBar>
     // Add a listener to trigger the callback once the timer finishes
     _controller.addStatusListener(
       (status) {
+        print(_colorAnimation);
         if (status.isDismissed) {
           widget.onTimerComplete();
         }
@@ -51,8 +52,37 @@ class _CountdownBarState extends State<CountdownBar>
     );
   }
 
+  void _startTimer() {
+    // Starts countdown when called (1 represents the animation value not the duration in seconds)
+    _controller.reverse(from: 1);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initAnimationController();
+    _startTimer();
+  }
+
+  @override
+  void didUpdateWidget(covariant CountdownBar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.isStopped) {
+      _controller.stop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AnimatedBuilder(
+      animation: _colorAnimation,
+      builder: (context, child) {
+        return LinearProgressIndicator(
+          value: _controller.value,
+          valueColor: _colorAnimation,
+          backgroundColor: Colors.green.shade100,
+        );
+      },
+    );
   }
 }

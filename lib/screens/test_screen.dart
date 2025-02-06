@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 
-class TestScreen extends StatelessWidget {
+class TestScreen extends StatefulWidget {
   const TestScreen({super.key});
+
+  @override
+  State<TestScreen> createState() => _TestScreenState();
+}
+
+class _TestScreenState extends State<TestScreen> {
+  bool _timerComplete = false;
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +19,25 @@ class TestScreen extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: LinearPercentIndicator(
-            width: MediaQuery.of(context).size.width - 20,
-            lineHeight: 30.0,
-            animation: true,
-            animationDuration: 2500,
-            percent: 0.8,
-            center: Text("80.0%"),
-            barRadius: Radius.circular(90),
-            progressColor: Colors.green,
+          child: Column(
+            spacing: 30,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CountdownBar(
+                isStopped: _timerComplete,
+                onTimerComplete: () {
+                  print('CountdownBar Time Complete!');
+                },
+              ),
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    _timerComplete = !_timerComplete;
+                  });
+                },
+                child: Text('Stop Timer!'),
+              ),
+            ],
           ),
         ),
       ),

@@ -3,6 +3,8 @@ import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
 
+// TODO: Separate ComprehensionScreen with ComprehensionQuestion
+
 class ComprehensionScreen extends StatelessWidget {
   const ComprehensionScreen({super.key});
 

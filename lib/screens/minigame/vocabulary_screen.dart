@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 
+// TODO: Separate Screen with Question
+
 class VocabularyScreen extends StatelessWidget {
   const VocabularyScreen({super.key});
 
