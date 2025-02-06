@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
+import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
 
 // TODO: Separate GrammarScreen with GrammarQuestion
@@ -50,10 +51,12 @@ class GrammarScreen extends StatelessWidget {
           children: [
 
             // Countdown Bar
-            // TODO: Add CountdownBar
-
-            // Offset
-            SizedBox(height: 30),
+            CountdownBar(
+              isStopped: false,
+              onTimerComplete: () {
+                print('Timer Complete!');
+              },
+            ),
 
             // Grammar Minigame Instructions
             RichText(

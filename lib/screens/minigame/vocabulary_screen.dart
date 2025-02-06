@@ -1,7 +1,8 @@
-import 'package:diction_dash/widgets/buttons/oval_button.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
+import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
+import 'package:diction_dash/widgets/buttons/oval_button.dart';
 
 // TODO: Separate Screen with Question
 
@@ -51,10 +52,12 @@ class VocabularyScreen extends StatelessWidget {
           children: [
 
             // Countdown Bar
-            // TODO: Add CountdownBar
-
-            // Offset
-            SizedBox(height: 30),
+            CountdownBar(
+              isStopped: false,
+              onTimerComplete: () {
+                print('Timer Complete!');
+              },
+            ),
 
             // Vocabulary Minigame Instructions
             RichText(

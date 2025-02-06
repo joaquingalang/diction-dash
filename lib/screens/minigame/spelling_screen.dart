@@ -1,7 +1,7 @@
-import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
+import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/text_fields/spelling_answer_text_field.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 
@@ -63,9 +63,10 @@ class _SpellingScreenState extends State<SpellingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+
             // Countdown Bar
-            // TODO: Add CountdownBar
             CountdownBar(
+              durationInSeconds: 20,
               isStopped: false,
               onTimerComplete: () {
                 print('Timer Complete!');

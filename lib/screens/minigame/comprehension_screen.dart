@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
+import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
 
 // TODO: Separate ComprehensionScreen with ComprehensionQuestion
@@ -50,10 +51,12 @@ class ComprehensionScreen extends StatelessWidget {
           children: [
 
             // Countdown Bar
-            // TODO: Add QuestionBar
-
-            // Offset
-            SizedBox(height: 30),
+            CountdownBar(
+              isStopped: false,
+              onTimerComplete: () {
+                print('Timer Complete!');
+              },
+            ),
 
             // Comprehension Minigame Instruction
             RichText(
@@ -68,6 +71,9 @@ class ComprehensionScreen extends StatelessWidget {
               ),
             ),
 
+            // Offset
+            SizedBox(height: 30),
+
             // Comprehension Question
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -77,6 +83,9 @@ class ComprehensionScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
+
+            // Offset
+            SizedBox(height: 30),
 
             // Choices
             Padding(
