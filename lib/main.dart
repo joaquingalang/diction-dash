@@ -10,6 +10,7 @@ import 'package:diction_dash/screens/minigame/spelling_screen.dart';
 import 'package:diction_dash/screens/minigame/vocabulary_screen.dart';
 import 'package:diction_dash/screens/minigame/grammar_screen.dart';
 import 'package:diction_dash/screens/minigame/comprehension_screen.dart';
+import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 
 
 void main() {
@@ -24,7 +25,7 @@ class DictionDash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ComprehensionScreen(),
+      home: EndGameScreen(),
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.white,
       ),
