@@ -32,11 +32,11 @@ class _CountdownBarState extends State<CountdownBar>
     // Define countdown's color tween animation (Green -> Orange -> Red)
     _colorAnimation = TweenSequence<Color?>([
       TweenSequenceItem(
-        tween: ColorTween(begin: Colors.red, end: Colors.orange.shade100),
+        tween: ColorTween(begin: Colors.red, end: Colors.yellow),
         weight: 50,
       ),
       TweenSequenceItem(
-        tween: ColorTween(begin: Colors.orange.shade100, end: Colors.green),
+        tween: ColorTween(begin: Colors.yellow, end: Colors.green),
         weight: 50,
       ),
     ]).animate(_controller);
@@ -80,7 +80,7 @@ class _CountdownBarState extends State<CountdownBar>
         return LinearProgressIndicator(
           value: _controller.value,
           valueColor: _colorAnimation,
-          backgroundColor: Colors.green.shade100,
+          backgroundColor: kGrayColor300,
         );
       },
     );

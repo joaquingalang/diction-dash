@@ -1,3 +1,4 @@
+import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
@@ -25,7 +26,6 @@ class _SpellingScreenState extends State<SpellingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       // Minigame App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -63,9 +63,14 @@ class _SpellingScreenState extends State<SpellingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-
             // Countdown Bar
             // TODO: Add CountdownBar
+            CountdownBar(
+              isStopped: false,
+              onTimerComplete: () {
+                print('Timer Complete!');
+              },
+            ),
 
             // Spelling Minigame Instructions
             RichText(
