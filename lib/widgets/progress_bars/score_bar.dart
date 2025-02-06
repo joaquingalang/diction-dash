@@ -17,7 +17,10 @@ class ScoreBar extends StatelessWidget {
           width: MediaQuery.sizeOf(context).width * 0.6,
           lineHeight: 30,
           progressColor: kOrangeColor600,
+          backgroundColor: kGrayColor200,
           barRadius: Radius.circular(90),
+          animation: true,
+          animationDuration: 1000,
           percent: score / maxScore,
           center: Text(
             '$score / $maxScore',
