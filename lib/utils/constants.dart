@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // SIZES
-const double kAppBarTitleSize = 250;
+const double kAppBarTitleSize = 200;
 
 
 //COLORS
