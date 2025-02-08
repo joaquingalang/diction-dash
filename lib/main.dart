@@ -27,7 +27,7 @@ class DictionDash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ComprehensionScreen(),
+      home: FluencyScreen(),
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.white,
       ),

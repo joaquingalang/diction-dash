@@ -41,10 +41,7 @@ class VocabularyScreen extends StatelessWidget {
         title: QuestionBar(currentItem: 1, maxItems: 10),
         actions: [
           IconButton(
-            onPressed: () {
-              // Display Minigame Instructions
-              _displayInstructions(context);
-            },
+            onPressed: () => _displayInstructions(context),
             icon: Icon(
               Icons.help,
               color: kGrayColor500,

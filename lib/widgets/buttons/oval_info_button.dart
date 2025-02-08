@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class OvalInfoButton extends StatelessWidget {
   const OvalInfoButton({
@@ -47,7 +48,35 @@ class OvalInfoButton extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // TODO: Implement rflutter alerts.
+
+                    // Display Info Alert
+                    Alert(
+                      context: context,
+                      title: text,
+                      desc: infoDescription,
+                      style: AlertStyle(
+                        titleStyle: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        descStyle: TextStyle(
+                          fontSize: 18,
+                        ),
+                        backgroundColor: kGrayColor200,
+                        overlayColor: Colors.black26,
+                        alertBorder: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      buttons: [
+                        DialogButton(
+                          color: kOrangeColor600,
+                          child: Text('CANCEL', style: kButtonTextStyle),
+                          onPressed: () => Navigator.pop(context),
+                        )
+                      ],
+                    ).show();
+
                   },
                   child: const Icon(
                     Icons.info,
