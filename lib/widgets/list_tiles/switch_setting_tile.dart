@@ -35,8 +35,8 @@ class _SwitchSettingTileState extends State<SwitchSettingTile> {
         value: widget.value,
         onChanged: widget.onChanged,
         activeTrackColor: kOrangeColor300,
-        inactiveThumbColor: kGrayColor400,
-        inactiveTrackColor: kGrayColor300,
+        inactiveThumbColor: kGrayColor300,
+        inactiveTrackColor: kGrayColor200,
       ),
     );
   }

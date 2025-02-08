@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/widgets/list_tiles/setting_tile.dart';
+import 'package:diction_dash/widgets/list_tiles/switch_setting_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -9,13 +11,16 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  bool _notifsEnabled = true;
+  bool _capslockEnabled = true;
+  bool _soundsEnabled = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       // Page App Bar
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
@@ -23,14 +28,69 @@ class _SettingsScreenState extends State<SettingsScreen> {
           },
           icon: Icon(
             Icons.arrow_back,
-            color: kGrayColor500,
             size: 35,
           ),
         ),
         title: Text('Settings', style: kOswaldMedium),
       ),
-      
-      
+
+      // Page Body
+      body: SafeArea(
+        child: Column(
+          children: [
+            SettingTile(
+              title: 'Profile',
+              iconData: Icons.person,
+              onTap: () {},
+            ),
+            SettingTile(
+              title: 'Preferences',
+              iconData: Icons.photo,
+              onTap: () {},
+            ),
+            SwitchSettingTile(
+              title: 'Notifications',
+              iconData: Icons.notifications,
+              value: _notifsEnabled,
+              onChanged: (value) {
+                setState(() {
+                  _notifsEnabled = value;
+                });
+              },
+            ),
+            SwitchSettingTile(
+              title: 'Auto caps-lock',
+              iconData: Icons.notifications,
+              value: _capslockEnabled,
+              onChanged: (value) {
+                setState(() {
+                  _capslockEnabled = value;
+                });
+              },
+            ),
+            SwitchSettingTile(
+              title: 'Sounds',
+              iconData: Icons.volume_up,
+              value: _soundsEnabled,
+              onChanged: (value) {
+                setState(() {
+                  _soundsEnabled = value;
+                });
+              },
+            ),
+            SettingTile(
+              title: 'FAQ',
+              iconData: Icons.help,
+              onTap: () {},
+            ),
+            SettingTile(
+              title: 'Help & Support',
+              iconData: Icons.info,
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
