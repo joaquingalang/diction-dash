@@ -47,10 +47,12 @@ class LoginScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Instruction Text
-                  const Text('   Login your account', style: kOswaldXSmall),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('   Login your account', style: kOswaldXSmall),
+                  ),
 
                   // Email Field
                   ProfileTextFormField(

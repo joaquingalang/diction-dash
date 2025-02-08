@@ -37,8 +37,13 @@ class FluencyScreen extends StatelessWidget {
         child: Column(
           children: [
 
+            // Offset
+            SizedBox(height: 15),
+
             // Fox Logo
             Image.asset('assets/images/logo.png', width: 250),
+
+            // Offset
             SizedBox(height: 15),
 
             // Beginner Fluency Button
