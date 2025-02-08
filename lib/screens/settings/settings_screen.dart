@@ -3,6 +3,8 @@ import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/list_tiles/setting_tile.dart';
 import 'package:diction_dash/widgets/list_tiles/switch_setting_tile.dart';
 
+// TODO: Integrate shared preferences
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -11,6 +13,8 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+
+  // Toggle Variables
   bool _notifsEnabled = true;
   bool _capslockEnabled = true;
   bool _soundsEnabled = true;
@@ -18,6 +22,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       // Page App Bar
       appBar: AppBar(
         backgroundColor: Colors.white,

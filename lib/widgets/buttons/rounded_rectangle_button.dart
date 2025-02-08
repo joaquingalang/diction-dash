@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 
 class RoundedRectangleButton extends StatelessWidget {
-  final Color? color;
-  final void Function() onPressed;
-  final Widget child;
 
   const RoundedRectangleButton({
     super.key,
-    this.color = kOrangeColor600,
+    this.backgroundColor = kOrangeColor600,
     required this.onPressed,
     required this.child,
   });
+
+  final Color? backgroundColor;
+  final void Function() onPressed;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class RoundedRectangleButton extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 16),
           width: double.infinity,
           decoration: BoxDecoration(
-            color: color,
+            color: backgroundColor,
             borderRadius: BorderRadius.circular(8),
           ),
           child: child,

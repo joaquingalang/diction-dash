@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 
-class EditProfilePictureButton extends StatelessWidget {
-  const EditProfilePictureButton({
+class ProfilePictureEditButton extends StatelessWidget {
+  const ProfilePictureEditButton({
     super.key,
     this.imageUrl,
     required this.onTap,
@@ -16,8 +16,10 @@ class EditProfilePictureButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: CircleAvatar(
-        backgroundImage: (imageUrl != null) ? NetworkImage(imageUrl!) : AssetImage('assets/images/placeholder_profile.png'),
-        radius: 70,
+        backgroundImage: (imageUrl != null)
+            ? NetworkImage(imageUrl!)
+            : AssetImage('assets/images/placeholder_profile.png'),
+        radius: 80,
         child: Align(
           alignment: Alignment.bottomRight,
           child: Container(
@@ -27,8 +29,7 @@ class EditProfilePictureButton extends StatelessWidget {
               shape: BoxShape.circle,
               color: kGrayColor600,
             ),
-            child: const Icon(Icons.edit,
-                color: Colors.white, size: 25),
+            child: const Icon(Icons.edit, color: Colors.white, size: 25),
           ),
         ),
       ),

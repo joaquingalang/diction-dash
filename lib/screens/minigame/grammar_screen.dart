@@ -105,7 +105,7 @@ class GrammarScreen extends StatelessWidget {
                     borderColor: kOrangeColor600,
                     onPressed: () {},
                     child: Center(
-                      child: Text('INCORRECT', style: kButtonTextStyleOrange),
+                      child: Text('INCORRECT', style: kOrangeButtonTextStyle),
                     ),
                   ),
                 ],

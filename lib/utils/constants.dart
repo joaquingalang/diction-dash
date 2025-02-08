@@ -63,6 +63,12 @@ const TextStyle kSubtext15 = TextStyle(
   color: Colors.black,
 );
 
+const TextStyle kSubtext18 = TextStyle(
+  fontSize: 15,
+  fontWeight: FontWeight.normal,
+  color: Colors.black,
+);
+
 const TextStyle kSubtext20 = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.normal,
@@ -105,7 +111,7 @@ const TextStyle kButtonTextStyle = TextStyle(
   color: Colors.white,
 );
 
-const TextStyle kButtonTextStyleOrange = TextStyle(
+const TextStyle kOrangeButtonTextStyle = TextStyle(
   fontSize: 24,
   fontWeight: FontWeight.bold,
   color: kOrangeColor600,

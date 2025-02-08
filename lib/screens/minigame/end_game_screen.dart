@@ -101,7 +101,7 @@ class _EndGameScreenState extends State<EndGameScreen> {
                     Text('EXPERIENCE POINTS', style: kOswaldMedium),
                     Text(
                       '+ 1028 XP',
-                      style: kButtonTextStyleOrange.copyWith(fontSize: 36),
+                      style: kOrangeButtonTextStyle.copyWith(fontSize: 36),
                     ),
                   ],
                 ),

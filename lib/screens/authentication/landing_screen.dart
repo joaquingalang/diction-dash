@@ -87,7 +87,7 @@ class LandingScreen extends StatelessWidget {
                     child: const Center(
                       child: Text(
                         'LOG IN',
-                        style: kButtonTextStyleOrange,
+                        style: kOrangeButtonTextStyle,
                       ),
                     ),
                   ),

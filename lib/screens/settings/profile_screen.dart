@@ -1,6 +1,8 @@
+import 'package:diction_dash/widgets/buttons/profile_edit_button.dart';
+import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
-import 'package:diction_dash/widgets/buttons/edit_profile_picture_button.dart';
+import 'package:diction_dash/widgets/buttons/profile_picture_edit_button.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -26,12 +28,53 @@ class ProfileScreen extends StatelessWidget {
 
       // Page Body
       body: SafeArea(
-        child: Column(
-          children: [
+        child: Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            children: [
+              // Edit Profile Picture
+              ProfilePictureEditButton(onTap: () {}),
 
-            EditProfilePictureButton(onTap: (){}),
+              // Edit Username
+              ProfileEditButton(
+                  text: 'USERNAME', labelText: 'Alice Guo', onTap: () {}),
 
-          ],
+              // Change Password
+              ProfileEditButton(
+                  text: 'PASSWORD', labelText: '**********', onTap: () {}),
+
+              // Adjust Fluency
+              RoundedRectangleButton(
+                backgroundColor: kGrayColor300,
+                onPressed: () {},
+                child: Center(
+                  child: Text('ADJUST FLUENCY', style: kButtonTextStyle),
+                ),
+              ),
+
+              // Delete Account
+              RoundedRectangleButton(
+                backgroundColor: kGrayColor300,
+                onPressed: () {},
+                child: Center(
+                  child: Text('DELETE ACCOUNT', style: kButtonTextStyle),
+                ),
+              ),
+
+              // Expanded Offset
+              Expanded(
+                child: SizedBox(height: 30),
+              ),
+
+              // Logout Button
+              RoundedRectangleButton(
+                onPressed: () {},
+                child: Center(
+                  child: Text('LOGOUT', style: kButtonTextStyle),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
