@@ -63,7 +63,7 @@ class _EndGameScreenState extends State<EndGameScreen> {
             actions: [
               IconButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  // TODO: Display Minigame Instructions
                 },
                 icon: Icon(
                   Icons.help,

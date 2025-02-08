@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
@@ -9,9 +10,20 @@ import 'package:diction_dash/widgets/buttons/oval_button.dart';
 class GrammarScreen extends StatelessWidget {
   const GrammarScreen({super.key});
 
+  void _displayInstructions(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => MinigameInstructionSheet(
+        title: 'Grammar',
+        description: 'Analyze the sentence carefully, and determine if it is grammatically correct or incorrect',
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       // Minigame App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -30,7 +42,8 @@ class GrammarScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              // Display Minigame Instructions
+              _displayInstructions(context);
             },
             icon: Icon(
               Icons.help,

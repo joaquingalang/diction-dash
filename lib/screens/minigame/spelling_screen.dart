@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/text_fields/spelling_answer_text_field.dart';
@@ -16,6 +17,16 @@ class SpellingScreen extends StatefulWidget {
 
 class _SpellingScreenState extends State<SpellingScreen> {
   late TextEditingController _spellingAnswerController;
+
+  void _displayInstructions(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => MinigameInstructionSheet(
+        title: 'Spelling',
+        description: 'Listen to the audio carefully and make sure to type the word in the answer box.',
+      ),
+    );
+  }
 
   @override
   void initState() {
@@ -44,7 +55,8 @@ class _SpellingScreenState extends State<SpellingScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              // Display Minigame Instructions
+              _displayInstructions(context);
             },
             icon: Icon(
               Icons.help,
@@ -63,7 +75,6 @@ class _SpellingScreenState extends State<SpellingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-
             // Countdown Bar
             CountdownBar(
               durationInSeconds: 20,
