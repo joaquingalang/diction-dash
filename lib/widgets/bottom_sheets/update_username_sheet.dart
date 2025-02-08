@@ -1,18 +1,18 @@
-import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/text_fields/profile_edit_text_field.dart';
+import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 
-class ChangeUsernameSheet extends StatefulWidget {
-  const ChangeUsernameSheet({
+class UpdateUsernameSheet extends StatefulWidget {
+  const UpdateUsernameSheet({
     super.key,
   });
 
   @override
-  State<ChangeUsernameSheet> createState() => _ChangeUsernameSheetState();
+  State<UpdateUsernameSheet> createState() => _UpdateUsernameSheetState();
 }
 
-class _ChangeUsernameSheetState extends State<ChangeUsernameSheet> {
+class _UpdateUsernameSheetState extends State<UpdateUsernameSheet> {
   final TextEditingController _newUsernameController = TextEditingController();
 
   @override
@@ -40,17 +40,20 @@ class _ChangeUsernameSheetState extends State<ChangeUsernameSheet> {
             // Offset
             SizedBox(height: 15),
 
+            // Sheet Purpose
             Text(
               'Change Username',
               style: kSubtext20.copyWith(fontWeight: FontWeight.bold),
             ),
 
+            // New Username Field
             ProfileEditTextField(
               labelText: 'NEW USERNAME',
               initialValue: 'Alice Guo',
               controller: _newUsernameController,
             ),
 
+            // Continue Button
             RoundedRectangleButton(
               onPressed: () {},
               child: Center(
