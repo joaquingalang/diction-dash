@@ -6,7 +6,6 @@ import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/score_bar.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 
-// TODO: Add confetti animations
 // TODO: Add success or fail audio clips
 
 class EndGameScreen extends StatefulWidget {
@@ -38,6 +37,8 @@ class _EndGameScreenState extends State<EndGameScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    // Stack widget is employed for playing the confetti animation over the scaffold
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -47,6 +48,7 @@ class _EndGameScreenState extends State<EndGameScreen> {
           // Minigame App Bar
           appBar: AppBar(
             backgroundColor: Colors.transparent,
+            centerTitle: true,
             leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -58,7 +60,6 @@ class _EndGameScreenState extends State<EndGameScreen> {
               ),
             ),
             title: QuestionBar(currentItem: 10, maxItems: 10),
-            centerTitle: true,
             actions: [
               IconButton(
                 onPressed: () {

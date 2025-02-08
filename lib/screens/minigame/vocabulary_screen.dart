@@ -16,6 +16,7 @@ class VocabularyScreen extends StatelessWidget {
       // Minigame App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -27,7 +28,6 @@ class VocabularyScreen extends StatelessWidget {
           ),
         ),
         title: QuestionBar(currentItem: 1, maxItems: 10),
-        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {

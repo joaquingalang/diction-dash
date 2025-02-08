@@ -29,6 +29,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
       // Minigame App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -40,7 +41,6 @@ class _SpellingScreenState extends State<SpellingScreen> {
           ),
         ),
         title: QuestionBar(currentItem: 1, maxItems: 10),
-        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {

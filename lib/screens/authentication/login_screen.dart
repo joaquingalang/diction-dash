@@ -14,6 +14,7 @@ class LoginScreen extends StatelessWidget {
       // Page App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        centerTitle: true,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -27,7 +28,6 @@ class LoginScreen extends StatelessWidget {
           'assets/images/diction_dash.png',
           width: kAppBarTitleSize,
         ),
-        centerTitle: true,
       ),
 
       // Page Body
