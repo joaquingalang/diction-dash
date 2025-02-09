@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/buttons/oval_info_button.dart';
+import 'package:diction_dash/screens/fluency/feedback_screen.dart';
 
 // TODO: Redirect to feedback screen on button press
 // TODO: Save selected fluency level on Firebase on button press
 
 class FluencyScreen extends StatelessWidget {
   const FluencyScreen({super.key});
+
+  void _feedbackScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FeedbackScreen(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +61,7 @@ class FluencyScreen extends StatelessWidget {
               text: 'BEGINNER',
               infoDescription:
                   'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () {},
+              onPressed: () => _feedbackScreen(context),
             ),
 
             // Elementary Fluency Button
@@ -59,7 +69,7 @@ class FluencyScreen extends StatelessWidget {
               text: 'ELEMENTARY',
               infoDescription:
               'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () {},
+              onPressed: () => _feedbackScreen(context),
             ),
 
             // Intermediate Fluency Button
@@ -67,7 +77,7 @@ class FluencyScreen extends StatelessWidget {
               text: 'INTERMEDIATE',
               infoDescription:
               'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () {},
+              onPressed: () => _feedbackScreen(context),
             ),
 
             // Advanced Fluency Button
@@ -75,7 +85,7 @@ class FluencyScreen extends StatelessWidget {
               text: 'ADVANCED',
               infoDescription:
               'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () {},
+              onPressed: () => _feedbackScreen(context),
             ),
 
             // Expert Fluency Button
@@ -83,7 +93,7 @@ class FluencyScreen extends StatelessWidget {
               text: 'EXPERT',
               infoDescription:
               'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () {},
+              onPressed: () => _feedbackScreen(context),
             ),
           ],
         ),

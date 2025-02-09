@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/widgets/text_fields/profile_text_form_field.dart';
+import 'package:diction_dash/screens/home_screen.dart';
 
 // TODO: Add login logic with firebase authentication.
 
@@ -76,7 +77,12 @@ class LoginScreen extends StatelessWidget {
 
                   // Login Button
                   RoundedRectangleButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ),
+                    ),
                     child: Center(
                       child: Text('LOGIN', style: kButtonTextStyle),
                     ),

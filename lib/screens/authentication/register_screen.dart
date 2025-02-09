@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/widgets/text_fields/profile_text_form_field.dart';
+import 'package:diction_dash/screens/fluency/fluency_screen.dart';
 
 // TODO: Add user registration logic with firebase authentication.
 // TODO: Save user information with cloud firestore.
@@ -84,7 +85,12 @@ class RegisterScreen extends StatelessWidget {
 
                   // Register Button
                   RoundedRectangleButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FluencyScreen(),
+                      ),
+                    ),
                     child: Center(
                       child: Text('REGISTER', style: kButtonTextStyle),
                     ),

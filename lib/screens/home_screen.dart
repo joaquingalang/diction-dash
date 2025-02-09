@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/progress_bars/user_level_bar.dart';
 import 'package:diction_dash/widgets/cards/stat_card.dart';
+import 'package:diction_dash/screens/settings/settings_screen.dart';
+import 'package:diction_dash/screens/minigame/spelling_screen.dart';
+import 'package:diction_dash/screens/minigame/vocabulary_screen.dart';
+import 'package:diction_dash/screens/minigame/grammar_screen.dart';
+import 'package:diction_dash/screens/minigame/comprehension_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,7 +28,12 @@ class HomeScreen extends StatelessWidget {
         leading: SizedBox(), // TODO: temporary fix to remove back button
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SettingsScreen(),
+              ),
+            ),
             icon: Icon(
               Icons.settings,
               color: Colors.white,
@@ -78,31 +88,51 @@ class HomeScreen extends StatelessWidget {
                     level: 1,
                     currentExp: 20,
                     maxExp: 100,
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SpellingScreen(),
+                      ),
+                    ),
                   ),
                   StatCard(
-                    text: 'SPELLING',
+                    text: 'VOCABULARY',
                     image: AssetImage('assets/images/app_icon.png'),
                     level: 1,
                     currentExp: 20,
                     maxExp: 100,
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => VocabularyScreen(),
+                      ),
+                    ),
                   ),
                   StatCard(
-                    text: 'SPELLING',
+                    text: 'GRAMMAR',
                     image: AssetImage('assets/images/app_icon.png'),
                     level: 1,
                     currentExp: 20,
                     maxExp: 100,
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => GrammarScreen(),
+                      ),
+                    ),
                   ),
                   StatCard(
-                    text: 'SPELLING',
+                    text: 'COMPREHENSION',
                     image: AssetImage('assets/images/app_icon.png'),
                     level: 1,
                     currentExp: 20,
                     maxExp: 100,
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ComprehensionScreen(),
+                      ),
+                    ),
                   ),
 
                   // Offset

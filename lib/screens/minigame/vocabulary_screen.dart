@@ -4,6 +4,7 @@ import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.da
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
+import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 
 // TODO: Separate Screen with Question
 
@@ -16,6 +17,15 @@ class VocabularyScreen extends StatelessWidget {
       builder: (context) => MinigameInstructionSheet(
         title: 'Vocabulary',
         description: 'Select the choice that has the same meaning as the provided word.',
+      ),
+    );
+  }
+
+  void _endGameScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EndGameScreen(),
       ),
     );
   }
@@ -104,25 +114,25 @@ class VocabularyScreen extends StatelessWidget {
               child: Column(
                 children: [
                   OvalButton(
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Center(
                       child: Text('mystic', style: kButtonTextStyle),
                     ),
                   ),
                   OvalButton(
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Center(
                       child: Text('demure', style: kButtonTextStyle),
                     ),
                   ),
                   OvalButton(
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Center(
                       child: Text('unique', style: kButtonTextStyle),
                     ),
                   ),
                   OvalButton(
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Center(
                       child: Text('exhausted', style: kButtonTextStyle),
                     ),

@@ -1,10 +1,10 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:confetti/confetti.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/score_bar.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
+import 'package:diction_dash/screens/home_screen.dart';
 
 // TODO: Add success or fail audio clips
 
@@ -37,12 +37,10 @@ class _EndGameScreenState extends State<EndGameScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     // Stack widget is employed for playing the confetti animation over the scaffold
     return Stack(
       alignment: Alignment.topCenter,
       children: [
-
         // End Game Screen Scaffold
         Scaffold(
           // Minigame App Bar
@@ -120,7 +118,12 @@ class _EndGameScreenState extends State<EndGameScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: RoundedRectangleButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ),
+                    ),
                     child: Center(
                       child: Text('Continue', style: kButtonTextStyle),
                     ),

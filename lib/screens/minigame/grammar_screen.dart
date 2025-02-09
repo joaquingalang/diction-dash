@@ -4,6 +4,7 @@ import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.da
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
+import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 
 // TODO: Separate GrammarScreen with GrammarQuestion
 
@@ -16,6 +17,15 @@ class GrammarScreen extends StatelessWidget {
       builder: (context) => MinigameInstructionSheet(
         title: 'Grammar',
         description: 'Analyze the sentence carefully, and determine if it is grammatically correct or incorrect',
+      ),
+    );
+  }
+
+  void _endGameScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EndGameScreen(),
       ),
     );
   }
@@ -105,7 +115,7 @@ class GrammarScreen extends StatelessWidget {
               child: Column(
                 children: [
                   OvalButton(
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Center(
                       child: Text('CORRECT', style: kButtonTextStyle),
                     ),
@@ -113,7 +123,7 @@ class GrammarScreen extends StatelessWidget {
                   OvalButton(
                     color: Colors.white,
                     borderColor: kOrangeColor600,
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Center(
                       child: Text('INCORRECT', style: kOrangeButtonTextStyle),
                     ),

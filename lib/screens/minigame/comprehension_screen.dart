@@ -4,6 +4,7 @@ import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.da
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
+import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 
 // TODO: Separate ComprehensionScreen with ComprehensionQuestion
 
@@ -16,6 +17,15 @@ class ComprehensionScreen extends StatelessWidget {
       builder: (context) => MinigameInstructionSheet(
         title: 'Comprehension',
         description: 'Analyze the sentence carefully, and select the most appropriate answer.',
+      ),
+    );
+  }
+
+  void _endGameScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EndGameScreen(),
       ),
     );
   }
@@ -103,28 +113,28 @@ class ComprehensionScreen extends StatelessWidget {
               child: Column(
                 children: [
                   OvalButton(
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 25),
                       child: Text('enjoyed the view', style: kButtonTextStyle),
                     ),
                   ),
                   OvalButton(
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 25),
                       child: Text('leaped from a window', style: kButtonTextStyle),
                     ),
                   ),
                   OvalButton(
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 25),
                       child: Text('hissed at the dog', style: kButtonTextStyle),
                     ),
                   ),
                   OvalButton(
-                    onPressed: () {},
+                    onPressed: () => _endGameScreen(context),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 25),
                       child: Text('watched the birds outside', style: kButtonTextStyle),

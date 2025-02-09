@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
-import 'package:flutter/material.dart';
+import 'package:diction_dash/screens/home_screen.dart';
 
 class FeedbackScreen extends StatelessWidget {
   const FeedbackScreen({super.key});
@@ -60,9 +61,12 @@ class FeedbackScreen extends StatelessWidget {
 
             // Proceed To Next Page Button
             RoundedRectangleButton(
-              onPressed: () {
-                // TODO: Redirect to home screen.
-              },
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeScreen(),
+                ),
+              ),
               child: Center(
                 child: Text(
                   'PROCEED',

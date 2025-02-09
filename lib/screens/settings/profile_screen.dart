@@ -6,6 +6,8 @@ import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/widgets/bottom_sheets/update_username_sheet.dart';
 import 'package:diction_dash/widgets/bottom_sheets/update_password_sheet.dart';
 import 'package:diction_dash/widgets/bottom_sheets/delete_account_sheet.dart';
+import 'package:diction_dash/screens/fluency/fluency_screen.dart';
+import 'package:diction_dash/screens/authentication/landing_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -70,7 +72,12 @@ class ProfileScreen extends StatelessWidget {
               // Adjust Fluency
               RoundedRectangleButton(
                 backgroundColor: kGrayColor300,
-                onPressed: () {},
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FluencyScreen(),
+                  ),
+                ),
                 child: Center(
                   child: Text('ADJUST FLUENCY', style: kButtonTextStyle),
                 ),
@@ -92,7 +99,12 @@ class ProfileScreen extends StatelessWidget {
 
               // Logout Button
               RoundedRectangleButton(
-                onPressed: () {},
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LandingScreen(),
+                  ),
+                ),
                 child: Center(
                   child: Text('LOGOUT', style: kButtonTextStyle),
                 ),

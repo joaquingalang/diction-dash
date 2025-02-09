@@ -5,6 +5,7 @@ import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/text_fields/spelling_answer_text_field.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
+import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 
 // TODO: Separate SpellingScreen with SpellingQuestion
 
@@ -150,7 +151,12 @@ class _SpellingScreenState extends State<SpellingScreen> {
 
                 // Submit Button
                 RoundedRectangleButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EndGameScreen(),
+                    ),
+                  ),
                   child: Center(
                     child: Text('Submit', style: kButtonTextStyle),
                   ),
