@@ -15,7 +15,7 @@ class MinigameInstructionSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 300,
+      height: 250,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(

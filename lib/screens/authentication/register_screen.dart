@@ -31,74 +31,78 @@ class RegisterScreen extends StatelessWidget {
           'assets/images/diction_dash.png',
           width: kAppBarTitleSize,
         ),
+        scrolledUnderElevation: 0,
       ),
 
       // Page Body
       body: SafeArea(
-        child: Column(
-          children: [
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            children: [
 
-            // Fox Hero Logo
-            Hero(
-              tag: 'app-logo',
-              child: Image.asset(
-                'assets/images/logo.png',
-                width: 250,
+              // Fox Hero Logo
+              Hero(
+                tag: 'app-logo',
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: 250,
+                ),
               ),
-            ),
 
-            // Registration Form
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+              // Registration Form
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
 
-                  // Instruction Text
-                  const Text('   Register your account', style: kOswaldXSmall),
+                    // Instruction Text
+                    const Text('   Register your account', style: kOswaldXSmall),
 
-                  // Username Field
-                  ProfileTextFormField(
-                    icon: Icons.person,
-                    hintText: 'Username',
-                  ),
+                    // Username Field
+                    ProfileTextFormField(
+                      icon: Icons.person,
+                      hintText: 'Username',
+                    ),
 
-                  // EMail Field
-                  ProfileTextFormField(
-                    icon: Icons.mail,
-                    hintText: 'Email',
-                  ),
+                    // EMail Field
+                    ProfileTextFormField(
+                      icon: Icons.mail,
+                      hintText: 'Email',
+                    ),
 
-                  // Password Field
-                  ProfileTextFormField(
-                    icon: Icons.lock,
-                    hintText: 'Password',
-                    obscureText: true,
-                  ),
+                    // Password Field
+                    ProfileTextFormField(
+                      icon: Icons.lock,
+                      hintText: 'Password',
+                      obscureText: true,
+                    ),
 
-                  // Confirm Password Field
-                  ProfileTextFormField(
-                    icon: Icons.lock,
-                    hintText: 'Confirm Password',
-                    obscureText: true,
-                  ),
+                    // Confirm Password Field
+                    ProfileTextFormField(
+                      icon: Icons.lock,
+                      hintText: 'Confirm Password',
+                      obscureText: true,
+                    ),
 
-                  // Register Button
-                  RoundedRectangleButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => FluencyScreen(),
+                    // Register Button
+                    RoundedRectangleButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FluencyScreen(),
+                        ),
+                      ),
+                      child: Center(
+                        child: Text('REGISTER', style: kButtonTextStyle),
                       ),
                     ),
-                    child: Center(
-                      child: Text('REGISTER', style: kButtonTextStyle),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

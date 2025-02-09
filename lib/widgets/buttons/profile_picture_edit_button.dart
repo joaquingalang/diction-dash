@@ -19,7 +19,7 @@ class ProfilePictureEditButton extends StatelessWidget {
         backgroundImage: (imageUrl != null)
             ? NetworkImage(imageUrl!)
             : AssetImage('assets/images/placeholder_profile.png'),
-        radius: 80,
+        radius: 70,
         child: Align(
           alignment: Alignment.bottomRight,
           child: Container(

@@ -15,21 +15,39 @@ class ProfileScreen extends StatelessWidget {
   void _updateUsername(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      builder: (context) => UpdateUsernameSheet(),
+
+      // Added responsive bottom padding for when keyboard is toggled
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+        child: UpdateUsernameSheet(),
+      ),
+      isScrollControlled: true,
     );
   }
 
   void _updatePassword(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      builder: (context) => UpdatePasswordSheet(),
+
+      // Added responsive bottom padding for when keyboard is toggled
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+        child: UpdatePasswordSheet(),
+      ),
+      isScrollControlled: true,
     );
   }
 
   void _deleteAccount(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      builder: (context) => DeleteAccountSheet(),
+
+      // Added responsive bottom padding for when keyboard is toggled
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+        child: DeleteAccountSheet(),
+      ),
+      isScrollControlled: true,
     );
   }
 

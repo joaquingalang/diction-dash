@@ -136,7 +136,7 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   // Offset
-                  SizedBox(height: 50),
+                  SizedBox(height: 20),
                 ],
               ),
             ),

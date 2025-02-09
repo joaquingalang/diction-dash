@@ -19,7 +19,7 @@ class _UpdateUsernameSheetState extends State<UpdateUsernameSheet> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 300,
+      height: 260,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(

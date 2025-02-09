@@ -21,7 +21,7 @@ class _UpdatePasswordSheetState extends State<UpdatePasswordSheet> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 490,
+      height: 480,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
@@ -73,7 +73,7 @@ class _UpdatePasswordSheetState extends State<UpdatePasswordSheet> {
             ),
 
             // Offset
-            SizedBox(height: 30),
+            Expanded(child: SizedBox(height: 15)),
 
             // Continue Button
             RoundedRectangleButton(
@@ -82,6 +82,9 @@ class _UpdatePasswordSheetState extends State<UpdatePasswordSheet> {
                 child: Text('CONTINUE', style: kButtonTextStyle),
               ),
             ),
+
+            // Offset
+            SizedBox(height: 20),
           ],
         ),
       ),

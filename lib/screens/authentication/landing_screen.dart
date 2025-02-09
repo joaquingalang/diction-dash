@@ -9,7 +9,10 @@ class LandingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double fixedSize = MediaQuery.of(context).size.width / 2;
+
+    // White Semi-Circle Backdrop Size Relative To Screen Height
+    final double fixedSize = MediaQuery.of(context).size.height / 4.5;
+
     return Scaffold(
       // Page Background Color
       backgroundColor: kOrangeColor600,
@@ -19,6 +22,7 @@ class LandingScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
+
             // Fox Logo & Welcome Message
             Expanded(
               flex: 4,
@@ -28,8 +32,10 @@ class LandingScreen extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.topCenter,
                   children: [
+
+                    // White Semi-Circle Backdrop
                     Transform.scale(
-                      scale: 4.2,
+                      scale: 4.5,
                       child: Container(
                         width: fixedSize,
                         height: fixedSize,
@@ -39,6 +45,8 @@ class LandingScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    // Fox Logo & Welcome Message
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

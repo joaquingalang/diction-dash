@@ -19,7 +19,7 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 490,
+      height: 440,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
@@ -65,9 +65,6 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
               controller: _passwordController,
               obscureText: true,
             ),
-
-            // Offset
-            SizedBox(height: 30),
 
             // Continue Button
             RoundedRectangleButton(

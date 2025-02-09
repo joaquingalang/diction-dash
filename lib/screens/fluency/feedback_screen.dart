@@ -41,7 +41,13 @@ class FeedbackScreen extends StatelessWidget {
             // Fox Logo & Feedback Message
             Column(
               children: [
-                Image.asset('assets/images/logo_eyes_closed.png', width: 250),
+                Hero(
+                  tag: 'app-logo',
+                  child: Image.asset(
+                    'assets/images/logo_eyes_closed.png',
+                    width: 250,
+                  ),
+                ),
                 Text(
                   'THANK YOU\nFOR YOUR FEEDBACK',
                   style: kOswaldMedium,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:diction_dash/screens/authentication/landing_screen.dart';
 import 'package:diction_dash/screens/authentication/login_screen.dart';
 import 'package:diction_dash/screens/authentication/register_screen.dart';
@@ -26,6 +27,10 @@ class DictionDash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       home: LandingScreen(),
       theme: ThemeData.light().copyWith(

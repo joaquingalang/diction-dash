@@ -17,7 +17,7 @@ class MinigameLevelBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LinearPercentIndicator(
-      width: MediaQuery.of(context).size.width * 0.75,
+      width: MediaQuery.of(context).size.width * 0.746,
       lineHeight: 20,
       animation: true,
       animationDuration: 1000,
