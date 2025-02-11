@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "423357909146",
+    "project_id": "diction-dash",
+    "storage_bucket": "diction-dash.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423357909146:android:f3ab5f6427c137683bb723",
+        "android_client_info": {
+          "package_name": "com.joaquingalang.diction_dash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp_nuVnYGxKMnE46RqnkudgT3J3SFBODs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
