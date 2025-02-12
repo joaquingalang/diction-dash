@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/screens/settings/profile_screen.dart';
 import 'package:diction_dash/widgets/list_tiles/setting_tile.dart';
 import 'package:diction_dash/widgets/list_tiles/switch_setting_tile.dart';
-import 'package:diction_dash/screens/settings/profile_screen.dart';
 
 // TODO: Integrate shared preferences
 

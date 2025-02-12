@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
-import 'package:diction_dash/widgets/buttons/oval_button.dart';
 import 'package:diction_dash/screens/authentication/login_screen.dart';
 import 'package:diction_dash/screens/authentication/register_screen.dart';
+import 'package:diction_dash/widgets/buttons/oval_button.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});

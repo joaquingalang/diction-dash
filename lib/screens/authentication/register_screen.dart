@@ -1,14 +1,13 @@
-import 'package:diction_dash/screens/authentication/auth_manager.dart';
-import 'package:diction_dash/services/firebase_auth_service.dart';
-import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/services/firebase_auth_service.dart';
+import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/widgets/text_fields/profile_text_form_field.dart';
-import 'package:diction_dash/screens/fluency/fluency_screen.dart';
+import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 
-// TODO: Add user registration logic with firebase authentication.
 // TODO: Save user information with cloud firestore.
+// TODO: Modularize _isValidEmail & _isValidPassword
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -105,13 +104,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         icon: Icons.person,
                         hintText: 'Username',
                         validator: (value) {
+
+                          // Check if username is null or empty
                           if (value == null ||
                               value.isEmpty ||
                               value.trim().isEmpty) {
                             return 'Please provide a username.';
+
+                          // Check if username is shorter than 3 characters
                           } else if (value.length < 3) {
                             return 'Please provide a longer username.';
                           }
+
+                          // Return null if username is valid (this validates this field)
                           return null;
                         },
                         onSaved: (value) {
@@ -124,11 +129,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         icon: Icons.mail,
                         hintText: 'Email',
                         validator: (value) {
+
+                          // Check if email is null or empty
                           if (value == null || value.isEmpty) {
                             return 'Please provide an email.';
+
+                          // Check if email meets requirements
                           } else if (!_isValidEmail(value)) {
                             return 'Please provide a valid email.';
                           }
+
+                          // Return null if email is valid (this validates this field)
                           return null;
                         },
                         onSaved: (value) {
@@ -142,8 +153,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         hintText: 'Password',
                         obscureText: true,
                         validator: (value) {
+
+                          // Check if password is null or empty
                           if (value == null || value.isEmpty) {
                             return 'Please provide a password.';
+
+                          // Check if password meets requirements
                           } else if (!_isValidPassword(value)) {
                             print(value);
                             print(!_isValidPassword(value));
@@ -155,6 +170,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 '- Minimum 1 Number\n'
                                 '- Minimum 1 Special Character';
                           }
+
+                          // Return null if password is valid (this validates this field)
                           return null;
                         },
                         onSaved: (value) {
@@ -168,9 +185,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         hintText: 'Confirm Password',
                         obscureText: true,
                         validator: (value) {
+
+                          // Check if confirm password is null or empty
                           if (value == null || value.isEmpty) {
                             return 'Please confirm password.';
                           }
+
+                          // Return null if confirm password is valid (this validates this field)
                           return null;
                         },
                         onSaved: (value) {
@@ -180,6 +201,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                       // Register Button
                       RoundedRectangleButton(
+
+                        // TODO: If possible, create separate function for this.
+
                         onPressed: () async {
                           // Get Form Data
                           FormState formData =
@@ -198,6 +222,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               builder: (context) => Foxloadingindicator(),
                             );
 
+                            // Register User w/ Email & Password
                             await _auth.registerUser(
                                 email: _email, password: _password);
 

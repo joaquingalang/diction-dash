@@ -13,6 +13,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     // Widget Dimensions For Responsiveness
     double screenHeight = MediaQuery.sizeOf(context).height;
     double cardHeight = (screenHeight / 6.7).toInt() * 5;

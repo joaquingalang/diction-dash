@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
-import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 
 // TODO: Separate GrammarScreen with GrammarQuestion
 

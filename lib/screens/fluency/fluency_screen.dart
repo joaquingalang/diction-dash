@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
-import 'package:diction_dash/widgets/buttons/oval_info_button.dart';
 import 'package:diction_dash/screens/fluency/feedback_screen.dart';
+import 'package:diction_dash/widgets/buttons/oval_info_button.dart';
 
 // TODO: Redirect to feedback screen on button press
 // TODO: Save selected fluency level on Firebase on button press

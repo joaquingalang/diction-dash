@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:confetti/confetti.dart';
+import 'package:diction_dash/screens/home_screen.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/score_bar.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
-import 'package:diction_dash/screens/home_screen.dart';
 
 // TODO: Add success or fail audio clips
 

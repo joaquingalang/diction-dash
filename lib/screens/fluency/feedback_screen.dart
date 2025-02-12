@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
-import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/screens/home_screen.dart';
+import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 
 class FeedbackScreen extends StatelessWidget {
   const FeedbackScreen({super.key});

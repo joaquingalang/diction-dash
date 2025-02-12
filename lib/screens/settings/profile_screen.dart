@@ -1,15 +1,15 @@
-import 'package:diction_dash/screens/authentication/auth_manager.dart';
-import 'package:diction_dash/services/firebase_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/services/firebase_auth_service.dart';
+import 'package:diction_dash/screens/fluency/fluency_screen.dart';
+import 'package:diction_dash/screens/authentication/landing_screen.dart';
+import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/buttons/profile_picture_edit_button.dart';
 import 'package:diction_dash/widgets/buttons/profile_edit_button.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/widgets/bottom_sheets/update_username_sheet.dart';
 import 'package:diction_dash/widgets/bottom_sheets/update_password_sheet.dart';
 import 'package:diction_dash/widgets/bottom_sheets/delete_account_sheet.dart';
-import 'package:diction_dash/screens/fluency/fluency_screen.dart';
-import 'package:diction_dash/screens/authentication/landing_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
