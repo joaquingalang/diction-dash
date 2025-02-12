@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:diction_dash/firebase_options.dart';
+import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/screens/authentication/landing_screen.dart';
 import 'package:diction_dash/screens/authentication/login_screen.dart';
 import 'package:diction_dash/screens/authentication/register_screen.dart';
@@ -36,7 +37,7 @@ class DictionDash extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-      home: LandingScreen(),
+      home: AuthManager(),
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.white,
       ),
