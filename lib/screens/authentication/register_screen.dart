@@ -1,3 +1,6 @@
+import 'package:diction_dash/screens/authentication/auth_manager.dart';
+import 'package:diction_dash/services/firebase_auth_service.dart';
+import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
@@ -7,13 +10,49 @@ import 'package:diction_dash/screens/fluency/fluency_screen.dart';
 // TODO: Add user registration logic with firebase authentication.
 // TODO: Save user information with cloud firestore.
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  // Firebase Authentication Instance
+  final AuthService _auth = AuthService();
+
+  // Registration Form Key
+  final _registrationFormKey = GlobalKey<FormState>();
+
+  // Form Fields
+  String _username = '';
+  String _email = '';
+  String _password = '';
+  String _confirmPassword = '';
+
+  // Check If Email Matches Requirements
+  bool _isValidEmail(String email) {
+    String emailFormat = r'[\w+]*@[\w.]*';
+    return RegExp(emailFormat).hasMatch(email);
+  }
+
+  // Check If Password Matches Requirements
+  bool _isValidPassword(String password) {
+    bool lengthCheck = password.length >= 8;
+
+    String passwordFormat =
+        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~_]).{8,}$';
+    bool formatCheck = RegExp(passwordFormat).hasMatch(password);
+
+    print('Length Check: $lengthCheck');
+    print('Format Check: $formatCheck');
+
+    return lengthCheck && formatCheck;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       // Page App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -40,7 +79,6 @@ class RegisterScreen extends StatelessWidget {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
-
               // Fox Hero Logo
               Hero(
                 tag: 'app-logo',
@@ -53,52 +91,134 @@ class RegisterScreen extends StatelessWidget {
               // Registration Form
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                child: Form(
+                  key: _registrationFormKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Instruction Text
+                      const Text('   Register your account',
+                          style: kOswaldXSmall),
 
-                    // Instruction Text
-                    const Text('   Register your account', style: kOswaldXSmall),
+                      // Username Field
+                      ProfileTextFormField(
+                        icon: Icons.person,
+                        hintText: 'Username',
+                        validator: (value) {
+                          if (value == null ||
+                              value.isEmpty ||
+                              value.trim().isEmpty) {
+                            return 'Please provide a username.';
+                          } else if (value.length < 3) {
+                            return 'Please provide a longer username.';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _username = value!;
+                        },
+                      ),
 
-                    // Username Field
-                    ProfileTextFormField(
-                      icon: Icons.person,
-                      hintText: 'Username',
-                    ),
+                      // Email Field
+                      ProfileTextFormField(
+                        icon: Icons.mail,
+                        hintText: 'Email',
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please provide an email.';
+                          } else if (!_isValidEmail(value)) {
+                            return 'Please provide a valid email.';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _email = value!;
+                        },
+                      ),
 
-                    // EMail Field
-                    ProfileTextFormField(
-                      icon: Icons.mail,
-                      hintText: 'Email',
-                    ),
+                      // Password Field
+                      ProfileTextFormField(
+                        icon: Icons.lock,
+                        hintText: 'Password',
+                        obscureText: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please provide a password.';
+                          } else if (!_isValidPassword(value)) {
+                            print(value);
+                            print(!_isValidPassword(value));
+                            // TODO: Validation message should only mention what is necessary
+                            return 'Please provide a valid password.\n'
+                                '- Minimum 8 Characters\n'
+                                '- Minimum 1 Upper case\n'
+                                '- Minimum 1 Lowercase\n'
+                                '- Minimum 1 Number\n'
+                                '- Minimum 1 Special Character';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _password = value!;
+                        },
+                      ),
 
-                    // Password Field
-                    ProfileTextFormField(
-                      icon: Icons.lock,
-                      hintText: 'Password',
-                      obscureText: true,
-                    ),
+                      // Confirm Password Field
+                      ProfileTextFormField(
+                        icon: Icons.lock,
+                        hintText: 'Confirm Password',
+                        obscureText: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please confirm password.';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          _confirmPassword = value!;
+                        },
+                      ),
 
-                    // Confirm Password Field
-                    ProfileTextFormField(
-                      icon: Icons.lock,
-                      hintText: 'Confirm Password',
-                      obscureText: true,
-                    ),
+                      // Register Button
+                      RoundedRectangleButton(
+                        onPressed: () async {
+                          // Get Form Data
+                          FormState formData =
+                              _registrationFormKey.currentState!;
 
-                    // Register Button
-                    RoundedRectangleButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FluencyScreen(),
+                          // Validate Form Data
+                          if (formData.validate()) {
+                            // Save Form State
+                            formData.save();
+
+                            // TODO: Check if passwords match
+
+                            // Show Loading Indicator
+                            showDialog(
+                              context: context,
+                              builder: (context) => Foxloadingindicator(),
+                            );
+
+                            await _auth.registerUser(
+                                email: _email, password: _password);
+
+                            // Pop Loading Indicator
+                            Navigator.pop(context);
+
+                            // Navigate Back To AuthManager
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AuthManager(),
+                              ),
+                            );
+                          }
+                        },
+                        child: Center(
+                          child: Text('REGISTER', style: kButtonTextStyle),
                         ),
                       ),
-                      child: Center(
-                        child: Text('REGISTER', style: kButtonTextStyle),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

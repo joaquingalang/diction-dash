@@ -20,6 +20,9 @@ class _AuthManagerState extends State<AuthManager> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return HomeScreen();
+
+          // TODO: If snapshot has data but the user does not have a fluency score yet, return the FluencyScreen instead.
+
         } else {
           return LandingScreen();
         }
