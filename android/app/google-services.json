@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "423357909146",
-    "project_id": "diction-dash",
-    "storage_bucket": "diction-dash.firebasestorage.app"
+    "project_number": "649303564211",
+    "project_id": "diction-dash-46afd",
+    "storage_bucket": "diction-dash-46afd.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:423357909146:android:f3ab5f6427c137683bb723",
+        "mobilesdk_app_id": "1:649303564211:android:1d39ff1a946aea12de75c6",
         "android_client_info": {
           "package_name": "com.joaquingalang.diction_dash"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBp_nuVnYGxKMnE46RqnkudgT3J3SFBODs"
+          "current_key": "AIzaSyCoL5OZFILqmtshbqMH4yZ5IIifglpjtRk"
         }
       ],
       "services": {
