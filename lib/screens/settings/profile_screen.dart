@@ -1,3 +1,5 @@
+import 'package:diction_dash/screens/authentication/auth_manager.dart';
+import 'package:diction_dash/services/firebase_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/buttons/profile_picture_edit_button.dart';
@@ -9,8 +11,15 @@ import 'package:diction_dash/widgets/bottom_sheets/delete_account_sheet.dart';
 import 'package:diction_dash/screens/fluency/fluency_screen.dart';
 import 'package:diction_dash/screens/authentication/landing_screen.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final AuthService _auth = AuthService();
 
   void _updateUsername(BuildContext context) {
     showModalBottomSheet(
@@ -117,12 +126,20 @@ class ProfileScreen extends StatelessWidget {
 
               // Logout Button
               RoundedRectangleButton(
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LandingScreen(),
-                  ),
-                ),
+                onPressed: () async {
+                  
+                  // Auth Logout
+                  await _auth.logout();
+                  
+                  // Return To AuthManager Without Route History
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (context) => AuthManager(),
+                    ),
+                        (Route<dynamic> route) => false,
+                  );
+                  
+                },
                 child: Center(
                   child: Text('LOGOUT', style: kButtonTextStyle),
                 ),
