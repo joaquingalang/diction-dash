@@ -31,8 +31,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Future<void> _register() async {
     // Get Form Data
-    FormState formData =
-    _registrationFormKey.currentState!;
+    FormState formData = _registrationFormKey.currentState!;
 
     // Validate Form Data
     if (formData.validate()) {
@@ -40,29 +39,47 @@ class _RegisterScreenState extends State<RegisterScreen> {
       formData.save();
 
       // TODO: Check if passwords match
+      if (_password == _confirmPassword) {
+        // Show Loading Indicator
+        showDialog(
+          context: context,
+          builder: (context) => Foxloadingindicator(),
+        );
 
-      // Show Loading Indicator
-      showDialog(
-        context: context,
-        builder: (context) => Foxloadingindicator(),
-      );
+        // Register User w/ Email & Password
+        await _auth.registerUser(email: _email, password: _password);
 
-      // Register User w/ Email & Password
-      await _auth.registerUser(
-          email: _email, password: _password);
+        // Pop Loading Indicator
+        Navigator.pop(context);
 
-      // Pop Loading Indicator
-      Navigator.pop(context);
+        // Navigate Back To AuthManager
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AuthManager(),
+          ),
+        );
 
-      // Navigate Back To AuthManager
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => AuthManager(),
-        ),
-      );
+        // Display Password Mismatch Snackbar
+      } else {
+        // TODO: Make this indicator in the profile form field for confirm password instead
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(
+              'Passwords do not match.',
+              style: kSubtext20.copyWith(color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      }
     }
   }
+
+  // void _passwordMismatch(BuildContext context) {
+  //   Scaffold.of(context).showSnackBar()
+  // }
 
   @override
   Widget build(BuildContext context) {
