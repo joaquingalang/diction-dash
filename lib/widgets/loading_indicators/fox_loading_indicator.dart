@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// TODO: Try and make background white when this widget is used in the showDialogue function
+
 class Foxloadingindicator extends StatelessWidget {
   const Foxloadingindicator({super.key});
 

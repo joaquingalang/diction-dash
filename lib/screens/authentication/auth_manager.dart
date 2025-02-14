@@ -3,6 +3,10 @@ import 'package:diction_dash/services/firebase_auth_service.dart';
 import 'package:diction_dash/screens/authentication/landing_screen.dart';
 import 'package:diction_dash/screens/home_screen.dart';
 
+// TODO: Since AuthManager returns the landing screen and not the registration or login screen, once a user logs in it does not automatically navigate to home screen
+// TODO: ^ Temporary fix is to navigate back to AuthManager after sign up or sign in
+// TODO: ^ Look into more feasible solutions
+
 class AuthManager extends StatefulWidget {
   const AuthManager({super.key});
 
