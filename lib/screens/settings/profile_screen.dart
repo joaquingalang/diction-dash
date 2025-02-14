@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
-import 'package:diction_dash/services/firebase_auth_service.dart';
+import 'package:diction_dash/services/auth_service.dart';
 import 'package:diction_dash/screens/fluency/fluency_screen.dart';
 import 'package:diction_dash/screens/authentication/landing_screen.dart';
 import 'package:diction_dash/screens/authentication/auth_manager.dart';

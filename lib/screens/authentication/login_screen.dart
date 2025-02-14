@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/utils/form_validators.dart';
-import 'package:diction_dash/services/firebase_auth_service.dart';
+import 'package:diction_dash/services/auth_service.dart';
 import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/widgets/text_fields/profile_text_form_field.dart';

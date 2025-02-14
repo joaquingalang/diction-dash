@@ -1,14 +1,22 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+// TODO: Add Delete Account
+// TODO: Add Email Verification
+// TODO: Add Forgot Password Functionality
+
 class AuthService {
 
   // Initialize Firebase Authentication Instance
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  // Get Current In User
+  User? getCurrentUser() => _auth.currentUser;
+
+  // Get User ID
+  String getCurrentUserID() => _auth.currentUser!.uid;
+
   // Listen To Authentication Changes
-  Stream<User?> authListener() {
-    return _auth.authStateChanges();
-  }
+  Stream<User?> authListener() => _auth.authStateChanges();
 
   // Register w/ Email & Password
   Future<void> registerUser({required String email, required String password}) async {
@@ -42,11 +50,6 @@ class AuthService {
   // Logout
   Future<void> logout() async {
     await _auth.signOut();
-  }
-
-  // Get Current In User
-  Future<User?> getCurrentUser() async {
-    return _auth.currentUser;
   }
 
 }

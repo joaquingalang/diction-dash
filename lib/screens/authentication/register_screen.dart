@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/utils/form_validators.dart';
-import 'package:diction_dash/services/firebase_auth_service.dart';
+import 'package:diction_dash/services/auth_service.dart';
+import 'package:diction_dash/services/firestore_service.dart';
 import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/widgets/text_fields/profile_text_form_field.dart';
@@ -17,8 +18,12 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+
   // Firebase Authentication Instance
   final AuthService _auth = AuthService();
+
+  // Cloud Firestore Instance
+  final FirestoreService _firestore = FirestoreService();
 
   // Registration Form Key
   final _registrationFormKey = GlobalKey<FormState>();
@@ -48,6 +53,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
         // Register User w/ Email & Password
         await _auth.registerUser(email: _email, password: _password);
+
+        // Store New User Data
+        _firestore.addNewUser(userID: _auth.getCurrentUserID(), username: _username, email: _email);
 
         // Pop Loading Indicator
         Navigator.pop(context);
