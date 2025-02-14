@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/utils/form_validators.dart';
 import 'package:diction_dash/services/firebase_auth_service.dart';
 import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
@@ -7,7 +8,6 @@ import 'package:diction_dash/widgets/text_fields/profile_text_form_field.dart';
 import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 
 // TODO: Save user information with cloud firestore.
-// TODO: Modularize _isValidEmail & _isValidPassword
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -29,24 +29,39 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String _password = '';
   String _confirmPassword = '';
 
-  // Check If Email Matches Requirements
-  bool _isValidEmail(String email) {
-    String emailFormat = r'[\w+]*@[\w.]*';
-    return RegExp(emailFormat).hasMatch(email);
-  }
+  Future<void> _register() async {
+    // Get Form Data
+    FormState formData =
+    _registrationFormKey.currentState!;
 
-  // Check If Password Matches Requirements
-  bool _isValidPassword(String password) {
-    bool lengthCheck = password.length >= 8;
+    // Validate Form Data
+    if (formData.validate()) {
+      // Save Form State
+      formData.save();
 
-    String passwordFormat =
-        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~_]).{8,}$';
-    bool formatCheck = RegExp(passwordFormat).hasMatch(password);
+      // TODO: Check if passwords match
 
-    print('Length Check: $lengthCheck');
-    print('Format Check: $formatCheck');
+      // Show Loading Indicator
+      showDialog(
+        context: context,
+        builder: (context) => Foxloadingindicator(),
+      );
 
-    return lengthCheck && formatCheck;
+      // Register User w/ Email & Password
+      await _auth.registerUser(
+          email: _email, password: _password);
+
+      // Pop Loading Indicator
+      Navigator.pop(context);
+
+      // Navigate Back To AuthManager
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AuthManager(),
+        ),
+      );
+    }
   }
 
   @override
@@ -103,22 +118,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ProfileTextFormField(
                         icon: Icons.person,
                         hintText: 'Username',
-                        validator: (value) {
-
-                          // Check if username is null or empty
-                          if (value == null ||
-                              value.isEmpty ||
-                              value.trim().isEmpty) {
-                            return 'Please provide a username.';
-
-                          // Check if username is shorter than 3 characters
-                          } else if (value.length < 3) {
-                            return 'Please provide a longer username.';
-                          }
-
-                          // Return null if username is valid (this validates this field)
-                          return null;
-                        },
+                        validator: validateUsername,
                         onSaved: (value) {
                           _username = value!;
                         },
@@ -128,20 +128,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ProfileTextFormField(
                         icon: Icons.mail,
                         hintText: 'Email',
-                        validator: (value) {
-
-                          // Check if email is null or empty
-                          if (value == null || value.isEmpty) {
-                            return 'Please provide an email.';
-
-                          // Check if email meets requirements
-                          } else if (!_isValidEmail(value)) {
-                            return 'Please provide a valid email.';
-                          }
-
-                          // Return null if email is valid (this validates this field)
-                          return null;
-                        },
+                        validator: validateEmail,
                         onSaved: (value) {
                           _email = value!;
                         },
@@ -152,28 +139,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         icon: Icons.lock,
                         hintText: 'Password',
                         obscureText: true,
-                        validator: (value) {
-
-                          // Check if password is null or empty
-                          if (value == null || value.isEmpty) {
-                            return 'Please provide a password.';
-
-                          // Check if password meets requirements
-                          } else if (!_isValidPassword(value)) {
-                            print(value);
-                            print(!_isValidPassword(value));
-                            // TODO: Validation message should only mention what is necessary
-                            return 'Please provide a valid password.\n'
-                                '- Minimum 8 Characters\n'
-                                '- Minimum 1 Upper case\n'
-                                '- Minimum 1 Lowercase\n'
-                                '- Minimum 1 Number\n'
-                                '- Minimum 1 Special Character';
-                          }
-
-                          // Return null if password is valid (this validates this field)
-                          return null;
-                        },
+                        validator: validateRegisterPassword,
                         onSaved: (value) {
                           _password = value!;
                         },
@@ -184,16 +150,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         icon: Icons.lock,
                         hintText: 'Confirm Password',
                         obscureText: true,
-                        validator: (value) {
-
-                          // Check if confirm password is null or empty
-                          if (value == null || value.isEmpty) {
-                            return 'Please confirm password.';
-                          }
-
-                          // Return null if confirm password is valid (this validates this field)
-                          return null;
-                        },
+                        validator: validateConfirmPassword,
                         onSaved: (value) {
                           _confirmPassword = value!;
                         },
@@ -201,43 +158,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                       // Register Button
                       RoundedRectangleButton(
-
-                        // TODO: If possible, create separate function for this.
-
-                        onPressed: () async {
-                          // Get Form Data
-                          FormState formData =
-                              _registrationFormKey.currentState!;
-
-                          // Validate Form Data
-                          if (formData.validate()) {
-                            // Save Form State
-                            formData.save();
-
-                            // TODO: Check if passwords match
-
-                            // Show Loading Indicator
-                            showDialog(
-                              context: context,
-                              builder: (context) => Foxloadingindicator(),
-                            );
-
-                            // Register User w/ Email & Password
-                            await _auth.registerUser(
-                                email: _email, password: _password);
-
-                            // Pop Loading Indicator
-                            Navigator.pop(context);
-
-                            // Navigate Back To AuthManager
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => AuthManager(),
-                              ),
-                            );
-                          }
-                        },
+                        onPressed: _register,
                         child: Center(
                           child: Text('REGISTER', style: kButtonTextStyle),
                         ),

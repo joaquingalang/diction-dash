@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/utils/form_validators.dart';
 import 'package:diction_dash/services/firebase_auth_service.dart';
 import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
@@ -7,7 +8,6 @@ import 'package:diction_dash/widgets/text_fields/profile_text_form_field.dart';
 import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 
 // TODO: Add login logic with firebase authentication.
-// TODO: Modularize _isValidEmail
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -27,10 +27,39 @@ class _LoginScreenState extends State<LoginScreen> {
   String _email = '';
   String _password = '';
 
-  // Check If Email Matches Requirements
-  bool _isValidEmail(String email) {
-    String emailFormat = r'[\w+]*@[\w.]*';
-    return RegExp(emailFormat).hasMatch(email);
+
+  Future<void> _login() async {
+    // Get Form Data
+    FormState formData =
+    _loginFormKey.currentState!;
+
+    // Validate Form Data
+    if (formData.validate()) {
+      // Save Form State
+      formData.save();
+
+      // TODO: Check if passwords match
+
+      // Show Loading Indicator
+      showDialog(
+        context: context,
+        builder: (context) => Foxloadingindicator(),
+      );
+
+      // Register User w/ Email & Password
+      await _auth.loginUser(email: _email, password: _password);
+
+      // Pop Loading Indicator
+      Navigator.pop(context);
+
+      // Navigate Back To AuthManager
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AuthManager(),
+        ),
+      );
+    }
   }
 
   @override
@@ -88,20 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ProfileTextFormField(
                         icon: Icons.mail,
                         hintText: 'Email',
-                        validator: (value) {
-
-                          // Check if email is null or empty
-                          if (value == null || value.isEmpty) {
-                            return 'Please provide an email.';
-
-                          // Check if email meets requirements
-                          } else if (!_isValidEmail(value)) {
-                            return 'Please provide a valid email.';
-                          }
-
-                          // Return null if email is valid (this validates this field)
-                          return null;
-                        },
+                        validator: validateEmail,
                         onSaved: (value) {
                           _email = value!;
                         },
@@ -112,16 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         icon: Icons.lock,
                         hintText: 'Password',
                         obscureText: true,
-                        validator: (value) {
-
-                          // Check if password is null or empty
-                          if (value == null || value.isEmpty) {
-                            return 'Invalid password.';
-                          }
-
-                          // Return null if password is valid (this validates this field)
-                          return null;
-                        },
+                        validator: validateLoginPassword,
                         onSaved: (value) {
                           _password = value!;
                         },
@@ -137,39 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // Login Button
                       RoundedRectangleButton(
-                        onPressed: () async {
-                          // Get Form Data
-                          FormState formData =
-                          _loginFormKey.currentState!;
-
-                          // Validate Form Data
-                          if (formData.validate()) {
-                            // Save Form State
-                            formData.save();
-
-                            // TODO: Check if passwords match
-
-                            // Show Loading Indicator
-                            showDialog(
-                              context: context,
-                              builder: (context) => Foxloadingindicator(),
-                            );
-
-                            // Register User w/ Email & Password
-                            await _auth.loginUser(email: _email, password: _password);
-
-                            // Pop Loading Indicator
-                            Navigator.pop(context);
-
-                            // Navigate Back To AuthManager
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => AuthManager(),
-                              ),
-                            );
-                          }
-                        },
+                        onPressed: _login,
                         child: Center(
                           child: Text('LOGIN', style: kButtonTextStyle),
                         ),
