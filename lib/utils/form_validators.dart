@@ -1,6 +1,6 @@
 // Check If Email Matches Requirements
 bool _isValidEmail(String email) {
-  String emailFormat = r'[\w+]*@[\w.]*';
+  String emailFormat = r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+';
   return RegExp(emailFormat).hasMatch(email);
 }
 
@@ -9,7 +9,7 @@ bool _isValidPassword(String password) {
   bool lengthCheck = password.length >= 8;
 
   String passwordFormat =
-      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~_]).{8,}$';
+      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*~_]).{8,}$';
   bool formatCheck = RegExp(passwordFormat).hasMatch(password);
 
   print('Length Check: $lengthCheck');
@@ -41,7 +41,7 @@ String? validateEmail(String? email) {
   if (email == null || email.isEmpty) {
     return 'Please provide an email.';
 
-    // Check if email meets requirements
+  // Check if email meets requirements
   } else if (!_isValidEmail(email)) {
     return 'Please provide a valid email.';
   }
@@ -51,21 +51,20 @@ String? validateEmail(String? email) {
 }
 
 String? validateRegisterPassword(String? password) {
+  String lengthCheck = !(password!.length >= 8) ? '\n- Minimum 8 Characters' : '';
+  String upperCaseCheck = !RegExp(r'(?=.*?[A-Z])').hasMatch(password) ? '\n- Minimum 1 Upper case' : '';
+  String lowerCaseCheck = !RegExp(r'(?=.*?[a-z])').hasMatch(password) ? '\n- Minimum 1 Lowercase' : '';
+  String numberCheck = !RegExp(r'(?=.*?[0-9])').hasMatch(password) ? '\n- Minimum 1 Number' : '';
+  String specialCharCheck = !RegExp(r'(?=.*?[!@#$%^&*~_])').hasMatch(password) ? '\n- Minimum 1 Special Character' : '';
+
   // Check if password is null or empty
   if (password == null || password.isEmpty) {
     return 'Please provide a password.';
 
-    // Check if password meets requirements
+  // Check if password meets requirements
   } else if (!_isValidPassword(password)) {
-    print(password);
-    print(!_isValidPassword(password));
-    // TODO: Validation message should only mention what is necessary
-    return 'Please provide a valid password.\n'
-        '- Minimum 8 Characters\n'
-        '- Minimum 1 Upper case\n'
-        '- Minimum 1 Lowercase\n'
-        '- Minimum 1 Number\n'
-        '- Minimum 1 Special Character';
+    String invalidPasswordMessage = 'Please provide a valid password.$lengthCheck$upperCaseCheck$lowerCaseCheck$numberCheck$specialCharCheck';
+    return invalidPasswordMessage;
   }
 
   // Return null if password is valid (this validates this field)
