@@ -5,7 +5,7 @@ class ProfileEditTextField extends StatefulWidget {
   const ProfileEditTextField({
     super.key,
     required this.labelText,
-    required this.initialValue,
+    this.initialValue = '',
     required this.controller,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
@@ -26,7 +26,7 @@ class _ProfileEditTextFieldState extends State<ProfileEditTextField> {
   @override
   void initState() {
     super.initState();
-    widget.controller.text = widget.initialValue;
+    widget.controller.text = widget.initialValue!;
   }
 
   @override
