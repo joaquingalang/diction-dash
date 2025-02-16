@@ -6,10 +6,7 @@ import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/widgets/text_fields/profile_text_form_field.dart';
 import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
-
-// TODO: Email is not registered
-// TODO: Forgot password
-
+import 'package:diction_dash/screens/authentication/password_reset_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,7 +16,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   // Firebase Authentication Instance
   final AuthService _auth = AuthService();
 
@@ -29,11 +25,9 @@ class _LoginScreenState extends State<LoginScreen> {
   String _email = '';
   String _password = '';
 
-
   Future<void> _login() async {
     // Get Form Data
-    FormState formData =
-    _loginFormKey.currentState!;
+    FormState formData = _loginFormKey.currentState!;
 
     // Validate Form Data
     if (formData.validate()) {
@@ -62,6 +56,15 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       );
     }
+  }
+
+  void _forgotPassword(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PasswordResetScreen(),
+      ),
+    );
   }
 
   @override
@@ -112,7 +115,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       // Instruction Text
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('   Login your account', style: kOswaldXSmall),
+                        child:
+                            Text('   Login your account', style: kOswaldXSmall),
                       ),
 
                       // Email Field
@@ -138,9 +142,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       Align(
                         alignment: Alignment.centerRight,
-                        child: Text(
-                          'Forgot Password   ',
-                          style: kSubtext15,
+                        child: TextButton(
+                          onPressed: () => _forgotPassword(context),
+                          child: Text(
+                            'Forgot Password   ',
+                            style: kSubtext15,
+                          ),
                         ),
                       ),
 
