@@ -60,9 +60,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
+  void _logout() async {
+    // Auth Logout
+    await _auth.logout();
+
+    // Return To AuthManager Without Route History
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(
+        builder: (context) => AuthManager(),
+      ),
+          (Route<dynamic> route) => false,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Avoid Keyboard Overflow
+      resizeToAvoidBottomInset: false,
+
       // Page App Bar
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -126,20 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               // Logout Button
               RoundedRectangleButton(
-                onPressed: () async {
-                  
-                  // Auth Logout
-                  await _auth.logout();
-                  
-                  // Return To AuthManager Without Route History
-                  Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                      builder: (context) => AuthManager(),
-                    ),
-                        (Route<dynamic> route) => false,
-                  );
-                  
-                },
+                onPressed: _logout,
                 child: Center(
                   child: Text('LOGOUT', style: kButtonTextStyle),
                 ),
