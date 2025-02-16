@@ -8,7 +8,7 @@ import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 import 'package:diction_dash/widgets/text_fields/profile_text_form_field.dart';
 import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 
-// TODO: Save user information with cloud firestore.
+// TODO: Email verification
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
