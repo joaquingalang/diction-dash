@@ -80,4 +80,27 @@ class AuthService {
     }
   }
 
+  // Delete User Account
+  Future<void> deleteUser({required String password}) async {
+    try {
+      // Re-authenticate user
+      User user = _auth.currentUser!;
+      print(user.email);
+      print(password);
+      AuthCredential credential = EmailAuthProvider.credential(email: user.email!, password: password);
+      await user.reauthenticateWithCredential(credential);
+      // Update Password
+      await user.delete();
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'wrong-password') {
+        // TODO: Let the user know that they inputted the wrong password
+        print('Incorrect password');
+      } else {
+        print('FirebaseAuthException: $e');
+      }
+    } catch (e) {
+      print('Delete Password Error: $e');
+    }
+  }
+
 }
