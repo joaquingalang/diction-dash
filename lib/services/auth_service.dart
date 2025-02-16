@@ -20,6 +20,7 @@ class AuthService {
 
   // Register w/ Email & Password
   Future<void> registerUser({required String email, required String password}) async {
+    // TODO: Add display name
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
@@ -27,9 +28,11 @@ class AuthService {
         print('The password provided is too weak');
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
+      } else {
+        print('FirebaseAuthException: $e');
       }
     } catch (e) {
-      print(e);
+      print('Register User Error: $e');
     }
   }
 
@@ -43,13 +46,38 @@ class AuthService {
         print('No user found with that email.');
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
+      } else {
+        print('FirebaseAuthException: $e');
       }
+    } catch (e) {
+      print('Login User Error: $e');
     }
   }
 
   // Logout
   Future<void> logout() async {
     await _auth.signOut();
+  }
+
+  // Update Password
+  Future<void> updatePassword({required String currentPassword, required String newPassword}) async {
+    try {
+      // Re-authenticate user
+      User user = _auth.currentUser!;
+      AuthCredential credential = EmailAuthProvider.credential(email: user.email!, password: currentPassword);
+      await user.reauthenticateWithCredential(credential);
+      // Update Password
+      await user.updatePassword(newPassword);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'wrong-password') {
+        // TODO: Let the user know that they inputted the wrong password
+        print('Incorrect password');
+      } else {
+        print('FirebaseAuthException: $e');
+      }
+    } catch (e) {
+      print('Update Password Error: $e');
+    }
   }
 
 }
