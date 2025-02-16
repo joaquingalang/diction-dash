@@ -24,4 +24,8 @@ class FirestoreService {
     // TODO: Add Minigame Level, EXP, and MaxEXP
   }
 
+  // Update Username
+
+  // Update Profile Picture
+
 }
