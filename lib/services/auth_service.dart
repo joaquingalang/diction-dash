@@ -103,4 +103,14 @@ class AuthService {
     }
   }
 
+  // Password Reset
+  Future<void> passwordReset({required String email}) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+      print('Email sent!');
+    } catch (e) {
+      print('Password Reset Error: $e');
+    }
+  }
+
 }
