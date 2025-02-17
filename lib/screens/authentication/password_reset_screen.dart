@@ -89,7 +89,7 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
               Hero(
                 tag: 'app-logo',
                 child: Image.asset(
-                  'assets/images/logo.png',
+                  'assets/images/logo_eyes_closed.png',
                   width: 250,
                 ),
               ),

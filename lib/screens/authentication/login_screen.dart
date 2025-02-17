@@ -142,14 +142,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       Align(
                         alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () => _forgotPassword(context),
+                        child: GestureDetector(
+                          onTap: () => _forgotPassword(context),
                           child: Text(
                             'Forgot Password   ',
-                            style: kSubtext15,
+                            style: kSubtext18,
                           ),
                         ),
                       ),
+
+                      // Offset
+                      SizedBox(height: 15),
 
                       // Login Button
                       RoundedRectangleButton(
