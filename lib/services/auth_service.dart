@@ -20,7 +20,6 @@ class AuthService {
 
   // Register w/ Email & Password
   Future<void> registerUser({required String email, required String password}) async {
-    // TODO: Add display name
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
