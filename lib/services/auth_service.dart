@@ -10,18 +10,19 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // Get Current In User
-  User? getCurrentUser() => _auth.currentUser;
+  User? get currentUser => _auth.currentUser;
 
   // Get User ID
-  String getCurrentUserID() => _auth.currentUser!.uid;
+  String get currentUserID => _auth.currentUser!.uid;
 
   // Listen To Authentication Changes
-  Stream<User?> authListener() => _auth.authStateChanges();
+  Stream<User?> get authListener => _auth.authStateChanges();
 
   // Register w/ Email & Password
-  Future<void> registerUser({required String email, required String password}) async {
+  Future<UserCredential?> registerUser({required String email, required String password}) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      UserCredential credential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      return credential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak');
@@ -33,13 +34,15 @@ class AuthService {
     } catch (e) {
       print('Register User Error: $e');
     }
+    return null;
   }
 
   // Login w/ Email & Password
-  Future<void> loginUser({required String email, required String password}) async {
+  Future<UserCredential?> loginUser({required String email, required String password}) async {
     // TODO: Consider returning the user credential if necessary
     try {
       UserCredential credential = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      return credential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found with that email.');
@@ -51,6 +54,7 @@ class AuthService {
     } catch (e) {
       print('Login User Error: $e');
     }
+    return null;
   }
 
   // Logout
