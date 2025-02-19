@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/models/user_model.dart';
+import 'package:diction_dash/models/minigame_stats.dart';
+import 'package:diction_dash/services/auth_service.dart';
+import 'package:diction_dash/services/firestore_service.dart';
 import 'package:diction_dash/widgets/progress_bars/user_level_bar.dart';
 import 'package:diction_dash/widgets/cards/stat_card.dart';
 import 'package:diction_dash/screens/settings/settings_screen.dart';
@@ -7,9 +11,21 @@ import 'package:diction_dash/screens/minigame/spelling_screen.dart';
 import 'package:diction_dash/screens/minigame/vocabulary_screen.dart';
 import 'package:diction_dash/screens/minigame/grammar_screen.dart';
 import 'package:diction_dash/screens/minigame/comprehension_screen.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  // Firebase Authentication Instance
+  final AuthService _auth = AuthService();
+
+  // Cloud Firestore Instance
+  final FirestoreService _firestore = FirestoreService();
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +34,15 @@ class HomeScreen extends StatelessWidget {
     double screenHeight = MediaQuery.sizeOf(context).height;
     double cardHeight = (screenHeight / 6.7).toInt() * 5;
     double profilePictureOffset = cardHeight - 75;
+
+    // User & Minigame Stats
+    final UserModel userData = context.watch<UserModel>();
+    final SpellingStats spellingStats = context.watch<SpellingStats>();
+    final VocabularyStats vocabularyStats = context.watch<VocabularyStats>();
+    final GrammarStats grammarStats = context.watch<GrammarStats>();
+    final ComprehensionStats comprehensionStats = context.watch<ComprehensionStats>();
+
+
 
     return Scaffold(
       // Page Background Color
@@ -71,13 +96,13 @@ class HomeScreen extends StatelessWidget {
 
                   // Username
                   Text(
-                    'USERNAME',
+                    userData.username!,
                     textAlign: TextAlign.center,
                     style: kOswaldLarge,
                   ),
 
                   // User Level Bar
-                  UserLevelBar(level: 6, currentExp: 200, maxExp: 600),
+                  UserLevelBar(level: userData.level, currentExp: userData.exp, maxExp: userData.maxExp),
 
                   // Offset
                   SizedBox(height: 10),
@@ -86,9 +111,9 @@ class HomeScreen extends StatelessWidget {
                   StatCard(
                     text: 'SPELLING',
                     image: AssetImage('assets/images/app_icon.png'),
-                    level: 1,
-                    currentExp: 20,
-                    maxExp: 100,
+                    level: spellingStats.level,
+                    currentExp: spellingStats.exp,
+                    maxExp: spellingStats.maxExp,
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -99,9 +124,9 @@ class HomeScreen extends StatelessWidget {
                   StatCard(
                     text: 'VOCABULARY',
                     image: AssetImage('assets/images/app_icon.png'),
-                    level: 1,
-                    currentExp: 20,
-                    maxExp: 100,
+                    level: vocabularyStats.level,
+                    currentExp: vocabularyStats.exp,
+                    maxExp: vocabularyStats.maxExp,
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -112,9 +137,9 @@ class HomeScreen extends StatelessWidget {
                   StatCard(
                     text: 'GRAMMAR',
                     image: AssetImage('assets/images/app_icon.png'),
-                    level: 1,
-                    currentExp: 20,
-                    maxExp: 100,
+                    level: grammarStats.level,
+                    currentExp: grammarStats.exp,
+                    maxExp: grammarStats.maxExp,
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -125,9 +150,9 @@ class HomeScreen extends StatelessWidget {
                   StatCard(
                     text: 'COMPREHENSION',
                     image: AssetImage('assets/images/app_icon.png'),
-                    level: 1,
-                    currentExp: 20,
-                    maxExp: 100,
+                    level: grammarStats.level,
+                    currentExp: grammarStats.exp,
+                    maxExp: grammarStats.maxExp,
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
