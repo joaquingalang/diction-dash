@@ -55,7 +55,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         await _auth.registerUser(email: _email, password: _password);
 
         // Store New User Data
-        _firestore.addNewUser(userID: _auth.getCurrentUserID(), username: _username, email: _email);
+        _firestore.addNewUser(userID: _auth.currentUserID, username: _username, email: _email);
 
         // Pop Loading Indicator
         Navigator.pop(context);
