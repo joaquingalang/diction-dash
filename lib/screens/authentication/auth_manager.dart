@@ -25,6 +25,7 @@ class _AuthManagerState extends State<AuthManager> {
   // Cloud Firestore Instance
   final FirestoreService _firestore = FirestoreService();
 
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
