@@ -15,12 +15,15 @@ class SpellingStats {
   final int maxExp;
 
   factory SpellingStats.fromFirestore(DocumentSnapshot snapshot) {
-    Map<String, dynamic> statData = snapshot.data() as Map<String, dynamic>;
-    return SpellingStats(
-      level: statData['level'],
-      exp: statData['exp'],
-      maxExp: statData['max_exp'],
-    );
+    if (snapshot.data() != null) {
+      Map<String, dynamic> statData = snapshot.data() as Map<String, dynamic>;
+      return SpellingStats(
+        level: statData['level'],
+        exp: statData['exp'],
+        maxExp: statData['max_exp'],
+      );
+    }
+    return SpellingStats();
   }
 }
 
@@ -39,12 +42,15 @@ class VocabularyStats {
   final int maxExp;
 
   factory VocabularyStats.fromFirestore(DocumentSnapshot snapshot) {
-    Map<String, dynamic> statData = snapshot.data() as Map<String, dynamic>;
-    return VocabularyStats(
-      level: statData['level'],
-      exp: statData['exp'],
-      maxExp: statData['max_exp'],
-    );
+    if (snapshot.data() != null) {
+      Map<String, dynamic> statData = snapshot.data() as Map<String, dynamic>;
+      return VocabularyStats(
+        level: statData['level'],
+        exp: statData['exp'],
+        maxExp: statData['max_exp'],
+      );
+    }
+    return VocabularyStats();
   }
 }
 
@@ -63,12 +69,15 @@ class GrammarStats {
   final int maxExp;
 
   factory GrammarStats.fromFirestore(DocumentSnapshot snapshot) {
-    Map<String, dynamic> statData = snapshot.data() as Map<String, dynamic>;
-    return GrammarStats(
-      level: statData['level'],
-      exp: statData['exp'],
-      maxExp: statData['max_exp'],
-    );
+    if (snapshot.data() != null) {
+      Map<String, dynamic> statData = snapshot.data() as Map<String, dynamic>;
+      return GrammarStats(
+        level: statData['level'],
+        exp: statData['exp'],
+        maxExp: statData['max_exp'],
+      );
+    }
+    return GrammarStats();
   }
 }
 
@@ -87,12 +96,15 @@ class ComprehensionStats {
   final int maxExp;
 
   factory ComprehensionStats.fromFirestore(DocumentSnapshot snapshot) {
-    Map<String, dynamic> statData = snapshot.data() as Map<String, dynamic>;
-    return ComprehensionStats(
-      level: statData['level'],
-      exp: statData['exp'],
-      maxExp: statData['max_exp'],
-    );
+    if (snapshot.data() != null) {
+      Map<String, dynamic> statData = snapshot.data() as Map<String, dynamic>;
+      return ComprehensionStats(
+        level: statData['level'],
+        exp: statData['exp'],
+        maxExp: statData['max_exp'],
+      );
+    }
+    return ComprehensionStats();
   }
 }
 

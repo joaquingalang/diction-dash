@@ -22,15 +22,18 @@ class UserModel {
   final int maxExp;
 
   factory UserModel.fromFirestore(DocumentSnapshot snapshot) {
-    Map<String, dynamic> userData = snapshot.data() as Map<String, dynamic>;
-    return UserModel(
-      username: userData['username'] ?? 'Unknown',
-      email: userData['email'] ?? 'Unknown',
-      fluency: userData['fluency'],
-      profilePicture: userData['profile_picture'],
-      level: userData['level'],
-      exp: userData['exp'],
-      maxExp: userData['max_exp'],
-    );
+    if (snapshot.data() != null) {
+      Map<String, dynamic> userData = snapshot.data() as Map<String, dynamic>;
+      return UserModel(
+        username: userData['username'] ?? 'Unknown',
+        email: userData['email'] ?? 'Unknown',
+        fluency: userData['fluency'],
+        profilePicture: userData['profile_picture'],
+        level: userData['level'],
+        exp: userData['exp'],
+        maxExp: userData['max_exp'],
+      );
+    }
+    return UserModel(username: 'Loading...', email: 'Loading...');
   }
 }
