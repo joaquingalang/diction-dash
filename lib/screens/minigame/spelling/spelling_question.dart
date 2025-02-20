@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
-import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/text_fields/spelling_answer_text_field.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
@@ -10,10 +9,12 @@ class SpellingQuestion extends StatefulWidget {
     super.key,
     required this.word,
     required this.definition,
+    required this.onAnswer,
   });
 
   final String word;
   final String definition;
+  final VoidCallback onAnswer;
 
   @override
   State<SpellingQuestion> createState() => _SpellingQuestionState();
@@ -117,12 +118,7 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
 
                     // Submit Button
                     RoundedRectangleButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EndGameScreen(),
-                        ),
-                      ),
+                      onPressed: widget.onAnswer,
                       child: Center(
                         child: Text('Submit', style: kButtonTextStyle),
                       ),

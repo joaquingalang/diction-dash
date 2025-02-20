@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/screens/minigame/end_game_screen.dart';
+import 'package:diction_dash/screens/minigame/vocabulary/vocabulary_question.dart';
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
-import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
-import 'package:diction_dash/widgets/buttons/oval_button.dart';
 
 // TODO: Separate Screen with Question
 
@@ -65,83 +64,11 @@ class VocabularyScreen extends StatelessWidget {
       ),
 
       // Page Body
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-
-            // Countdown Bar
-            CountdownBar(
-              isStopped: false,
-              onTimerComplete: () {
-                print('Timer Complete!');
-              },
-            ),
-
-            // Vocabulary Minigame Instructions
-            RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                style: kSubtext20,
-                children: [
-                  TextSpan(
-                    text: 'Select the appropriate',
-                  ),
-                  TextSpan(
-                    text: '\nsynonym.',
-                    style: kFontWeightBold,
-                  ),
-                ],
-              ),
-            ),
-
-            // Offset
-            SizedBox(height: 30),
-
-            // Provided Word
-            Text(
-              'distinct',
-              style: kOswaldLarge,
-              textAlign: TextAlign.center,
-            ),
-
-            // Offset
-            SizedBox(height: 30),
-
-            // Choices
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: Column(
-                children: [
-                  OvalButton(
-                    onPressed: () => _endGameScreen(context),
-                    child: Center(
-                      child: Text('mystic', style: kButtonTextStyle),
-                    ),
-                  ),
-                  OvalButton(
-                    onPressed: () => _endGameScreen(context),
-                    child: Center(
-                      child: Text('demure', style: kButtonTextStyle),
-                    ),
-                  ),
-                  OvalButton(
-                    onPressed: () => _endGameScreen(context),
-                    child: Center(
-                      child: Text('unique', style: kButtonTextStyle),
-                    ),
-                  ),
-                  OvalButton(
-                    onPressed: () => _endGameScreen(context),
-                    child: Center(
-                      child: Text('exhausted', style: kButtonTextStyle),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+      body: VocabularyQuestion(
+        word: 'distinct',
+        choices: ['mystic', 'demure', 'unique', 'exhausted'],
+        answer: 'unique',
+        onAnswer: () => _endGameScreen(context),
       ),
     );
   }

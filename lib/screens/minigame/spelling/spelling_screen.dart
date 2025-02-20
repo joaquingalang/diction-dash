@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 import 'package:diction_dash/screens/minigame/spelling/spelling_question.dart';
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
@@ -16,6 +17,15 @@ class SpellingScreen extends StatelessWidget {
         title: 'Spelling',
         description:
             'Listen to the audio carefully and make sure to type the word in the answer box.',
+      ),
+    );
+  }
+
+  void _endGameScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EndGameScreen(),
       ),
     );
   }
@@ -57,6 +67,7 @@ class SpellingScreen extends StatelessWidget {
       body: SpellingQuestion(
         word: 'charisma',
         definition: 'compelling attractiveness or charm that can inspire devotion in others.',
+        onAnswer: () => _endGameScreen(context),
       ),
     );
   }
