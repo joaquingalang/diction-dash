@@ -1,3 +1,5 @@
+import 'package:diction_dash/services/auth_service.dart';
+import 'package:diction_dash/services/firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/widgets/text_fields/profile_edit_text_field.dart';
@@ -6,14 +8,29 @@ import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 class UpdateUsernameSheet extends StatefulWidget {
   const UpdateUsernameSheet({
     super.key,
+    required this.username,
   });
+
+  final String username;
 
   @override
   State<UpdateUsernameSheet> createState() => _UpdateUsernameSheetState();
 }
 
 class _UpdateUsernameSheetState extends State<UpdateUsernameSheet> {
+
+  // Firebase Authentication Instance
+  final AuthService _auth = AuthService();
+
+  // Cloud Firestore Instance
+  final FirestoreService _firestore = FirestoreService();
+
+  // Text Controllers
   final TextEditingController _newUsernameController = TextEditingController();
+
+  void _updateUsername() {
+    _firestore.updateUsername(userID: _auth.currentUserID, newUsername: _newUsernameController.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +66,21 @@ class _UpdateUsernameSheetState extends State<UpdateUsernameSheet> {
             // New Username Field
             ProfileEditTextField(
               labelText: 'NEW USERNAME',
-              initialValue: 'Alice Guo',
+              initialValue: widget.username,
               controller: _newUsernameController,
             ),
 
             // Continue Button
             RoundedRectangleButton(
-              onPressed: () {},
+              onPressed: () {
+
+                // Update The Password
+                _updateUsername();
+
+                // Navigator
+                Navigator.pop(context);
+
+              },
               child: Center(
                 child: Text('CONTINUE', style: kButtonTextStyle),
               ),
