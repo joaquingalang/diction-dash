@@ -107,7 +107,12 @@ class FirestoreService {
     });
   }
 
-// Update Username
+  // Update Username
+  Future<void> updateUsername({required String userID, required String newUsername}) async {
+    // User Document Reference
+    DocumentReference user = _users.doc(userID);
+    await user.update({'username': newUsername});
+  }
 
 // Update Profile Picture
 }
