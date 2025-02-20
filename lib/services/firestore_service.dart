@@ -54,7 +54,7 @@ class FirestoreService {
   }
 
   // Add New User (Username & Email)
-  void addNewUser(
+  Future<void> addNewUser(
       {required String userID,
       required String username,
       required String email}) async {
@@ -107,11 +107,25 @@ class FirestoreService {
     });
   }
 
+  // Delete User
+  Future<void> deleteUser({required String userID}) async {
+    // User Document Reference
+    DocumentReference user = _users.doc(userID);
+    await user.delete();
+  }
+
   // Update Username
   Future<void> updateUsername({required String userID, required String newUsername}) async {
     // User Document Reference
     DocumentReference user = _users.doc(userID);
     await user.update({'username': newUsername});
+  }
+
+  // Update Fluency
+  Future<void> updateFluency({required String userID, required String fluency}) async {
+    // User Document Reference
+    DocumentReference user = _users.doc(userID);
+    await user.update({'fluency': fluency});
   }
 
 // Update Profile Picture
