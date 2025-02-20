@@ -7,10 +7,10 @@ import 'package:diction_dash/services/firestore_service.dart';
 import 'package:diction_dash/widgets/progress_bars/user_level_bar.dart';
 import 'package:diction_dash/widgets/cards/stat_card.dart';
 import 'package:diction_dash/screens/settings/settings_screen.dart';
-import 'package:diction_dash/screens/minigame/spelling_screen.dart';
-import 'package:diction_dash/screens/minigame/vocabulary_screen.dart';
-import 'package:diction_dash/screens/minigame/grammar_screen.dart';
-import 'package:diction_dash/screens/minigame/comprehension_screen.dart';
+import 'package:diction_dash/screens/minigame/spelling/spelling_screen.dart';
+import 'package:diction_dash/screens/minigame/vocabulary/vocabulary_screen.dart';
+import 'package:diction_dash/screens/minigame/grammar/grammar_screen.dart';
+import 'package:diction_dash/screens/minigame/comprehension/comprehension_screen.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,8 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
     final VocabularyStats vocabularyStats = context.watch<VocabularyStats>();
     final GrammarStats grammarStats = context.watch<GrammarStats>();
     final ComprehensionStats comprehensionStats = context.watch<ComprehensionStats>();
-
-
 
     return Scaffold(
       // Page Background Color
@@ -150,9 +148,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   StatCard(
                     text: 'COMPREHENSION',
                     image: AssetImage('assets/images/app_icon.png'),
-                    level: grammarStats.level,
-                    currentExp: grammarStats.exp,
-                    maxExp: grammarStats.maxExp,
+                    level: comprehensionStats.level,
+                    currentExp: comprehensionStats.exp,
+                    maxExp: comprehensionStats.maxExp,
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
