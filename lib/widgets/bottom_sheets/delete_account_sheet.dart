@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/services/auth_service.dart';
+import 'package:diction_dash/services/firestore_service.dart';
 import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/text_fields/profile_edit_text_field.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
@@ -18,13 +19,16 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
   // Firebase Authentication Instance
   final AuthService _auth = AuthService();
 
+  final FirestoreService _firestore = FirestoreService();
+
   // Password Text Editing Controller
   final TextEditingController _passwordController = TextEditingController();
 
-  void _deleteAccount() async {
+  Future<void> _deleteAccount() async {
     String password = _passwordController.text;
+    String userID = _auth.currentUserID;
     await _auth.deleteUser(password: password);
-    _logout();
+    await _firestore.deleteUser(userID: userID);
   }
 
   Future<void> _logout() async {
@@ -93,7 +97,10 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
             // Continue Button
             RoundedRectangleButton(
               backgroundColor: Colors.red,
-              onPressed: _deleteAccount,
+              onPressed: () async {
+                await _deleteAccount();
+                _logout();
+              },
               child: Center(
                 child: Text('DELETE', style: kButtonTextStyle),
               ),
