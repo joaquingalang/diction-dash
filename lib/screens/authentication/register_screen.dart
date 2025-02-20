@@ -1,3 +1,4 @@
+import 'package:diction_dash/screens/fluency/fluency_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/utils/form_validators.dart';
@@ -18,7 +19,6 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-
   // Firebase Authentication Instance
   final AuthService _auth = AuthService();
 
@@ -55,16 +55,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
         await _auth.registerUser(email: _email, password: _password);
 
         // Store New User Data
-        _firestore.addNewUser(userID: _auth.currentUserID, username: _username, email: _email);
+        await _firestore.addNewUser(
+            userID: _auth.currentUserID, username: _username, email: _email);
 
         // Pop Loading Indicator
         Navigator.pop(context);
 
         // Navigate Back To AuthManager
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => AuthManager(),
+            builder: (context) => FluencyScreen(),
           ),
         );
 

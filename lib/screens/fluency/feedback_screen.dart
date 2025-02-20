@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
-import 'package:diction_dash/screens/home_screen.dart';
+import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 
 class FeedbackScreen extends StatelessWidget {
@@ -67,11 +67,12 @@ class FeedbackScreen extends StatelessWidget {
 
             // Proceed To Next Page Button
             RoundedRectangleButton(
-              onPressed: () => Navigator.push(
-                context,
+              onPressed: () => // Return To AuthManager Without Route History
+              Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
+                  builder: (context) => AuthManager(),
                 ),
+                    (Route<dynamic> route) => false,
               ),
               child: Center(
                 child: Text(

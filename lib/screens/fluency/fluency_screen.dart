@@ -2,14 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/screens/fluency/feedback_screen.dart';
 import 'package:diction_dash/widgets/buttons/oval_info_button.dart';
+import 'package:diction_dash/services/auth_service.dart';
+import 'package:diction_dash/services/firestore_service.dart';
 
 // TODO: Redirect to feedback screen on button press
 // TODO: Save selected fluency level on Firebase on button press
 
-class FluencyScreen extends StatelessWidget {
+class FluencyScreen extends StatefulWidget {
   const FluencyScreen({super.key});
 
-  void _feedbackScreen(BuildContext context) {
+  @override
+  State<FluencyScreen> createState() => _FluencyScreenState();
+}
+
+class _FluencyScreenState extends State<FluencyScreen> {
+
+  // Firebase Authentication Instance
+  final AuthService _auth = AuthService();
+
+  // Cloud Firestore Instance
+  final FirestoreService _firestore = FirestoreService();
+
+  Future<void> _updateFluency(BuildContext context, {required String fluency}) async {
+
+    await _firestore.updateFluency(userID: _auth.currentUserID, fluency: fluency);
+
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -67,39 +84,39 @@ class FluencyScreen extends StatelessWidget {
               text: 'BEGINNER',
               infoDescription:
                   'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () => _feedbackScreen(context),
+              onPressed: () => _updateFluency(context, fluency: 'BEGINNER'),
             ),
 
             // Elementary Fluency Button
             OvalInfoButton(
               text: 'ELEMENTARY',
               infoDescription:
-              'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () => _feedbackScreen(context),
+              'I can understand simple spoken English and basic written texts.',
+              onPressed: () => _updateFluency(context, fluency: 'ELEMENTARY'),
             ),
 
             // Intermediate Fluency Button
             OvalInfoButton(
               text: 'INTERMEDIATE',
               infoDescription:
-              'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () => _feedbackScreen(context),
+              'I can hold basic conversations, read, and write with some errors.',
+              onPressed: () => _updateFluency(context, fluency: 'INTERMEDIATE'),
             ),
 
             // Advanced Fluency Button
             OvalInfoButton(
               text: 'ADVANCED',
               infoDescription:
-              'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () => _feedbackScreen(context),
+              'I can understand and engage in various topics, and read and write effectively with minimal errors.',
+              onPressed: () => _updateFluency(context, fluency: 'ADVANCED'),
             ),
 
             // Expert Fluency Button
             OvalInfoButton(
               text: 'EXPERT',
               infoDescription:
-              'I know a few words and phrases but struggle with basic sentences.',
-              onPressed: () => _feedbackScreen(context),
+              'I am fluent in English, capable of understanding complex texts and engaging in advanced conversations effortlessly.',
+              onPressed: () => _updateFluency(context, fluency: 'EXPERT'),
             ),
           ],
         ),
