@@ -66,7 +66,7 @@ class FirestoreService {
       'username': username,
       'email': email,
       'profile_picture': null,
-      'fluency': null,
+      'fluency': 'BEGINNER',
       'level': 1,
       'exp': 0,
       'max_exp': 100, // TODO: Change maxExp to something more appropriate
