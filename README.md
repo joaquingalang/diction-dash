@@ -56,6 +56,7 @@ Flutter Packages from [**pub.dev**](https://pub.dev/):
 - [audioplayers](https://pub.dev/packages/audioplayers)
 - [http](https://pub.dev/packages/http)
 - [shared_preferences](https://pub.dev/packages/shared_preferences)
+- [provider](https://pub.dev/packages/provider)
 
 ## Future Improvement 🌱
 _Pending..._
