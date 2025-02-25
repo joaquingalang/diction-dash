@@ -1,0 +1,1808 @@
+{
+  "easy": [
+    {
+      "paragraph": "The dog wagged its tail and ran to its owner when it heard the whistle.",
+      "question": "What did the dog do when it heard the whistle?",
+      "choices": ["Ran to its owner", "Barked loudly", "Hid under the table", "Slept peacefully"],
+      "answer": "Ran to its owner"
+    },
+    {
+      "paragraph": "Lily picked up the red ball and threw it to her friend.",
+      "question": "What did Lily do with the ball?",
+      "choices": ["Threw it to her friend", "Kicked it", "Dropped it", "Lost it"],
+      "answer": "Threw it to her friend"
+    },
+    {
+      "paragraph": "Tom drank a glass of water after playing outside in the sun.",
+      "question": "What did Tom do after playing outside?",
+      "choices": ["Drank a glass of water", "Ate a sandwich", "Took a nap", "Read a book"],
+      "answer": "Drank a glass of water"
+    },
+    {
+      "paragraph": "Sarah opened her umbrella when it started to rain.",
+      "question": "What did Sarah do when it rained?",
+      "choices": ["Opened her umbrella", "Ran inside", "Danced in the rain", "Closed the windows"],
+      "answer": "Opened her umbrella"
+    },
+    {
+      "paragraph": "Ben rode his bicycle to the park and played with his friends.",
+      "question": "Where did Ben go on his bicycle?",
+      "choices": ["To the park", "To school", "To the store", "To the beach"],
+      "answer": "To the park"
+    },
+    {
+      "paragraph": "Emily baked a cake for her mother's birthday.",
+      "question": "Why did Emily bake a cake?",
+      "choices": ["For her mother's birthday", "For a school event", "For her friend", "For a bake sale"],
+      "answer": "For her mother's birthday"
+    },
+    {
+      "paragraph": "John found a shiny coin on the sidewalk and put it in his pocket.",
+      "question": "What did John do with the coin?",
+      "choices": ["Put it in his pocket", "Gave it to a friend", "Threw it away", "Lost it"],
+      "answer": "Put it in his pocket"
+    },
+    {
+      "paragraph": "Sophie watered the plants in the garden every morning.",
+      "question": "What did Sophie do in the garden?",
+      "choices": ["Watered the plants", "Picked flowers", "Pulled weeds", "Played with her dog"],
+      "answer": "Watered the plants"
+    },
+    {
+      "paragraph": "David built a sandcastle on the beach with his sister.",
+      "question": "Where did David build the sandcastle?",
+      "choices": ["On the beach", "In the park", "At school", "In his backyard"],
+      "answer": "On the beach"
+    },
+    {
+      "paragraph": "Anna read her favorite book before going to bed.",
+      "question": "What did Anna do before going to bed?",
+      "choices": ["Read her favorite book", "Watched TV", "Played a game", "Talked on the phone"],
+      "answer": "Read her favorite book"
+    },
+    {
+      "paragraph": "Jenny fed her pet fish every morning before school.",
+      "question": "What did Jenny do every morning?",
+      "choices": ["Fed her pet fish", "Played outside", "Read a book", "Went to school early"],
+      "answer": "Fed her pet fish"
+    },
+    {
+      "paragraph": "Alex built a tall tower using colorful building blocks.",
+      "question": "What did Alex build?",
+      "choices": ["A tall tower", "A small house", "A toy car", "A paper plane"],
+      "answer": "A tall tower"
+    },
+    {
+      "paragraph": "Lucy helped her mother bake cookies for the school event.",
+      "question": "What did Lucy help her mother do?",
+      "choices": ["Bake cookies", "Clean the house", "Do the laundry", "Wash the dishes"],
+      "answer": "Bake cookies"
+    },
+    {
+      "paragraph": "James found a lost puppy in the park and took it home to care for it.",
+      "question": "What did James do with the lost puppy?",
+      "choices": ["Took it home", "Left it in the park", "Gave it away", "Called animal control"],
+      "answer": "Took it home"
+    },
+    {
+      "paragraph": "Ella enjoyed drawing pictures of flowers in her notebook.",
+      "question": "What did Ella enjoy doing?",
+      "choices": ["Drawing flowers", "Reading books", "Playing soccer", "Cooking food"],
+      "answer": "Drawing flowers"
+    },
+    {
+      "paragraph": "Emma found a bright red balloon on the ground and tied it to her wrist.",
+      "question": "What did Emma do with the balloon?",
+      "choices": ["Tied it to her wrist", "Let it float away", "Gave it to a friend", "Popped it"],
+      "answer": "Tied it to her wrist"
+    },
+    {
+      "paragraph": "Noah and his dad planted a small apple tree in their backyard.",
+      "question": "What did Noah and his dad plant?",
+      "choices": ["An apple tree", "A flower", "A vegetable garden", "A bush"],
+      "answer": "An apple tree"
+    },
+    {
+      "paragraph": "Sophia gave her best friend a handmade card for her birthday.",
+      "question": "What did Sophia give her friend?",
+      "choices": ["A handmade card", "A toy", "A book", "A necklace"],
+      "answer": "A handmade card"
+    },
+    {
+      "paragraph": "Liam put his raincoat on before going outside because it was raining.",
+      "question": "Why did Liam put on his raincoat?",
+      "choices": ["Because it was raining", "Because it was cold", "Because he was going to school", "Because he wanted to look cool"],
+      "answer": "Because it was raining"
+    },
+    {
+      "paragraph": "Mia took her little brother to the playground and pushed him on the swing.",
+      "question": "What did Mia do at the playground?",
+      "choices": ["Pushed her brother on the swing", "Played on the slide", "Ate a snack", "Fed the birds"],
+      "answer": "Pushed her brother on the swing"
+    },
+    {
+      "paragraph": "Ethan shared his crayons with his classmate during art class.",
+      "question": "What did Ethan do with his crayons?",
+      "choices": ["Shared them with his classmate", "Threw them away", "Kept them in his bag", "Broke them"],
+      "answer": "Shared them with his classmate"
+    },
+    {
+      "paragraph": "Daniel rode his skateboard to the park to meet his friends.",
+      "question": "How did Daniel get to the park?",
+      "choices": ["On a skateboard", "On a bike", "By walking", "In a car"],
+      "answer": "On a skateboard"
+    },
+    {
+      "paragraph": "Chloe took a nap after playing outside in the sun all afternoon.",
+      "question": "What did Chloe do after playing outside?",
+      "choices": ["Took a nap", "Ate lunch", "Read a book", "Did her homework"],
+      "answer": "Took a nap"
+    },
+    {
+      "paragraph": "Jack brought his favorite toy car to show and tell at school.",
+      "question": "What did Jack bring to school?",
+      "choices": ["His favorite toy car", "His pet", "A book", "A stuffed animal"],
+      "answer": "His favorite toy car"
+    },
+    {
+      "paragraph": "Lily saw a butterfly in the garden and watched it flutter its wings.",
+      "question": "What did Lily see in the garden?",
+      "choices": ["A butterfly", "A bird", "A cat", "A squirrel"],
+      "answer": "A butterfly"
+    },
+    {
+      "paragraph": "Tom and his sister built a sandcastle at the beach during their vacation.",
+      "question": "Where did Tom and his sister build a sandcastle?",
+      "choices": ["At the beach", "In their backyard", "At the park", "In the playground"],
+      "answer": "At the beach"
+    },
+    {
+      "paragraph": "Sarah picked some fresh strawberries from the garden and put them in a basket.",
+      "question": "What did Sarah put in the basket?",
+      "choices": ["Strawberries", "Apples", "Oranges", "Bananas"],
+      "answer": "Strawberries"
+    },
+    {
+      "paragraph": "Daniel gave his friend a high-five after winning the soccer game.",
+      "question": "What did Daniel do after winning the soccer game?",
+      "choices": ["Gave his friend a high-five", "Ran home", "Ate a snack", "Went to sleep"],
+      "answer": "Gave his friend a high-five"
+    },
+    {
+      "paragraph": "Emma found a seashell while walking along the shore and put it in her pocket.",
+      "question": "What did Emma find on the shore?",
+      "choices": ["A seashell", "A starfish", "A crab", "A rock"],
+      "answer": "A seashell"
+    },
+    {
+      "paragraph": "Noah helped his dad wash the car on a sunny afternoon.",
+      "question": "What did Noah do to help his dad?",
+      "choices": ["Washed the car", "Mowed the lawn", "Cooked dinner", "Painted the fence"],
+      "answer": "Washed the car"
+    },
+    {
+      "paragraph": "Sophia brought her teddy bear to bed and hugged it before sleeping.",
+      "question": "What did Sophia hug before sleeping?",
+      "choices": ["Her teddy bear", "A pillow", "A blanket", "A book"],
+      "answer": "Her teddy bear"
+    },
+    {
+      "paragraph": "Ethan colored a picture of a rainbow using his crayons.",
+      "question": "What did Ethan color a picture of?",
+      "choices": ["A rainbow", "A house", "A tree", "A car"],
+      "answer": "A rainbow"
+    },
+    {
+      "paragraph": "Mia wore her new rain boots because there were puddles outside.",
+      "question": "Why did Mia wear rain boots?",
+      "choices": ["Because there were puddles outside", "Because it was cold", "Because she was going hiking", "Because she liked them"],
+      "answer": "Because there were puddles outside"
+    },
+    {
+      "paragraph": "Jack gave his mom a hug before leaving for school.",
+      "question": "Who did Jack hug before leaving for school?",
+      "choices": ["His mom", "His dad", "His teacher", "His sister"],
+      "answer": "His mom"
+    },
+    {
+      "paragraph": "Lucas saw a rainbow in the sky after the rain stopped.",
+      "question": "What did Lucas see in the sky?",
+      "choices": ["A rainbow", "A cloud", "An airplane", "A kite"],
+      "answer": "A rainbow"
+    },
+    {
+      "paragraph": "Emily gave her friend a flower she picked from the garden.",
+      "question": "What did Emily give to her friend?",
+      "choices": ["A flower", "A book", "A toy", "A card"],
+      "answer": "A flower"
+    },
+    {
+      "paragraph": "Oliver helped his mom carry the groceries into the house.",
+      "question": "What did Oliver help his mom do?",
+      "choices": ["Carry groceries", "Wash the car", "Walk the dog", "Cook dinner"],
+      "answer": "Carry groceries"
+    },
+    {
+      "paragraph": "Liam put on his jacket before going outside because it was cold.",
+      "question": "Why did Liam put on his jacket?",
+      "choices": ["Because it was cold", "Because it was raining", "Because he was going to bed", "Because he was playing soccer"],
+      "answer": "Because it was cold"
+    },
+    {
+      "paragraph": "Sophia drank a glass of milk before going to bed.",
+      "question": "What did Sophia drink before bed?",
+      "choices": ["Milk", "Water", "Juice", "Soda"],
+      "answer": "Milk"
+    },
+    {
+      "paragraph": "Ethan and his dad flew a kite at the park on a windy day.",
+      "question": "What did Ethan and his dad do at the park?",
+      "choices": ["Flew a kite", "Played soccer", "Rode bikes", "Had a picnic"],
+      "answer": "Flew a kite"
+    },
+    {
+      "paragraph": "Ava painted a picture of the sun using yellow paint.",
+      "question": "What did Ava paint?",
+      "choices": ["The sun", "A tree", "A house", "A car"],
+      "answer": "The sun"
+    },
+    {
+      "paragraph": "Noah read his favorite storybook before going to sleep.",
+      "question": "What did Noah do before sleeping?",
+      "choices": ["Read a storybook", "Watched TV", "Played a game", "Brushed his teeth"],
+      "answer": "Read a storybook"
+    },
+    {
+      "paragraph": "Mia saw a cute puppy while walking in the park.",
+      "question": "What did Mia see in the park?",
+      "choices": ["A puppy", "A cat", "A bird", "A squirrel"],
+      "answer": "A puppy"
+    },
+    {
+      "paragraph": "Jack and his sister built a snowman in their backyard.",
+      "question": "What did Jack and his sister build?",
+      "choices": ["A snowman", "A treehouse", "A sandcastle", "A tent"],
+      "answer": "A snowman"
+    },
+    {
+      "paragraph": "Emma found a shiny rock while walking along the riverbank.",
+      "question": "What did Emma find?",
+      "choices": ["A shiny rock", "A seashell", "A coin", "A feather"],
+      "answer": "A shiny rock"
+    },
+    {
+      "paragraph": "Liam played catch with his dog in the backyard.",
+      "question": "What did Liam do in the backyard?",
+      "choices": ["Played catch with his dog", "Planted flowers", "Built a treehouse", "Washed the car"],
+      "answer": "Played catch with his dog"
+    },
+    {
+      "paragraph": "Sophia made a birthday card for her best friend.",
+      "question": "What did Sophia make?",
+      "choices": ["A birthday card", "A paper airplane", "A toy car", "A painting"],
+      "answer": "A birthday card"
+    },
+    {
+      "paragraph": "Noah helped his teacher clean the whiteboard after class.",
+      "question": "Who did Noah help?",
+      "choices": ["His teacher", "His mom", "His friend", "His sister"],
+      "answer": "His teacher"
+    },
+    {
+      "paragraph": "Mia wore her sunglasses because it was very sunny outside.",
+      "question": "Why did Mia wear sunglasses?",
+      "choices": ["Because it was sunny", "Because it was raining", "Because she wanted to look cool", "Because she lost her glasses"],
+      "answer": "Because it was sunny"
+    },
+    {
+      "paragraph": "Jack and his brother raced their bicycles down the street.",
+      "question": "What did Jack and his brother do?",
+      "choices": ["Raced their bicycles", "Went swimming", "Played video games", "Read a book"],
+      "answer": "Raced their bicycles"
+    },
+    {
+      "paragraph": "Olivia picked up her teddy bear and hugged it tightly.",
+      "question": "What did Olivia hug?",
+      "choices": ["Her teddy bear", "Her pillow", "Her book", "Her backpack"],
+      "answer": "Her teddy bear"
+    },
+    {
+      "paragraph": "Ethan and his dad planted a small tree in the front yard.",
+      "question": "Where did Ethan and his dad plant a tree?",
+      "choices": ["In the front yard", "In the park", "At school", "In the backyard"],
+      "answer": "In the front yard"
+    },
+    {
+      "paragraph": "Ava placed her lunchbox on the table before sitting down to eat.",
+      "question": "Where did Ava place her lunchbox?",
+      "choices": ["On the table", "On the chair", "In her backpack", "On the floor"],
+      "answer": "On the table"
+    },
+    {
+      "paragraph": "Daniel blew out the candles on his birthday cake while everyone clapped.",
+      "question": "What did Daniel do with the candles?",
+      "choices": ["Blew them out", "Lit them", "Counted them", "Gave them away"],
+      "answer": "Blew them out"
+    },
+    {
+      "paragraph": "Lily gave her puppy a bowl of water after playing outside.",
+      "question": "What did Lily give her puppy?",
+      "choices": ["A bowl of water", "A toy", "A blanket", "A treat"],
+      "answer": "A bowl of water"
+    },
+    {
+      "paragraph": "Noah built a small tower using wooden blocks.",
+      "question": "What did Noah build?",
+      "choices": ["A small tower", "A house", "A bridge", "A car"],
+      "answer": "A small tower"
+    },
+    {
+      "paragraph": "Olivia brought an umbrella because it looked like it was going to rain.",
+      "question": "Why did Olivia bring an umbrella?",
+      "choices": ["Because it looked like it was going to rain", "Because it was sunny", "Because she needed shade", "Because she liked it"],
+      "answer": "Because it looked like it was going to rain"
+    },
+    {
+      "paragraph": "Jack and his friends played soccer at the park after school.",
+      "question": "What did Jack and his friends play?",
+      "choices": ["Soccer", "Basketball", "Baseball", "Tennis"],
+      "answer": "Soccer"
+    },
+    {
+      "paragraph": "Emma helped her little brother tie his shoelaces before they went outside.",
+      "question": "What did Emma help her brother do?",
+      "choices": ["Tie his shoelaces", "Button his shirt", "Zip his jacket", "Put on his hat"],
+      "answer": "Tie his shoelaces"
+    },
+    {
+      "paragraph": "Ethan and Mia watched a movie with their family on Saturday night.",
+      "question": "What did Ethan and Mia do on Saturday night?",
+      "choices": ["Watched a movie", "Went to sleep early", "Played outside", "Read a book"],
+      "answer": "Watched a movie"
+    },
+    {
+      "paragraph": "Sophia painted a picture of a rainbow using bright colors.",
+      "question": "What did Sophia paint?",
+      "choices": ["A rainbow", "A flower", "A house", "A tree"],
+      "answer": "A rainbow"
+    },
+    {
+      "paragraph": "Lucas and his dad fixed his broken bicycle in the garage.",
+      "question": "Where did Lucas and his dad fix the bicycle?",
+      "choices": ["In the garage", "In the backyard", "At the park", "At school"],
+      "answer": "In the garage"
+    },
+    {
+      "paragraph": "Mia picked fresh apples from the tree in her backyard.",
+      "question": "What did Mia pick from the tree?",
+      "choices": ["Apples", "Oranges", "Pears", "Bananas"],
+      "answer": "Apples"
+    },
+    {
+      "paragraph": "Daniel wore his new sneakers to school for the first time.",
+      "question": "What did Daniel wear to school?",
+      "choices": ["New sneakers", "A hat", "A jacket", "Gloves"],
+      "answer": "New sneakers"
+    },
+    {
+      "paragraph": "Ella put on her warm jacket before going outside in the snow.",
+      "question": "What did Ella put on before going outside?",
+      "choices": ["A warm jacket", "A scarf", "A hat", "Gloves"],
+      "answer": "A warm jacket"
+    },
+    {
+      "paragraph": "Henry gave his friend a high-five after they finished their school project.",
+      "question": "What did Henry do after finishing the project?",
+      "choices": ["Gave his friend a high-five", "Went home", "Had lunch", "Took a nap"],
+      "answer": "Gave his friend a high-five"
+    },
+    {
+      "paragraph": "Ava and her brother made a card for their mother’s birthday.",
+      "question": "What did Ava and her brother make?",
+      "choices": ["A birthday card", "A painting", "A toy", "A book"],
+      "answer": "A birthday card"
+    },
+    {
+      "paragraph": "Logan found a tiny frog near the pond and showed it to his sister.",
+      "question": "What did Logan find near the pond?",
+      "choices": ["A tiny frog", "A fish", "A turtle", "A snail"],
+      "answer": "A tiny frog"
+    },
+    {
+      "paragraph": "Zoe packed her backpack with books and pencils before going to school.",
+      "question": "What did Zoe put in her backpack?",
+      "choices": ["Books and pencils", "Toys", "Snacks", "A water bottle"],
+      "answer": "Books and pencils"
+    },
+    {
+      "paragraph": "Mason helped his grandmother water the plants in the garden.",
+      "question": "Who did Mason help?",
+      "choices": ["His grandmother", "His teacher", "His dad", "His friend"],
+      "answer": "His grandmother"
+    },
+    {
+      "paragraph": "Chloe brought her teddy bear to bed and hugged it tightly.",
+      "question": "What did Chloe bring to bed?",
+      "choices": ["Her teddy bear", "A pillow", "A book", "A toy car"],
+      "answer": "Her teddy bear"
+    },
+    {
+      "paragraph": "Ethan ate a peanut butter and jelly sandwich for lunch.",
+      "question": "What did Ethan eat for lunch?",
+      "choices": ["A peanut butter and jelly sandwich", "Pizza", "A salad", "Soup"],
+      "answer": "A peanut butter and jelly sandwich"
+    },
+    {
+      "paragraph": "Olivia gave her cat a small bowl of milk before going to bed.",
+      "question": "What did Olivia give her cat?",
+      "choices": ["A small bowl of milk", "A toy", "A blanket", "A treat"],
+      "answer": "A small bowl of milk"
+    },
+    {
+      "paragraph": "James and his dad flew a kite at the park on a windy afternoon.",
+      "question": "What did James and his dad do at the park?",
+      "choices": ["Flew a kite", "Played soccer", "Had a picnic", "Rode bikes"],
+      "answer": "Flew a kite"
+    },
+    {
+      "paragraph": "Liam played with his toy train before bedtime.",
+      "question": "What did Liam play with?",
+      "choices": ["A toy train", "A teddy bear", "A puzzle", "A ball"],
+      "answer": "A toy train"
+    },
+    {
+      "paragraph": "Sophie gave her best friend a hug after school.",
+      "question": "What did Sophie do after school?",
+      "choices": ["Gave her friend a hug", "Did her homework", "Ate a snack", "Went to sleep"],
+      "answer": "Gave her friend a hug"
+    },
+    {
+      "paragraph": "Noah picked up his little sister when she fell in the park.",
+      "question": "What did Noah do when his sister fell?",
+      "choices": ["Picked her up", "Ran away", "Laughed", "Clapped his hands"],
+      "answer": "Picked her up"
+    },
+    {
+      "paragraph": "Emma brought a red apple to school for lunch.",
+      "question": "What did Emma bring for lunch?",
+      "choices": ["A red apple", "A sandwich", "A banana", "A cookie"],
+      "answer": "A red apple"
+    },
+    {
+      "paragraph": "Jack wore his blue raincoat because it was raining.",
+      "question": "Why did Jack wear a raincoat?",
+      "choices": ["Because it was raining", "Because it was sunny", "Because it was cold", "Because he was going to bed"],
+      "answer": "Because it was raining"
+    },
+    {
+      "paragraph": "Mia and her brother made a snowman in their backyard.",
+      "question": "What did Mia and her brother make?",
+      "choices": ["A snowman", "A sandcastle", "A birdhouse", "A paper airplane"],
+      "answer": "A snowman"
+    },
+    {
+      "paragraph": "Ethan gave his dog a treat after it learned a new trick.",
+      "question": "Why did Ethan give his dog a treat?",
+      "choices": ["Because it learned a new trick", "Because it was barking", "Because it was sleepy", "Because it was hungry"],
+      "answer": "Because it learned a new trick"
+    },
+    {
+      "paragraph": "Zoe put her crayons back in the box after she finished drawing.",
+      "question": "Where did Zoe put her crayons?",
+      "choices": ["Back in the box", "On the floor", "In her backpack", "On the table"],
+      "answer": "Back in the box"
+    },
+    {
+      "paragraph": "Daniel looked both ways before crossing the street.",
+      "question": "What did Daniel do before crossing the street?",
+      "choices": ["Looked both ways", "Ran across", "Closed his eyes", "Jumped over a puddle"],
+      "answer": "Looked both ways"
+    },
+    {
+      "paragraph": "Ava put her teddy bear on her bed before going to sleep.",
+      "question": "Where did Ava put her teddy bear?",
+      "choices": ["On her bed", "On the chair", "On the floor", "In her backpack"],
+      "answer": "On her bed"
+    },
+    {
+      "paragraph": "Ethan found a shiny penny on the sidewalk and put it in his pocket.",
+      "question": "What did Ethan find on the sidewalk?",
+      "choices": ["A shiny penny", "A rock", "A leaf", "A toy car"],
+      "answer": "A shiny penny"
+    },
+    {
+      "paragraph": "Olivia baked a batch of chocolate chip cookies with her mom.",
+      "question": "What did Olivia bake?",
+      "choices": ["Chocolate chip cookies", "A cake", "A loaf of bread", "Brownies"],
+      "answer": "Chocolate chip cookies"
+    },
+    {
+      "paragraph": "Liam and his dad watched the stars in the night sky with a telescope.",
+      "question": "What did Liam and his dad use to watch the stars?",
+      "choices": ["A telescope", "A flashlight", "A magnifying glass", "A pair of binoculars"],
+      "answer": "A telescope"
+    },
+    {
+      "paragraph": "Sophia picked a pink flower from the garden and gave it to her teacher.",
+      "question": "Who did Sophia give the flower to?",
+      "choices": ["Her teacher", "Her mom", "Her friend", "Her sister"],
+      "answer": "Her teacher"
+    },
+    {
+      "paragraph": "Noah drew a picture of a big red truck with his crayons.",
+      "question": "What did Noah draw?",
+      "choices": ["A big red truck", "A blue bicycle", "A green tree", "A yellow sun"],
+      "answer": "A big red truck"
+    },
+    {
+      "paragraph": "Emma tied her shoelaces before going outside to play.",
+      "question": "What did Emma do before going outside?",
+      "choices": ["Tied her shoelaces", "Ate lunch", "Read a book", "Brushed her hair"],
+      "answer": "Tied her shoelaces"
+    },
+    {
+      "paragraph": "Jack built a tall tower using his toy blocks.",
+      "question": "What did Jack build?",
+      "choices": ["A tall tower", "A boat", "A house", "A bridge"],
+      "answer": "A tall tower"
+    },
+    {
+      "paragraph": "Ava wore her warm scarf because it was very cold outside.",
+      "question": "Why did Ava wear a scarf?",
+      "choices": ["Because it was very cold", "Because it was raining", "Because it was sunny", "Because she liked it"],
+      "answer": "Because it was very cold"
+    },
+    {
+      "paragraph": "Daniel helped his dad wash the car on Saturday morning.",
+      "question": "What did Daniel help his dad do?",
+      "choices": ["Wash the car", "Cook dinner", "Walk the dog", "Mow the lawn"],
+      "answer": "Wash the car"
+    },
+    {
+      "paragraph": "Zoe packed her lunchbox with a sandwich and an apple.",
+      "question": "What did Zoe put in her lunchbox?",
+      "choices": ["A sandwich and an apple", "A banana and juice", "A cookie and chips", "A salad and milk"],
+      "answer": "A sandwich and an apple"
+    },
+    {
+      "paragraph": "Liam gave his little sister a teddy bear for her birthday.",
+      "question": "What did Liam give his sister?",
+      "choices": ["A teddy bear", "A book", "A toy car", "A puzzle"],
+      "answer": "A teddy bear"
+    },
+    {
+      "paragraph": "Sophia and her dad went fishing at the lake on Saturday morning.",
+      "question": "Where did Sophia and her dad go fishing?",
+      "choices": ["At the lake", "At the ocean", "In a pond", "In a river"],
+      "answer": "At the lake"
+    },
+    {
+      "paragraph": "Ethan put his backpack on the chair before sitting down.",
+      "question": "Where did Ethan put his backpack?",
+      "choices": ["On the chair", "On the floor", "On the table", "In the closet"],
+      "answer": "On the chair"
+    },
+    {
+      "paragraph": "Olivia ate a bowl of strawberries for her afternoon snack.",
+      "question": "What did Olivia eat for her snack?",
+      "choices": ["Strawberries", "A banana", "A sandwich", "Cookies"],
+      "answer": "Strawberries"
+    },
+    {
+      "paragraph": "Noah rode his scooter to the park to play with his friends.",
+      "question": "How did Noah get to the park?",
+      "choices": ["On a scooter", "On a bicycle", "By walking", "In a car"],
+      "answer": "On a scooter"
+    },
+    {
+      "paragraph": "Emma planted sunflower seeds in the garden with her grandmother.",
+      "question": "What did Emma plant in the garden?",
+      "choices": ["Sunflower seeds", "Tomatoes", "Carrots", "Lettuce"],
+      "answer": "Sunflower seeds"
+    }
+  ],
+  "medium": [
+    {
+      "paragraph": "Mark carefully followed the recipe to bake a loaf of bread, making sure to measure each ingredient precisely.",
+      "question": "What did Mark do to ensure the bread turned out well?",
+      "choices": ["Followed the recipe carefully", "Guessed the ingredient amounts", "Cooked without instructions", "Skipped some steps"],
+      "answer": "Followed the recipe carefully"
+    },
+    {
+      "paragraph": "Samantha spent her afternoon organizing her bookshelf, sorting books by genre and author.",
+      "question": "How did Samantha organize her bookshelf?",
+      "choices": ["By genre and author", "By color", "By size", "Randomly"],
+      "answer": "By genre and author"
+    },
+    {
+      "paragraph": "The hikers reached the top of the mountain just as the sun was setting, painting the sky with shades of orange and pink.",
+      "question": "When did the hikers reach the top of the mountain?",
+      "choices": ["At sunset", "At noon", "In the morning", "At midnight"],
+      "answer": "At sunset"
+    },
+    {
+      "paragraph": "Nathan practiced the piano every day for an hour to prepare for his upcoming recital.",
+      "question": "Why did Nathan practice the piano every day?",
+      "choices": ["To prepare for a recital", "To entertain his family", "For fun", "To learn a new song"],
+      "answer": "To prepare for a recital"
+    },
+    {
+      "paragraph": "Emma placed a bowl of water outside for the stray cat that often visited her backyard.",
+      "question": "What did Emma do for the stray cat?",
+      "choices": ["Put out water", "Fed it fish", "Adopted it", "Ignored it"],
+      "answer": "Put out water"
+    },
+    {
+      "paragraph": "During the experiment, Liam carefully recorded the temperature changes every five minutes.",
+      "question": "What did Liam do during the experiment?",
+      "choices": ["Recorded temperature changes", "Mixed chemicals", "Tested water samples", "Observed plant growth"],
+      "answer": "Recorded temperature changes"
+    },
+    {
+      "paragraph": "Sophia wrote a thank-you letter to her grandmother for the thoughtful birthday gift she received.",
+      "question": "Why did Sophia write a letter?",
+      "choices": ["To thank her grandmother", "To send an invitation", "To ask for advice", "To tell a story"],
+      "answer": "To thank her grandmother"
+    },
+    {
+      "paragraph": "The students worked together to clean up the park, picking up litter and planting new flowers.",
+      "question": "What did the students do at the park?",
+      "choices": ["Picked up litter and planted flowers", "Had a picnic", "Played soccer", "Fed the ducks"],
+      "answer": "Picked up litter and planted flowers"
+    },
+    {
+      "paragraph": "Oliver saved money each month so he could buy a new bicycle by the end of the year.",
+      "question": "Why did Oliver save money?",
+      "choices": ["To buy a new bicycle", "To go on vacation", "To buy a computer", "To donate to charity"],
+      "answer": "To buy a new bicycle"
+    },
+    {
+      "paragraph": "David spent his weekend painting a beautiful landscape of the countryside.",
+      "question": "What did David paint?",
+      "choices": ["A landscape of the countryside", "A city skyline", "A portrait", "A sunset over the ocean"],
+      "answer": "A landscape of the countryside"
+    },
+    {
+      "paragraph": "Sophie and her friends volunteered at the animal shelter to help take care of abandoned pets.",
+      "question": "Where did Sophie and her friends volunteer?",
+      "choices": ["At the animal shelter", "At the library", "At the hospital", "At the park"],
+      "answer": "At the animal shelter"
+    },
+    {
+      "paragraph": "Ethan trained for months before competing in the city marathon.",
+      "question": "Why did Ethan train for months?",
+      "choices": ["To compete in a marathon", "To lose weight", "To prepare for a dance contest", "To learn a new sport"],
+      "answer": "To compete in a marathon"
+    },
+    {
+      "paragraph": "During the science fair, Mia presented her experiment on how plants grow in different types of soil.",
+      "question": "What was Mia's experiment about?",
+      "choices": ["How plants grow in different soils", "How fast animals run", "The phases of the moon", "The effects of music on memory"],
+      "answer": "How plants grow in different soils"
+    },
+    {
+      "paragraph": "Lucas trained for months to improve his swimming speed for the championship.",
+      "question": "Why did Lucas train for months?",
+      "choices": ["To improve his swimming speed", "To learn a new sport", "To lose weight", "To impress his friends"],
+      "answer": "To improve his swimming speed"
+    },
+    {
+      "paragraph": "Olivia spent her afternoon organizing her bookshelf by color and size.",
+      "question": "How did Olivia organize her bookshelf?",
+      "choices": ["By color and size", "By author", "By title", "Randomly"],
+      "answer": "By color and size"
+    },
+    {
+      "paragraph": "Ethan practiced playing the violin every day to prepare for his school concert.",
+      "question": "Why did Ethan practice playing the violin every day?",
+      "choices": ["To prepare for his school concert", "To impress his friends", "To learn a new song", "To join a band"],
+      "answer": "To prepare for his school concert"
+    },
+    {
+      "paragraph": "Liam wrote a letter to his cousin who lives in another country.",
+      "question": "Who did Liam write a letter to?",
+      "choices": ["His cousin", "His teacher", "His friend", "His grandmother"],
+      "answer": "His cousin"
+    },
+    {
+      "paragraph": "Sophia and her classmates planted trees in the schoolyard as part of an environmental project.",
+      "question": "Why did Sophia and her classmates plant trees?",
+      "choices": ["As part of an environmental project", "To make the school look pretty", "For a science experiment", "To provide shade"],
+      "answer": "As part of an environmental project"
+    },
+    {
+      "paragraph": "Noah stayed up late to finish reading his favorite adventure book.",
+      "question": "Why did Noah stay up late?",
+      "choices": ["To finish reading his favorite book", "To watch a movie", "To play video games", "To talk to his friends"],
+      "answer": "To finish reading his favorite book"
+    },
+    {
+      "paragraph": "Mia and her family visited a historical museum to learn about ancient civilizations.",
+      "question": "Why did Mia and her family visit a museum?",
+      "choices": ["To learn about ancient civilizations", "To see animals", "To watch a play", "To buy souvenirs"],
+      "answer": "To learn about ancient civilizations"
+    },
+    {
+      "paragraph": "Jack collected different types of leaves for his science project.",
+      "question": "Why did Jack collect leaves?",
+      "choices": ["For his science project", "For a scrapbook", "For his teacher", "To decorate his room"],
+      "answer": "For his science project"
+    },
+    {
+      "paragraph": "Chloe volunteered at the animal shelter to help take care of stray dogs and cats.",
+      "question": "Where did Chloe volunteer?",
+      "choices": ["At the animal shelter", "At a library", "At a hospital", "At a school"],
+      "answer": "At the animal shelter"
+    },
+    {
+      "paragraph": "Ethan and his dad built a birdhouse using wood and nails.",
+      "question": "What did Ethan and his dad build?",
+      "choices": ["A birdhouse", "A treehouse", "A toy car", "A bookshelf"],
+      "answer": "A birdhouse"
+    },
+    {
+      "paragraph": "Zoe saved her allowance for three months to buy a new bicycle.",
+      "question": "Why did Zoe save her allowance?",
+      "choices": ["To buy a new bicycle", "To go on vacation", "To buy a pet", "To get a new phone"],
+      "answer": "To buy a new bicycle"
+    },
+    {
+      "paragraph": "Daniel watched a documentary about space exploration and wrote a report about it for his class.",
+      "question": "What did Daniel write a report about?",
+      "choices": ["Space exploration", "Ocean animals", "The rainforest", "Ancient Egypt"],
+      "answer": "Space exploration"
+    },
+    {
+      "paragraph": "Ava spent the afternoon baking a chocolate cake for her brother’s birthday.",
+      "question": "What did Ava bake for her brother’s birthday?",
+      "choices": ["A chocolate cake", "Cookies", "A fruit pie", "Cupcakes"],
+      "answer": "A chocolate cake"
+    },
+    {
+      "paragraph": "Lucas built a model volcano that erupted using baking soda and vinegar.",
+      "question": "How did Lucas make his volcano erupt?",
+      "choices": ["With baking soda and vinegar", "With water and sand", "With fire and wood", "With paint and glue"],
+      "answer": "With baking soda and vinegar"
+    },
+    {
+      "paragraph": "Emma learned how to play chess by watching videos and practicing with her grandfather.",
+      "question": "How did Emma learn to play chess?",
+      "choices": ["By watching videos and practicing with her grandfather", "By reading a book", "By playing with her friends", "By going to a chess club"],
+      "answer": "By watching videos and practicing with her grandfather"
+    },
+    {
+      "paragraph": "Oliver and his friends built a raft using logs and ropes for their summer camp activity.",
+      "question": "What did Oliver and his friends build?",
+      "choices": ["A raft", "A treehouse", "A tent", "A kite"],
+      "answer": "A raft"
+    },
+    {
+      "paragraph": "Liam spent the weekend learning how to ride a bicycle without training wheels.",
+      "question": "What did Liam learn to do?",
+      "choices": ["Ride a bicycle without training wheels", "Swim in the pool", "Play the guitar", "Drive a car"],
+      "answer": "Ride a bicycle without training wheels"
+    },
+    {
+      "paragraph": "Sophia and her mom planted tomatoes and carrots in their backyard garden.",
+      "question": "What did Sophia and her mom plant?",
+      "choices": ["Tomatoes and carrots", "Flowers", "Apples and oranges", "Cucumbers"],
+      "answer": "Tomatoes and carrots"
+    },
+    {
+      "paragraph": "Noah built a model airplane using glue, paint, and small wooden pieces.",
+      "question": "What did Noah build?",
+      "choices": ["A model airplane", "A birdhouse", "A toy car", "A bookshelf"],
+      "answer": "A model airplane"
+    },
+    {
+      "paragraph": "Olivia stayed up late watching the meteor shower in the night sky.",
+      "question": "Why did Olivia stay up late?",
+      "choices": ["To watch a meteor shower", "To finish her homework", "To play video games", "To read a book"],
+      "answer": "To watch a meteor shower"
+    },
+    {
+      "paragraph": "Daniel practiced shooting basketballs every afternoon to improve his skills.",
+      "question": "Why did Daniel practice basketball every afternoon?",
+      "choices": ["To improve his skills", "To join a soccer team", "To impress his friends", "To become a coach"],
+      "answer": "To improve his skills"
+    },
+    {
+      "paragraph": "Mia and her best friend wrote a short story together for their school’s writing contest.",
+      "question": "Why did Mia and her friend write a short story?",
+      "choices": ["For a school writing contest", "To publish a book", "For their teacher", "For fun"],
+      "answer": "For a school writing contest"
+    },
+    {
+      "paragraph": "Lucas and his father fixed a broken chair by replacing one of its legs.",
+      "question": "How did Lucas and his father fix the chair?",
+      "choices": ["By replacing one of its legs", "By painting it", "By cleaning it", "By selling it"],
+      "answer": "By replacing one of its legs"
+    },
+    {
+      "paragraph": "Emma borrowed a book about dinosaurs from the library.",
+      "question": "What kind of book did Emma borrow?",
+      "choices": ["A book about dinosaurs", "A book about space", "A book about cooking", "A book about cars"],
+      "answer": "A book about dinosaurs"
+    },
+    {
+      "paragraph": "Ethan and his classmates built a rocket model for their science fair project.",
+      "question": "What did Ethan and his classmates build?",
+      "choices": ["A rocket model", "A volcano", "A solar system model", "A bridge"],
+      "answer": "A rocket model"
+    },
+    {
+      "paragraph": "Ava spent her afternoon painting a landscape of the mountains.",
+      "question": "What did Ava paint?",
+      "choices": ["A landscape of the mountains", "A portrait", "A city skyline", "A lake"],
+      "answer": "A landscape of the mountains"
+    },
+    {
+      "paragraph": "Jack and his uncle went fishing by the river and caught three fish.",
+      "question": "How many fish did Jack and his uncle catch?",
+      "choices": ["Three", "Five", "One", "None"],
+      "answer": "Three"
+    },
+    {
+      "paragraph": "Sophia made lemonade using fresh lemons, water, and sugar.",
+      "question": "What did Sophia use to make lemonade?",
+      "choices": ["Lemons, water, and sugar", "Oranges, milk, and honey", "Apples, water, and cinnamon", "Strawberries, ice, and syrup"],
+      "answer": "Lemons, water, and sugar"
+    },
+    {
+      "paragraph": "Oliver watched a documentary about marine life and learned about different species of fish.",
+      "question": "What did Oliver learn about from the documentary?",
+      "choices": ["Different species of fish", "The history of space travel", "How volcanoes erupt", "Famous historical figures"],
+      "answer": "Different species of fish"
+    },
+    {
+      "paragraph": "Mia and her brother built a snow fort in their backyard during the winter.",
+      "question": "What did Mia and her brother build?",
+      "choices": ["A snow fort", "A treehouse", "A birdhouse", "A sandcastle"],
+      "answer": "A snow fort"
+    },
+    {
+      "paragraph": "Liam and his friends organized a car wash to raise money for their school trip.",
+      "question": "Why did Liam and his friends organize a car wash?",
+      "choices": ["To raise money for a school trip", "To clean their cars", "To help the environment", "To have fun"],
+      "answer": "To raise money for a school trip"
+    },
+    {
+      "paragraph": "Ella and her classmates visited the zoo to learn about different animal species.",
+      "question": "Why did Ella and her classmates visit the zoo?",
+      "choices": ["To learn about different animal species", "To play on the swings", "To have a picnic", "To feed the fish"],
+      "answer": "To learn about different animal species"
+    },
+    {
+      "paragraph": "Noah stayed inside all day because it was raining heavily outside.",
+      "question": "Why did Noah stay inside all day?",
+      "choices": ["Because it was raining heavily", "Because he was tired", "Because he was sick", "Because he had homework"],
+      "answer": "Because it was raining heavily"
+    },
+    {
+      "paragraph": "Sophia and her dad flew a kite at the beach during their vacation.",
+      "question": "Where did Sophia and her dad fly a kite?",
+      "choices": ["At the beach", "At the park", "In their backyard", "On the rooftop"],
+      "answer": "At the beach"
+    },
+    {
+      "paragraph": "Ethan and his friends built a treehouse in his backyard over the summer.",
+      "question": "What did Ethan and his friends build?",
+      "choices": ["A treehouse", "A go-kart", "A fort", "A sandcastle"],
+      "answer": "A treehouse"
+    },
+    {
+      "paragraph": "Mia spent the afternoon practicing the piano for her upcoming recital.",
+      "question": "Why did Mia practice the piano?",
+      "choices": ["For her upcoming recital", "For fun", "To teach her brother", "To record a song"],
+      "answer": "For her upcoming recital"
+    },
+    {
+      "paragraph": "Jack helped his grandmother bake an apple pie for the family dinner.",
+      "question": "What did Jack help his grandmother bake?",
+      "choices": ["An apple pie", "A chocolate cake", "Cookies", "A loaf of bread"],
+      "answer": "An apple pie"
+    },
+    {
+      "paragraph": "Olivia wrote a story about a magical kingdom for her English assignment.",
+      "question": "What did Olivia write about?",
+      "choices": ["A magical kingdom", "A talking dog", "A pirate adventure", "A space mission"],
+      "answer": "A magical kingdom"
+    },
+    {
+      "paragraph": "Lucas and his dad went hiking up a mountain and took pictures of the scenery.",
+      "question": "What did Lucas and his dad do on the mountain?",
+      "choices": ["Took pictures of the scenery", "Went fishing", "Set up a tent", "Planted trees"],
+      "answer": "Took pictures of the scenery"
+    },
+    {
+      "paragraph": "Emma decorated her room with fairy lights and colorful posters.",
+      "question": "How did Emma decorate her room?",
+      "choices": ["With fairy lights and colorful posters", "With balloons", "With bookshelves", "With a new rug"],
+      "answer": "With fairy lights and colorful posters"
+    },
+    {
+      "paragraph": "Daniel and his friends started a recycling program at school to help the environment.",
+      "question": "Why did Daniel and his friends start a recycling program?",
+      "choices": ["To help the environment", "To win a contest", "To earn money", "To make new friends"],
+      "answer": "To help the environment"
+    },
+    {
+      "paragraph": "Liam and his sister made a scrapbook with pictures from their family vacation.",
+      "question": "What did Liam and his sister make?",
+      "choices": ["A scrapbook", "A painting", "A clay sculpture", "A photo album"],
+      "answer": "A scrapbook"
+    },
+    {
+      "paragraph": "Zoe read a book about space travel and astronauts.",
+      "question": "What was Zoe’s book about?",
+      "choices": ["Space travel and astronauts", "Dinosaurs", "Ancient Egypt", "Underwater creatures"],
+      "answer": "Space travel and astronauts"
+    },
+    {
+      "paragraph": "Oliver made a bird feeder using recycled materials for his backyard.",
+      "question": "What did Oliver make?",
+      "choices": ["A bird feeder", "A doghouse", "A kite", "A fishing rod"],
+      "answer": "A bird feeder"
+    },
+    {
+      "paragraph": "Ava and her friends collected canned food for the local food bank.",
+      "question": "Why did Ava and her friends collect canned food?",
+      "choices": ["For the local food bank", "For their school cafeteria", "For a cooking class", "For a science experiment"],
+      "answer": "For the local food bank"
+    },
+    {
+      "paragraph": "Henry practiced his speech in front of the mirror before his class presentation.",
+      "question": "Why did Henry practice his speech?",
+      "choices": ["For his class presentation", "For a talent show", "For a debate competition", "For fun"],
+      "answer": "For his class presentation"
+    },
+    {
+      "paragraph": "Liam spent the afternoon building a model rocket for his science project.",
+      "question": "What did Liam build?",
+      "choices": ["A model rocket", "A birdhouse", "A race car", "A kite"],
+      "answer": "A model rocket"
+    },
+    {
+      "paragraph": "Sophia and her cousin made a scrapbook filled with pictures from their summer vacation.",
+      "question": "What did Sophia and her cousin make?",
+      "choices": ["A scrapbook", "A puzzle", "A poster", "A comic book"],
+      "answer": "A scrapbook"
+    },
+    {
+      "paragraph": "Noah and his soccer team practiced every evening to prepare for the championship game.",
+      "question": "Why did Noah and his team practice every evening?",
+      "choices": ["To prepare for the championship game", "To learn a new sport", "To impress their coach", "To have fun"],
+      "answer": "To prepare for the championship game"
+    },
+    {
+      "paragraph": "Mia read a biography about a famous scientist for her school report.",
+      "question": "What kind of book did Mia read?",
+      "choices": ["A biography about a famous scientist", "A mystery novel", "A book about space", "A fairy tale"],
+      "answer": "A biography about a famous scientist"
+    },
+    {
+      "paragraph": "Ethan and his dad built a treehouse in their backyard over the weekend.",
+      "question": "Where did Ethan and his dad build a treehouse?",
+      "choices": ["In their backyard", "At the park", "Near the lake", "In the schoolyard"],
+      "answer": "In their backyard"
+    },
+    {
+      "paragraph": "Olivia learned how to bake cookies by following a recipe in a cookbook.",
+      "question": "How did Olivia learn to bake cookies?",
+      "choices": ["By following a recipe in a cookbook", "By watching a video", "By asking her friend", "By guessing the ingredients"],
+      "answer": "By following a recipe in a cookbook"
+    },
+    {
+      "paragraph": "Jack helped his neighbor rake leaves from the front yard.",
+      "question": "What did Jack help his neighbor do?",
+      "choices": ["Rake leaves", "Wash the car", "Paint the fence", "Plant flowers"],
+      "answer": "Rake leaves"
+    },
+    {
+      "paragraph": "Emma and her classmates visited a science museum to learn about space exploration.",
+      "question": "Why did Emma and her classmates visit the museum?",
+      "choices": ["To learn about space exploration", "To see ancient artifacts", "To watch a play", "To attend a music concert"],
+      "answer": "To learn about space exploration"
+    },
+    {
+      "paragraph": "Lucas and his friends designed a poster about recycling for their school project.",
+      "question": "What did Lucas and his friends design?",
+      "choices": ["A poster about recycling", "A model of a volcano", "A paper airplane", "A new book cover"],
+      "answer": "A poster about recycling"
+    },
+    {
+      "paragraph": "Ava joined a swimming class to improve her technique and become a better swimmer.",
+      "question": "Why did Ava join a swimming class?",
+      "choices": ["To improve her technique", "To make new friends", "To compete in a race", "To teach others how to swim"],
+      "answer": "To improve her technique"
+    },
+    {
+      "paragraph": "Daniel and his grandfather planted a vegetable garden in the backyard.",
+      "question": "What did Daniel and his grandfather plant?",
+      "choices": ["A vegetable garden", "A row of flowers", "A large tree", "A field of sunflowers"],
+      "answer": "A vegetable garden"
+    },
+    {
+      "paragraph": "Zoe borrowed a book from the library about ancient Egyptian history.",
+      "question": "What was Zoe’s book about?",
+      "choices": ["Ancient Egyptian history", "Modern inventions", "Marine animals", "Greek mythology"],
+      "answer": "Ancient Egyptian history"
+    },
+    {
+      "paragraph": "Oliver and his classmates organized a fundraiser to support their local animal shelter.",
+      "question": "Why did Oliver and his classmates organize a fundraiser?",
+      "choices": ["To support their local animal shelter", "To buy new classroom supplies", "To go on a field trip", "To build a new playground"],
+      "answer": "To support their local animal shelter"
+    },
+    {
+      "paragraph": "Mia and her brother built a birdhouse using wood and nails.",
+      "question": "What did Mia and her brother build?",
+      "choices": ["A birdhouse", "A tree swing", "A bookshelf", "A toy car"],
+      "answer": "A birdhouse"
+    },
+    {
+      "paragraph": "Henry and his friends cleaned up the park by picking up trash and planting flowers.",
+      "question": "How did Henry and his friends clean up the park?",
+      "choices": ["By picking up trash and planting flowers", "By painting benches", "By feeding the ducks", "By organizing a concert"],
+      "answer": "By picking up trash and planting flowers"
+    },
+    {
+      "paragraph": "Ella and her brother built a sandcastle by the shore using buckets and shovels.",
+      "question": "What did Ella and her brother use to build the sandcastle?",
+      "choices": ["Buckets and shovels", "Wood and nails", "Sticks and glue", "Bricks and cement"],
+      "answer": "Buckets and shovels"
+    },
+    {
+      "paragraph": "Noah spent the afternoon painting a picture of a sunset over the ocean.",
+      "question": "What did Noah paint?",
+      "choices": ["A sunset over the ocean", "A mountain landscape", "A field of flowers", "A city skyline"],
+      "answer": "A sunset over the ocean"
+    },
+    {
+      "paragraph": "Sophia wrote a letter to her cousin who moved to another state.",
+      "question": "Who did Sophia write a letter to?",
+      "choices": ["Her cousin", "Her teacher", "Her neighbor", "Her grandmother"],
+      "answer": "Her cousin"
+    },
+    {
+      "paragraph": "Ethan and his dad fixed a broken fence in their backyard using wood and nails.",
+      "question": "How did Ethan and his dad fix the fence?",
+      "choices": ["With wood and nails", "With rope and glue", "With tape and wire", "With paint and brushes"],
+      "answer": "With wood and nails"
+    },
+    {
+      "paragraph": "Mia and her classmates visited a planetarium to learn about stars and planets.",
+      "question": "Where did Mia and her classmates go?",
+      "choices": ["A planetarium", "A zoo", "A museum", "An aquarium"],
+      "answer": "A planetarium"
+    },
+    {
+      "paragraph": "Jack helped his father change a flat tire on the car during their road trip.",
+      "question": "What did Jack help his father do?",
+      "choices": ["Change a flat tire", "Fix the car engine", "Wash the car", "Fill the gas tank"],
+      "answer": "Change a flat tire"
+    },
+    {
+      "paragraph": "Olivia planted a row of sunflowers in her garden to make it more colorful.",
+      "question": "What did Olivia plant in her garden?",
+      "choices": ["Sunflowers", "Tomatoes", "Cabbage", "Strawberries"],
+      "answer": "Sunflowers"
+    },
+    {
+      "paragraph": "Lucas and his friends built a raft using wooden planks and rope.",
+      "question": "What did Lucas and his friends build?",
+      "choices": ["A raft", "A treehouse", "A tent", "A bridge"],
+      "answer": "A raft"
+    },
+    {
+      "paragraph": "Emma read a novel about a young girl who traveled through time.",
+      "question": "What was Emma’s novel about?",
+      "choices": ["A young girl who traveled through time", "A boy who became a superhero", "A scientist who discovered a new planet", "A chef who opened a bakery"],
+      "answer": "A young girl who traveled through time"
+    },
+    {
+      "paragraph": "Daniel and his grandfather built a wooden bench for the backyard.",
+      "question": "What did Daniel and his grandfather build?",
+      "choices": ["A wooden bench", "A birdhouse", "A bookshelf", "A kite"],
+      "answer": "A wooden bench"
+    },
+    {
+      "paragraph": "Ava and her best friend started a lemonade stand to earn money for charity.",
+      "question": "Why did Ava and her best friend start a lemonade stand?",
+      "choices": ["To earn money for charity", "To buy a new toy", "To pay for a school trip", "To start a business"],
+      "answer": "To earn money for charity"
+    },
+    {
+      "paragraph": "Henry spent the morning washing his dog with soap and warm water.",
+      "question": "What did Henry use to wash his dog?",
+      "choices": ["Soap and warm water", "A hose and towel", "A brush and shampoo", "A sponge and detergent"],
+      "answer": "Soap and warm water"
+    },
+    {
+      "paragraph": "Zoe borrowed a book about marine animals from the school library.",
+      "question": "What was Zoe’s book about?",
+      "choices": ["Marine animals", "Space travel", "The history of Egypt", "Cooking recipes"],
+      "answer": "Marine animals"
+    },
+    {
+      "paragraph": "Oliver and his sister set up a bird feeder in their backyard to attract birds.",
+      "question": "Why did Oliver and his sister set up a bird feeder?",
+      "choices": ["To attract birds", "To catch butterflies", "To grow vegetables", "To decorate their backyard"],
+      "answer": "To attract birds"
+    },
+    {
+      "paragraph": "Mia and her father flew a homemade kite in the park on a windy afternoon.",
+      "question": "Where did Mia and her father fly their kite?",
+      "choices": ["In the park", "On the beach", "In their backyard", "On the rooftop"],
+      "answer": "In the park"
+    },
+    {
+      "paragraph": "Liam and his classmates built a model of the solar system for their science fair project.",
+      "question": "What did Liam and his classmates build?",
+      "choices": ["A model of the solar system", "A robot", "A bridge", "A volcano"],
+      "answer": "A model of the solar system"
+    },
+    {
+      "paragraph": "Sophia spent her weekend learning how to knit a scarf using blue yarn.",
+      "question": "What did Sophia learn to do?",
+      "choices": ["Knit a scarf", "Bake a cake", "Paint a picture", "Build a puzzle"],
+      "answer": "Knit a scarf"
+    },
+    {
+      "paragraph": "Noah and his dad went camping in the mountains and roasted marshmallows by the fire.",
+      "question": "What did Noah and his dad roast by the fire?",
+      "choices": ["Marshmallows", "Hot dogs", "Corn", "Fish"],
+      "answer": "Marshmallows"
+    },
+    {
+      "paragraph": "Mia joined the school orchestra and practiced playing the violin every evening.",
+      "question": "What instrument did Mia play?",
+      "choices": ["Violin", "Piano", "Flute", "Guitar"],
+      "answer": "Violin"
+    },
+    {
+      "paragraph": "Ethan and his sister planted a row of tomatoes and cucumbers in their garden.",
+      "question": "What did Ethan and his sister plant?",
+      "choices": ["Tomatoes and cucumbers", "Apples and oranges", "Carrots and potatoes", "Flowers and herbs"],
+      "answer": "Tomatoes and cucumbers"
+    },
+    {
+      "paragraph": "Olivia borrowed a telescope from the library to look at the stars at night.",
+      "question": "What did Olivia borrow from the library?",
+      "choices": ["A telescope", "A microscope", "A book", "A map"],
+      "answer": "A telescope"
+    },
+    {
+      "paragraph": "Jack and his best friend built a tree swing using a rope and a wooden plank.",
+      "question": "What did Jack and his friend build?",
+      "choices": ["A tree swing", "A treehouse", "A ladder", "A picnic table"],
+      "answer": "A tree swing"
+    },
+    {
+      "paragraph": "Emma wrote a short story about a magical forest filled with talking animals.",
+      "question": "What was Emma's story about?",
+      "choices": ["A magical forest with talking animals", "A race car driver", "A deep-sea adventure", "A lost city"],
+      "answer": "A magical forest with talking animals"
+    },
+    {
+      "paragraph": "Lucas and his parents visited a butterfly garden to learn about different species of butterflies.",
+      "question": "Why did Lucas visit the butterfly garden?",
+      "choices": ["To learn about different species of butterflies", "To have a picnic", "To plant flowers", "To take a nap"],
+      "answer": "To learn about different species of butterflies"
+    },
+    {
+      "paragraph": "Ava spent her Saturday afternoon baking chocolate chip cookies for her neighbors.",
+      "question": "What did Ava bake?",
+      "choices": ["Chocolate chip cookies", "A birthday cake", "A loaf of bread", "Blueberry muffins"],
+      "answer": "Chocolate chip cookies"
+    },
+    {
+      "paragraph": "Daniel designed a new board game and tested it with his friends.",
+      "question": "What did Daniel design?",
+      "choices": ["A board game", "A video game", "A puzzle", "A comic book"],
+      "answer": "A board game"
+    }
+  ],
+  "hard": [
+    {
+      "paragraph": "As the storm intensified, the sailors struggled to keep the ship steady, adjusting the sails and navigating through towering waves.",
+      "question": "What was the sailors' main challenge?",
+      "choices": ["Keeping the ship steady", "Finding a new route", "Repairing a broken mast", "Catching fish for food"],
+      "answer": "Keeping the ship steady"
+    },
+    {
+      "paragraph": "Mark carefully followed the recipe to bake a loaf of bread, making sure to measure each ingredient precisely.",
+      "question": "What did Mark do to ensure the bread turned out well?",
+      "choices": ["Followed the recipe carefully", "Guessed the ingredient amounts", "Cooked without instructions", "Skipped some steps"],
+      "answer": "Followed the recipe carefully"
+    },
+    {
+      "paragraph": "Samantha spent her afternoon organizing her bookshelf, sorting books by genre and author.",
+      "question": "How did Samantha organize her bookshelf?",
+      "choices": ["By genre and author", "By color", "By size", "Randomly"],
+      "answer": "By genre and author"
+    },
+    {
+      "paragraph": "The hikers reached the top of the mountain just as the sun was setting, painting the sky with shades of orange and pink.",
+      "question": "When did the hikers reach the top of the mountain?",
+      "choices": ["At sunset", "At noon", "In the morning", "At midnight"],
+      "answer": "At sunset"
+    },
+    {
+      "paragraph": "Nathan practiced the piano every day for an hour to prepare for his upcoming recital.",
+      "question": "Why did Nathan practice the piano every day?",
+      "choices": ["To prepare for a recital", "To entertain his family", "For fun", "To learn a new song"],
+      "answer": "To prepare for a recital"
+    },
+    {
+      "paragraph": "Emma placed a bowl of water outside for the stray cat that often visited her backyard.",
+      "question": "What did Emma do for the stray cat?",
+      "choices": ["Put out water", "Fed it fish", "Adopted it", "Ignored it"],
+      "answer": "Put out water"
+    },
+    {
+      "paragraph": "During the experiment, Liam carefully recorded the temperature changes every five minutes.",
+      "question": "What did Liam do during the experiment?",
+      "choices": ["Recorded temperature changes", "Mixed chemicals", "Tested water samples", "Observed plant growth"],
+      "answer": "Recorded temperature changes"
+    },
+    {
+      "paragraph": "Sophia wrote a thank-you letter to her grandmother for the thoughtful birthday gift she received.",
+      "question": "Why did Sophia write a letter?",
+      "choices": ["To thank her grandmother", "To send an invitation", "To ask for advice", "To tell a story"],
+      "answer": "To thank her grandmother"
+    },
+    {
+      "paragraph": "The students worked together to clean up the park, picking up litter and planting new flowers.",
+      "question": "What did the students do at the park?",
+      "choices": ["Picked up litter and planted flowers", "Had a picnic", "Played soccer", "Fed the ducks"],
+      "answer": "Picked up litter and planted flowers"
+    },
+    {
+      "paragraph": "Oliver saved money each month so he could buy a new bicycle by the end of the year.",
+      "question": "Why did Oliver save money?",
+      "choices": ["To buy a new bicycle", "To go on vacation", "To buy a computer", "To donate to charity"],
+      "answer": "To buy a new bicycle"
+    },
+    {
+      "paragraph": "The researchers spent years analyzing ancient manuscripts to decipher the lost language of a forgotten civilization.",
+      "question": "What were the researchers trying to do?",
+      "choices": ["Decipher a lost language", "Write a history book", "Create a new alphabet", "Invent a new language"],
+      "answer": "Decipher a lost language"
+    },
+    {
+      "paragraph": "Despite political turmoil, the diplomat negotiated tirelessly to bring peace between the two warring nations.",
+      "question": "What was the diplomat trying to achieve?",
+      "choices": ["Bring peace", "Start a war", "Gain personal fame", "Write a new treaty"],
+      "answer": "Bring peace"
+    },
+    {
+      "paragraph": "Engineers worked around the clock to develop a new sustainable energy source that could replace fossil fuels.",
+      "question": "What were the engineers developing?",
+      "choices": ["A sustainable energy source", "A new car model", "A space shuttle", "A new type of plastic"],
+      "answer": "A sustainable energy source"
+    },
+    {
+      "paragraph": "The ancient ruins were carefully excavated by a team of archaeologists who hoped to uncover lost artifacts from the forgotten civilization.",
+      "question": "What did the archaeologists hope to find?",
+      "choices": ["Lost artifacts", "Dinosaur bones", "A hidden treasure", "A new species of plant"],
+      "answer": "Lost artifacts"
+    },
+    {
+      "paragraph": "Scientists at the research facility worked tirelessly to develop a vaccine for the newly discovered virus.",
+      "question": "What were the scientists working on?",
+      "choices": ["A vaccine", "A new medicine", "A space shuttle", "A robotic assistant"],
+      "answer": "A vaccine"
+    },
+    {
+      "paragraph": "Dr. Carter spent years studying the migration patterns of whales to understand how climate change affects their behavior.",
+      "question": "Why did Dr. Carter study whale migration?",
+      "choices": ["To understand how climate change affects their behavior", "To find new whale species", "To track their speed", "To measure their size"],
+      "answer": "To understand how climate change affects their behavior"
+    },
+    {
+      "paragraph": "After months of research, the archaeologists uncovered an ancient temple buried beneath the dense jungle.",
+      "question": "What did the archaeologists uncover?",
+      "choices": ["An ancient temple", "A lost civilization", "A secret cave", "A golden treasure"],
+      "answer": "An ancient temple"
+    },
+    {
+      "paragraph": "Maria conducted an experiment to determine whether certain plants grow faster with artificial light compared to sunlight.",
+      "question": "What was Maria's experiment about?",
+      "choices": ["Comparing plant growth under artificial light and sunlight", "Testing different types of soil", "Studying insect behavior", "Growing plants in zero gravity"],
+      "answer": "Comparing plant growth under artificial light and sunlight"
+    },
+    {
+      "paragraph": "The research team developed a new biodegradable material to reduce plastic waste in the oceans.",
+      "question": "Why did the research team develop a new material?",
+      "choices": ["To reduce plastic waste in the oceans", "To make stronger furniture", "To improve packaging durability", "To create colorful designs"],
+      "answer": "To reduce plastic waste in the oceans"
+    },
+    {
+      "paragraph": "Scientists discovered a new exoplanet that has the potential to support life due to its Earth-like atmosphere.",
+      "question": "Why is the newly discovered exoplanet significant?",
+      "choices": ["It has the potential to support life", "It is the biggest planet found", "It orbits two stars", "It has rings like Saturn"],
+      "answer": "It has the potential to support life"
+    },
+    {
+      "paragraph": "After extensive testing, engineers designed a new battery that charges twice as fast and lasts longer than current models.",
+      "question": "What is special about the new battery?",
+      "choices": ["It charges twice as fast and lasts longer", "It is smaller in size", "It only works in electric cars", "It uses solar power"],
+      "answer": "It charges twice as fast and lasts longer"
+    },
+    {
+      "paragraph": "Dr. Patel's medical team developed a robotic arm controlled by brain signals to help paralyzed patients regain movement.",
+      "question": "How does the robotic arm help patients?",
+      "choices": ["It is controlled by brain signals", "It is made of lightweight material", "It works using voice commands", "It uses a remote control"],
+      "answer": "It is controlled by brain signals"
+    },
+    {
+      "paragraph": "Historians recently found a series of letters written by a famous general during an important war, providing new insights into battle strategies.",
+      "question": "What did historians discover?",
+      "choices": ["A series of letters by a famous general", "A lost book of maps", "Ancient weapons", "A hidden treasure chest"],
+      "answer": "A series of letters by a famous general"
+    },
+    {
+      "paragraph": "Researchers developed a vaccine that significantly reduces the spread of a rare disease in remote areas.",
+      "question": "What does the new vaccine do?",
+      "choices": ["Reduces the spread of a rare disease", "Cures the common cold", "Eliminates allergies", "Strengthens the immune system"],
+      "answer": "Reduces the spread of a rare disease"
+    },
+    {
+      "paragraph": "A team of astronomers detected a mysterious radio signal coming from a distant galaxy, sparking debates about its origin.",
+      "question": "Why is the detected radio signal significant?",
+      "choices": ["It came from a distant galaxy", "It was the loudest signal recorded", "It disrupted satellite communication", "It was detected on Earth"],
+      "answer": "It came from a distant galaxy"
+    },
+    {
+      "paragraph": "Engineers constructed a suspension bridge capable of withstanding strong earthquakes and powerful storms.",
+      "question": "What makes the new bridge special?",
+      "choices": ["It can withstand earthquakes and storms", "It is the longest bridge in the world", "It is made of glass", "It floats on water"],
+      "answer": "It can withstand earthquakes and storms"
+    },
+    {
+      "paragraph": "A marine biologist discovered a deep-sea fish that produces its own light to attract prey in complete darkness.",
+      "question": "Why is the deep-sea fish unique?",
+      "choices": ["It produces its own light", "It can swim at high speeds", "It is the largest fish in the ocean", "It has no bones"],
+      "answer": "It produces its own light"
+    },
+    {
+      "paragraph": "Scientists designed a self-healing material that repairs cracks and holes without human intervention.",
+      "question": "What is special about the new material?",
+      "choices": ["It repairs cracks and holes by itself", "It changes color in sunlight", "It is completely waterproof", "It becomes stronger when wet"],
+      "answer": "It repairs cracks and holes by itself"
+    },
+    {
+      "paragraph": "Archaeologists found an ancient city buried under layers of volcanic ash, revealing well-preserved buildings and artifacts.",
+      "question": "Why was the ancient city well-preserved?",
+      "choices": ["It was buried under volcanic ash", "It was hidden in a cave", "It was protected by stone walls", "It was located under the ocean"],
+      "answer": "It was buried under volcanic ash"
+    },
+    {
+      "paragraph": "An innovative solar panel was created that generates electricity even on cloudy days, improving energy efficiency.",
+      "question": "How is the new solar panel different?",
+      "choices": ["It generates electricity on cloudy days", "It is made of lightweight plastic", "It needs direct sunlight to work", "It stores energy for a year"],
+      "answer": "It generates electricity on cloudy days"
+    },
+    {
+      "paragraph": "A newly discovered ancient manuscript contains medical knowledge that could help develop new treatments for diseases.",
+      "question": "Why is the ancient manuscript important?",
+      "choices": ["It contains medical knowledge", "It has secret codes", "It describes ancient legends", "It teaches mathematics"],
+      "answer": "It contains medical knowledge"
+    },
+    {
+      "paragraph": "Marine scientists found a coral reef that appears to be resistant to rising ocean temperatures, offering hope for conservation efforts.",
+      "question": "Why is the discovered coral reef significant?",
+      "choices": ["It is resistant to rising ocean temperatures", "It is the biggest reef ever found", "It is home to rare species", "It changes color at night"],
+      "answer": "It is resistant to rising ocean temperatures"
+    },
+    {
+      "paragraph": "A cutting-edge telescope captured the first detailed image of a black hole’s event horizon, confirming key theories about gravity.",
+      "question": "Why is the telescope’s discovery important?",
+      "choices": ["It captured an image of a black hole's event horizon", "It discovered a new planet", "It found the oldest star", "It measured Earth's rotation"],
+      "answer": "It captured an image of a black hole's event horizon"
+    },
+    {
+      "paragraph": "Geneticists successfully edited DNA in living cells to correct a mutation responsible for a rare genetic disorder.",
+      "question": "What did geneticists achieve?",
+      "choices": ["They edited DNA to correct a mutation", "They cloned an animal", "They created a new species", "They made plants grow faster"],
+      "answer": "They edited DNA to correct a mutation"
+    },
+    {
+      "paragraph": "Dr. Bennett's research on renewable energy sources led to the development of a highly efficient wind turbine that could generate power with minimal wind.",
+      "question": "What did Dr. Bennett develop?",
+      "choices": ["A highly efficient wind turbine", "A new type of solar panel", "A battery that charges instantly", "A system to store hydroelectric power"],
+      "answer": "A highly efficient wind turbine"
+    },
+    {
+      "paragraph": "Archaeologists uncovered a hidden chamber beneath an ancient pyramid, containing artifacts that revealed details about lost traditions and rituals.",
+      "question": "What did archaeologists discover beneath the pyramid?",
+      "choices": ["A hidden chamber with artifacts", "A network of tunnels", "A collection of ancient books", "A golden sarcophagus"],
+      "answer": "A hidden chamber with artifacts"
+    },
+    {
+      "paragraph": "Scientists studying the ocean floor found evidence of a massive underwater landslide that may have caused a tsunami thousands of years ago.",
+      "question": "What did scientists find evidence of?",
+      "choices": ["A massive underwater landslide", "A lost city", "A new type of sea creature", "A shipwreck"],
+      "answer": "A massive underwater landslide"
+    },
+    {
+      "paragraph": "An international team of astronomers identified a planet outside our solar system that has a similar atmosphere to Earth, raising questions about its potential for life.",
+      "question": "Why is the newly discovered planet significant?",
+      "choices": ["It has an atmosphere similar to Earth's", "It is the smallest exoplanet found", "It orbits two stars", "It has an extremely fast orbit"],
+      "answer": "It has an atmosphere similar to Earth's"
+    },
+    {
+      "paragraph": "Dr. Lee's study on brain activity in patients during deep sleep suggested that memories are strengthened overnight, aiding long-term retention.",
+      "question": "What did Dr. Lee’s study suggest?",
+      "choices": ["Memories are strengthened during deep sleep", "Dreams predict future events", "Brain activity stops during sleep", "People sleepwalk due to stress"],
+      "answer": "Memories are strengthened during deep sleep"
+    },
+    {
+      "paragraph": "After extensive trials, engineers created a self-repairing road surface that uses microcapsules filled with a special resin to fix cracks automatically.",
+      "question": "How does the new road surface repair itself?",
+      "choices": ["By using microcapsules filled with resin", "By absorbing sunlight", "By reacting to heat", "By expanding when wet"],
+      "answer": "By using microcapsules filled with resin"
+    },
+    {
+      "paragraph": "An innovative spacecraft engine was developed that uses ion propulsion to travel vast distances without consuming large amounts of fuel.",
+      "question": "What makes the new spacecraft engine special?",
+      "choices": ["It uses ion propulsion", "It runs on solar power", "It can land on water", "It is the fastest spacecraft ever built"],
+      "answer": "It uses ion propulsion"
+    },
+    {
+      "paragraph": "A newly discovered species of bacteria was found thriving in extreme temperatures near deep-sea hydrothermal vents, expanding our understanding of life in harsh environments.",
+      "question": "Where was the new bacteria found?",
+      "choices": ["Near deep-sea hydrothermal vents", "In frozen ice caps", "Inside active volcanoes", "In desert caves"],
+      "answer": "Near deep-sea hydrothermal vents"
+    },
+    {
+      "paragraph": "Researchers successfully trained an AI system to detect early signs of Alzheimer’s disease by analyzing subtle changes in speech patterns.",
+      "question": "How does the AI system detect Alzheimer’s disease?",
+      "choices": ["By analyzing speech patterns", "By scanning brain waves", "By monitoring heart rate", "By tracking sleep cycles"],
+      "answer": "By analyzing speech patterns"
+    },
+    {
+      "paragraph": "A groundbreaking experiment confirmed that certain types of fungi can break down plastic waste, offering a potential solution to global pollution.",
+      "question": "What did the experiment confirm about fungi?",
+      "choices": ["They can break down plastic waste", "They produce oxygen", "They cause plant diseases", "They glow in the dark"],
+      "answer": "They can break down plastic waste"
+    },
+    {
+      "paragraph": "A team of paleontologists discovered fossilized remains of a previously unknown dinosaur species that had feathers and could glide short distances.",
+      "question": "What was special about the newly discovered dinosaur species?",
+      "choices": ["It had feathers and could glide", "It was the largest dinosaur ever found", "It lived underwater", "It had no teeth"],
+      "answer": "It had feathers and could glide"
+    },
+    {
+      "paragraph": "Physicists observed a rare quantum phenomenon where particles appeared to be in two places at once, supporting key aspects of quantum theory.",
+      "question": "What rare quantum phenomenon was observed?",
+      "choices": ["Particles being in two places at once", "Time traveling particles", "Matter turning into energy", "Electrons stopping completely"],
+      "answer": "Particles being in two places at once"
+    },
+    {
+      "paragraph": "A revolutionary farming method was introduced that allows crops to grow without soil by using nutrient-rich mist.",
+      "question": "How does the new farming method grow crops?",
+      "choices": ["By using nutrient-rich mist", "By planting seeds in ice", "By using magnetic fields", "By growing plants underwater"],
+      "answer": "By using nutrient-rich mist"
+    },
+    {
+      "paragraph": "Scientists successfully 3D-printed a human heart using a patient’s own cells, paving the way for custom organ transplants.",
+      "question": "Why is 3D-printing a human heart significant?",
+      "choices": ["It allows for custom organ transplants", "It makes hearts grow faster", "It replaces artificial hearts", "It stops aging"],
+      "answer": "It allows for custom organ transplants"
+    },
+    {
+      "paragraph": "Researchers discovered a chemical compound that blocks pain without causing addiction, offering hope for non-addictive pain relief.",
+      "question": "Why is the newly discovered compound important?",
+      "choices": ["It blocks pain without causing addiction", "It makes people stronger", "It speeds up healing", "It eliminates the need for anesthesia"],
+      "answer": "It blocks pain without causing addiction"
+    },
+    {
+      "paragraph": "An ancient scroll was deciphered using advanced imaging technology, revealing lost stories from an early civilization.",
+      "question": "What was revealed when the ancient scroll was deciphered?",
+      "choices": ["Lost stories from an early civilization", "A treasure map", "A new type of writing", "The cure for a disease"],
+      "answer": "Lost stories from an early civilization"
+    },
+    {
+      "paragraph": "A deep-space probe sent back images of an asteroid with ice deposits, suggesting that water exists farther in space than previously thought.",
+      "question": "What did the deep-space probe discover on the asteroid?",
+      "choices": ["Ice deposits", "A volcanic crater", "Signs of life", "A metallic core"],
+      "answer": "Ice deposits"
+    },
+    {
+      "paragraph": "Medical scientists found a way to regenerate damaged nerves using stem cells, opening possibilities for spinal cord injury treatments.",
+      "question": "How do scientists regenerate damaged nerves?",
+      "choices": ["By using stem cells", "By freezing nerve tissue", "By applying electrical pulses", "By injecting vitamins"],
+      "answer": "By using stem cells"
+    },
+    {
+      "paragraph": "A new type of glass was developed that becomes opaque when electricity is applied, allowing for energy-efficient smart windows.",
+      "question": "What is special about the new glass?",
+      "choices": ["It becomes opaque when electricity is applied", "It is completely unbreakable", "It changes colors in sunlight", "It absorbs sound"],
+      "answer": "It becomes opaque when electricity is applied"
+    },
+    {
+      "paragraph": "Dr. Collins developed a new technique that uses sound waves to detect structural weaknesses in bridges before they become hazardous.",
+      "question": "How does Dr. Collins’ technique detect structural weaknesses?",
+      "choices": ["By using sound waves", "By applying heat sensors", "By measuring vibrations", "By scanning with lasers"],
+      "answer": "By using sound waves"
+    },
+    {
+      "paragraph": "Archaeologists found a buried manuscript that details forgotten medicinal practices used by an ancient civilization.",
+      "question": "What was discovered in the buried manuscript?",
+      "choices": ["Forgotten medicinal practices", "A map of lost cities", "A history of ancient kings", "A new type of writing"],
+      "answer": "Forgotten medicinal practices"
+    },
+    {
+      "paragraph": "Scientists studying deep-sea ecosystems discovered a new jellyfish species that produces light to communicate with others.",
+      "question": "How does the newly discovered jellyfish communicate?",
+      "choices": ["By producing light", "By making sounds", "By changing color", "By releasing chemicals"],
+      "answer": "By producing light"
+    },
+    {
+      "paragraph": "An experimental aircraft broke the sound barrier using a completely electric propulsion system, marking a milestone in aviation history.",
+      "question": "What made the experimental aircraft significant?",
+      "choices": ["It broke the sound barrier with an electric propulsion system", "It flew without fuel", "It could change shape mid-flight", "It was the fastest aircraft ever built"],
+      "answer": "It broke the sound barrier with an electric propulsion system"
+    },
+    {
+      "paragraph": "Geologists studying earthquake activity found that small, repeated tremors in a region can indicate a much larger earthquake is likely to occur.",
+      "question": "What did geologists discover about small tremors?",
+      "choices": ["They can indicate a larger earthquake", "They happen only at night", "They have no impact on the Earth's crust", "They increase the temperature of the ground"],
+      "answer": "They can indicate a larger earthquake"
+    },
+    {
+      "paragraph": "Medical researchers developed a nano-robot that can be injected into the bloodstream to deliver medicine directly to infected cells.",
+      "question": "How does the nano-robot work?",
+      "choices": ["It delivers medicine directly to infected cells", "It removes bacteria from the blood", "It changes the color of red blood cells", "It replaces damaged organs"],
+      "answer": "It delivers medicine directly to infected cells"
+    },
+    {
+      "paragraph": "Engineers created a self-cooling fabric that regulates body temperature by adapting to heat and humidity changes.",
+      "question": "How does the self-cooling fabric work?",
+      "choices": ["It adapts to heat and humidity changes", "It absorbs sweat faster", "It blocks sunlight", "It creates airflow around the body"],
+      "answer": "It adapts to heat and humidity changes"
+    },
+    {
+      "paragraph": "Scientists found that certain types of mushrooms can break down oil spills, offering an eco-friendly way to clean the environment.",
+      "question": "How can mushrooms help clean oil spills?",
+      "choices": ["By breaking down oil", "By absorbing chemicals", "By turning oil into gas", "By filtering water"],
+      "answer": "By breaking down oil"
+    },
+    {
+      "paragraph": "A study found that exposure to nature for at least 30 minutes a day significantly reduces stress levels in humans.",
+      "question": "What effect does nature exposure have on humans?",
+      "choices": ["It reduces stress levels", "It improves vision", "It increases appetite", "It slows heart rate permanently"],
+      "answer": "It reduces stress levels"
+    },
+    {
+      "paragraph": "A new satellite technology allows scientists to track deforestation in real time, helping conservation efforts worldwide.",
+      "question": "What does the new satellite technology help scientists track?",
+      "choices": ["Deforestation", "Ocean currents", "Airplane routes", "Underground water sources"],
+      "answer": "Deforestation"
+    },
+    {
+      "paragraph": "Researchers discovered a species of fish that can survive out of water for several days by absorbing oxygen through its skin.",
+      "question": "How does the newly discovered fish survive out of water?",
+      "choices": ["By absorbing oxygen through its skin", "By slowing its heartbeat", "By storing water in its gills", "By burrowing underground"],
+      "answer": "By absorbing oxygen through its skin"
+    },
+    {
+      "paragraph": "A newly designed car engine reduces fuel consumption by 40% by recycling heat energy from the exhaust system.",
+      "question": "How does the new car engine reduce fuel consumption?",
+      "choices": ["By recycling heat energy from the exhaust", "By using solar panels", "By making the car lighter", "By increasing air intake"],
+      "answer": "By recycling heat energy from the exhaust"
+    },
+    {
+      "paragraph": "Astronomers detected a black hole that is ejecting jets of matter at nearly the speed of light, challenging current physics models.",
+      "question": "Why is the newly detected black hole important?",
+      "choices": ["It ejects matter at nearly the speed of light", "It is the largest black hole discovered", "It has a different color than expected", "It does not absorb light"],
+      "answer": "It ejects matter at nearly the speed of light"
+    },
+    {
+      "paragraph": "Biologists studying migratory birds found that they navigate using Earth's magnetic field, detecting it through special proteins in their eyes.",
+      "question": "How do migratory birds navigate?",
+      "choices": ["By detecting Earth's magnetic field", "By following the sun", "By memorizing landmarks", "By using wind patterns"],
+      "answer": "By detecting Earth's magnetic field"
+    },
+    {
+      "paragraph": "A revolutionary desalination method extracts fresh water from seawater using a membrane that requires little energy.",
+      "question": "What makes the new desalination method revolutionary?",
+      "choices": ["It requires little energy", "It turns water into fuel", "It speeds up evaporation", "It creates fresh water instantly"],
+      "answer": "It requires little energy"
+    },
+    {
+      "paragraph": "Neuroscientists discovered that the brain forms new connections even during deep sleep, indicating that learning continues overnight.",
+      "question": "What did neuroscientists discover about the brain?",
+      "choices": ["It forms new connections during sleep", "It shuts down completely at night", "It only remembers happy memories", "It can control heart rate"],
+      "answer": "It forms new connections during sleep"
+    },
+    {
+      "paragraph": "Engineers developed a material that can store solar energy during the day and release heat at night, providing a sustainable heating solution.",
+      "question": "What is special about the newly developed material?",
+      "choices": ["It stores solar energy and releases heat at night", "It glows in the dark", "It absorbs water and creates electricity", "It hardens when exposed to wind"],
+      "answer": "It stores solar energy and releases heat at night"
+    },
+    {
+      "paragraph": "Geneticists engineered crops that can grow in extreme drought conditions, helping to improve global food security.",
+      "question": "Why are the newly engineered crops important?",
+      "choices": ["They can grow in extreme drought conditions", "They grow faster than normal plants", "They produce twice as much fruit", "They are immune to insects"],
+      "answer": "They can grow in extreme drought conditions"
+    },
+    {
+      "paragraph": "A newly developed robotic exoskeleton allows people with spinal injuries to walk again by detecting nerve signals and amplifying movement.",
+      "question": "How does the robotic exoskeleton help people walk?",
+      "choices": ["By detecting nerve signals and amplifying movement", "By strengthening leg muscles", "By injecting medicine into the spine", "By using artificial intelligence to predict steps"],
+      "answer": "By detecting nerve signals and amplifying movement"
+    },
+    {
+      "paragraph": "Researchers developed a special coating that makes glass surfaces repel water and resist fogging, improving visibility in humid environments.",
+      "question": "What does the new glass coating do?",
+      "choices": ["Repels water and resists fogging", "Changes color in sunlight", "Generates electricity", "Becomes stronger when wet"],
+      "answer": "Repels water and resists fogging"
+    },
+    {
+      "paragraph": "A group of marine biologists discovered a fish species that can survive in both saltwater and freshwater by altering its internal chemistry.",
+      "question": "How does the newly discovered fish adapt to different water types?",
+      "choices": ["By altering its internal chemistry", "By breathing through its skin", "By changing its body temperature", "By storing water in its gills"],
+      "answer": "By altering its internal chemistry"
+    },
+    {
+      "paragraph": "Astronomers observed a rare cosmic event where two neutron stars merged, producing gravitational waves detected on Earth.",
+      "question": "What happened when two neutron stars merged?",
+      "choices": ["They produced gravitational waves", "They created a black hole", "They disappeared completely", "They formed a new star"],
+      "answer": "They produced gravitational waves"
+    },
+    {
+      "paragraph": "Scientists discovered an underground river flowing beneath the Amazon rainforest, nearly as long as the river above it.",
+      "question": "What did scientists discover beneath the Amazon rainforest?",
+      "choices": ["An underground river", "A hidden city", "A giant cave", "A new species of fish"],
+      "answer": "An underground river"
+    },
+    {
+      "paragraph": "Engineers designed a flexible solar panel that can be rolled up and transported easily, making it ideal for remote locations.",
+      "question": "What makes the new solar panel unique?",
+      "choices": ["It can be rolled up and transported easily", "It stores energy for a year", "It glows in the dark", "It works underwater"],
+      "answer": "It can be rolled up and transported easily"
+    },
+    {
+      "paragraph": "A new medical study found that certain gut bacteria influence mood and brain function, linking digestive health to mental well-being.",
+      "question": "What did the new medical study discover about gut bacteria?",
+      "choices": ["They influence mood and brain function", "They cause food allergies", "They make digestion faster", "They help in muscle growth"],
+      "answer": "They influence mood and brain function"
+    },
+    {
+      "paragraph": "Neuroscientists discovered that human memories are not stored in a single location in the brain but are spread across multiple regions.",
+      "question": "Where are human memories stored in the brain?",
+      "choices": ["In multiple regions", "In a single location", "In the spinal cord", "In the brainstem"],
+      "answer": "In multiple regions"
+    },
+    {
+      "paragraph": "A cutting-edge water filtration system was invented that removes harmful chemicals and bacteria while keeping essential minerals intact.",
+      "question": "What is special about the new water filtration system?",
+      "choices": ["It removes harmful chemicals but keeps essential minerals", "It turns saltwater into freshwater", "It makes water boil instantly", "It changes the color of the water"],
+      "answer": "It removes harmful chemicals but keeps essential minerals"
+    },
+    {
+      "paragraph": "Paleontologists unearthed a dinosaur fossil with preserved skin and feathers, providing new insights into prehistoric life.",
+      "question": "What was special about the newly unearthed dinosaur fossil?",
+      "choices": ["It had preserved skin and feathers", "It was the largest fossil ever found", "It had a fossilized heart", "It was found in Antarctica"],
+      "answer": "It had preserved skin and feathers"
+    },
+    {
+      "paragraph": "A space probe captured detailed images of a comet's surface, revealing vast ice formations and deep craters.",
+      "question": "What did the space probe discover on the comet's surface?",
+      "choices": ["Ice formations and deep craters", "Signs of life", "Flowing rivers", "A volcano"],
+      "answer": "Ice formations and deep craters"
+    },
+    {
+      "paragraph": "Geneticists modified a type of rice to contain more essential nutrients, helping to combat malnutrition in developing countries.",
+      "question": "How does the genetically modified rice help people?",
+      "choices": ["It contains more essential nutrients", "It grows in cold climates", "It requires no water", "It tastes better than regular rice"],
+      "answer": "It contains more essential nutrients"
+    },
+    {
+      "paragraph": "Engineers developed a robotic hand with artificial nerves that allow it to feel temperature and texture, mimicking human touch.",
+      "question": "What makes the new robotic hand special?",
+      "choices": ["It can feel temperature and texture", "It is stronger than a human hand", "It runs on solar power", "It can write by itself"],
+      "answer": "It can feel temperature and texture"
+    },
+    {
+      "paragraph": "An advanced artificial intelligence system was trained to diagnose diseases by analyzing medical scans with greater accuracy than human doctors.",
+      "question": "How does the AI system diagnose diseases?",
+      "choices": ["By analyzing medical scans", "By measuring blood pressure", "By tracking heartbeat rhythms", "By studying genetic sequences"],
+      "answer": "By analyzing medical scans"
+    },
+    {
+      "paragraph": "A new type of lightweight yet incredibly strong metal alloy was developed, which could be used to build more efficient spacecraft.",
+      "question": "What is the new metal alloy useful for?",
+      "choices": ["Building more efficient spacecraft", "Making jewelry", "Producing coins", "Constructing underwater tunnels"],
+      "answer": "Building more efficient spacecraft"
+    },
+    {
+      "paragraph": "Scientists have discovered a deep-space asteroid that contains high concentrations of rare metals, sparking interest in space mining.",
+      "question": "Why is the newly discovered asteroid significant?",
+      "choices": ["It contains high concentrations of rare metals", "It moves faster than other asteroids", "It has an atmosphere", "It was once part of a planet"],
+      "answer": "It contains high concentrations of rare metals"
+    },
+    {
+      "paragraph": "An experiment with quantum computing showed that certain complex problems can be solved exponentially faster than with traditional computers.",
+      "question": "What advantage does quantum computing offer?",
+      "choices": ["It solves complex problems exponentially faster", "It requires no electricity", "It can think like a human", "It does not need programming"],
+      "answer": "It solves complex problems exponentially faster"
+    },
+    {
+      "paragraph": "Marine scientists found evidence that some deep-sea creatures use sound waves to navigate in complete darkness.",
+      "question": "How do some deep-sea creatures navigate?",
+      "choices": ["By using sound waves", "By glowing in the dark", "By sensing vibrations", "By following ocean currents"],
+      "answer": "By using sound waves"
+    },
+    {
+      "paragraph": "A new study suggests that long-term exposure to air pollution can accelerate the aging of human cells.",
+      "question": "What effect does long-term air pollution have on human cells?",
+      "choices": ["It accelerates aging", "It makes cells grow faster", "It changes DNA permanently", "It increases memory capacity"],
+      "answer": "It accelerates aging"
+    },
+    {
+      "paragraph": "A groundbreaking experiment demonstrated that light can be slowed down inside a special crystal, challenging traditional physics theories.",
+      "question": "What did the experiment show about light?",
+      "choices": ["It can be slowed down inside a special crystal", "It can be turned into sound", "It can change into different colors", "It moves faster than expected"],
+      "answer": "It can be slowed down inside a special crystal"
+    },
+    {
+      "paragraph": "A team of biochemists developed a synthetic leaf that mimics photosynthesis, converting carbon dioxide into oxygen more efficiently than natural plants.",
+      "question": "What does the synthetic leaf do?",
+      "choices": ["Converts carbon dioxide into oxygen", "Absorbs water from the air", "Produces electricity", "Creates artificial sunlight"],
+      "answer": "Converts carbon dioxide into oxygen"
+    },
+    {
+      "paragraph": "A groundbreaking study revealed that octopuses can edit their own RNA, allowing them to rapidly adapt to changes in their environment.",
+      "question": "What unique ability do octopuses have?",
+      "choices": ["They can edit their own RNA", "They can live outside of water", "They can see ultraviolet light", "They can regrow lost limbs instantly"],
+      "answer": "They can edit their own RNA"
+    },
+    {
+      "paragraph": "Scientists studying Antarctica’s ice sheets found ancient air trapped in bubbles, providing clues about Earth’s past climate conditions.",
+      "question": "What did scientists find trapped in Antarctica’s ice sheets?",
+      "choices": ["Ancient air", "Fossilized plants", "Hidden lakes", "Microorganisms"],
+      "answer": "Ancient air"
+    },
+    {
+      "paragraph": "Physicists developed a new type of glass that can bend like plastic while remaining as strong as traditional glass.",
+      "question": "What is special about the newly developed glass?",
+      "choices": ["It bends like plastic but remains strong", "It is completely unbreakable", "It changes color in sunlight", "It becomes invisible when heated"],
+      "answer": "It bends like plastic but remains strong"
+    },
+    {
+      "paragraph": "A recent experiment showed that some plants can emit high-frequency sounds when stressed, possibly as a way to communicate distress.",
+      "question": "What did the experiment reveal about plants?",
+      "choices": ["They can emit sounds when stressed", "They can move their leaves to avoid danger", "They can survive without sunlight", "They can detect human emotions"],
+      "answer": "They can emit sounds when stressed"
+    },
+    {
+      "paragraph": "Neuroscientists discovered that practicing a skill mentally can strengthen the same brain pathways as physically performing it.",
+      "question": "What did neuroscientists discover about mental practice?",
+      "choices": ["It strengthens the same brain pathways as physical practice", "It makes people learn instantly", "It erases old memories", "It only works for young people"],
+      "answer": "It strengthens the same brain pathways as physical practice"
+    },
+    {
+      "paragraph": "An innovative water desalination system uses graphene filters to remove salt from seawater faster and more efficiently than traditional methods.",
+      "question": "What makes the new desalination system better?",
+      "choices": ["It uses graphene filters to remove salt faster", "It requires no electricity", "It changes seawater into ice first", "It works only at high temperatures"],
+      "answer": "It uses graphene filters to remove salt faster"
+    },
+    {
+      "paragraph": "Astronomers discovered an exoplanet with extreme temperature differences, where one side is scorching hot and the other is frozen.",
+      "question": "What is unique about the newly discovered exoplanet?",
+      "choices": ["It has extreme temperature differences", "It has no gravity", "It has two atmospheres", "It moves unpredictably"],
+      "answer": "It has extreme temperature differences"
+    },
+    {
+      "paragraph": "A new study found that certain species of bacteria can produce electricity by breaking down organic matter in soil.",
+      "question": "How do some bacteria generate electricity?",
+      "choices": ["By breaking down organic matter in soil", "By absorbing sunlight", "By reacting with water", "By using magnetic fields"],
+      "answer": "By breaking down organic matter in soil"
+    }
+  ]
+}
