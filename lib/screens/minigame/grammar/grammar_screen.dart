@@ -5,8 +5,6 @@ import 'package:diction_dash/screens/minigame/grammar/grammar_question.dart';
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 
-// TODO: Separate GrammarScreen with GrammarQuestion
-
 class GrammarScreen extends StatelessWidget {
   const GrammarScreen({super.key});
 

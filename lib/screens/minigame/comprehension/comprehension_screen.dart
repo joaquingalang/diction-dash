@@ -5,8 +5,6 @@ import 'package:diction_dash/screens/minigame/comprehension/comprehension_questi
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 
-// TODO: Separate ComprehensionScreen with ComprehensionQuestion
-
 class ComprehensionScreen extends StatelessWidget {
   const ComprehensionScreen({super.key});
 

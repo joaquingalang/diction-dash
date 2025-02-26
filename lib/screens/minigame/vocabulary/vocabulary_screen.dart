@@ -5,8 +5,6 @@ import 'package:diction_dash/screens/minigame/vocabulary/vocabulary_question.dar
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 
-// TODO: Separate Screen with Question
-
 class VocabularyScreen extends StatelessWidget {
   const VocabularyScreen({super.key});
 

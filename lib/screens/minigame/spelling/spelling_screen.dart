@@ -5,8 +5,6 @@ import 'package:diction_dash/screens/minigame/spelling/spelling_question.dart';
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 
-// TODO: Separate SpellingScreen with SpellingQuestion
-
 class SpellingScreen extends StatelessWidget {
   const SpellingScreen({super.key});
 
