@@ -1,12 +1,27 @@
+import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/services/question_bank.dart';
 import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 import 'package:diction_dash/screens/minigame/spelling/spelling_question.dart';
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 
-class SpellingScreen extends StatelessWidget {
-  const SpellingScreen({super.key});
+class SpellingScreen extends StatefulWidget {
+  const SpellingScreen({super.key, required this.fluency});
+
+  final String fluency;
+
+  @override
+  State<SpellingScreen> createState() => _SpellingScreenState();
+}
+
+class _SpellingScreenState extends State<SpellingScreen> {
+  // Questions & Score Manager
+  late final QuestionBank _questionBank;
+  List<Map<String, dynamic>>? questionList;
+  int questionIndex = 0;
+  int score = 0;
 
   void _displayInstructions(BuildContext context) {
     showModalBottomSheet(
@@ -23,50 +38,81 @@ class SpellingScreen extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => EndGameScreen(score: 5, maxScore: 10),
+        builder: (context) => EndGameScreen(score: score, maxScore: 10),
       ),
     );
   }
 
+  void _checkAnswer(String answer) {
+    answer = answer.toLowerCase().trim();
+    if (answer == questionList![questionIndex]['word']) {
+      setState(() {
+        score++;
+      });
+    }
+    if (questionIndex < questionList!.length-1) {
+      setState(() {
+        questionIndex++;
+      });
+    } else {
+      _endGameScreen(context);
+    }
+  }
+
+  // Generate 10 Random Questions From Spelling Question Bank According To Fluency Score
+  Future<void> _generateQuestions() async {
+    _questionBank = QuestionBank(fluency: widget.fluency);
+    questionList = await _questionBank.getSpellingQuestions(10);
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _generateQuestions();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // Minigame App Bar
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.close,
-            color: kGrayColor500,
-            size: 35,
-          ),
-        ),
-        title: QuestionBar(currentItem: 1, maxItems: 10),
-        actions: [
-          IconButton(
-            onPressed: () => _displayInstructions(context),
-            icon: Icon(
-              Icons.help,
-              color: kGrayColor500,
-              size: 35,
+    return (questionList != null)
+        ? Scaffold(
+            // Minigame App Bar
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              centerTitle: true,
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(
+                  Icons.close,
+                  color: kGrayColor500,
+                  size: 35,
+                ),
+              ),
+              title: QuestionBar(currentItem: questionIndex + 1, maxItems: 10),
+              actions: [
+                IconButton(
+                  onPressed: () => _displayInstructions(context),
+                  icon: Icon(
+                    Icons.help,
+                    color: kGrayColor500,
+                    size: 35,
+                  ),
+                ),
+                // Offset
+                SizedBox(width: 8),
+              ],
+              scrolledUnderElevation: 0,
             ),
-          ),
-          // Offset
-          SizedBox(width: 8),
-        ],
-        scrolledUnderElevation: 0,
-      ),
 
-      // Page BodyW
-      body: SpellingQuestion(
-        word: 'charisma',
-        definition: 'compelling attractiveness or charm that can inspire devotion in others.',
-        onAnswer: () => _endGameScreen(context),
-      ),
-    );
+            // Page BodyW
+            body: SpellingQuestion(
+              word: questionList![questionIndex]['word'],
+              definition: questionList![questionIndex]['definition'],
+              onAnswer: _checkAnswer,
+            ),
+          )
+        : Foxloadingindicator();
   }
 }

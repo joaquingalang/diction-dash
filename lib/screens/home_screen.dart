@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SpellingScreen(),
+                        builder: (context) => SpellingScreen(fluency: userData.fluency!),
                       ),
                     ),
                   ),
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => VocabularyScreen(),
+                        builder: (context) => VocabularyScreen(fluency: userData.fluency!),
                       ),
                     ),
                   ),
@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ComprehensionScreen(),
+                        builder: (context) => ComprehensionScreen(fluency: userData.fluency!),
                       ),
                     ),
                   ),

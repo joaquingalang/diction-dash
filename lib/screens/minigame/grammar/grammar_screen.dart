@@ -20,11 +20,12 @@ class GrammarScreen extends StatefulWidget {
 class _GrammarScreenState extends State<GrammarScreen> {
 
   // Questions & Score Manager
-  late final QuestionBank questionBank;
+  late final QuestionBank _questionBank;
   List<Map<String, dynamic>>? questionList;
   int questionIndex = 0;
   int score = 0;
 
+  // Displays Minigame Instructions
   void _displayInstructions(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -36,6 +37,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
     );
   }
 
+  // Navigate to End Game Screen w/ Score
   void _endGameScreen(BuildContext context) {
     int maxScore = questionList!.length;
     Navigator.push(
@@ -46,17 +48,20 @@ class _GrammarScreenState extends State<GrammarScreen> {
     );
   }
 
+  // Generate 10 Random Questions From Spelling Question Bank According To Fluency Score
+  Future<void> _generateQuestions() async {
+    _questionBank = QuestionBank(fluency: widget.fluency);
+    questionList = await _questionBank.getGrammarQuestions(10);
+    setState(()  {});
+  }
+
+  // Check If Current Question Is Correct & Move To Next Question
   void _checkAnswer(bool answer) {
     if (answer == questionList![questionIndex]['isCorrect']) {
       setState(() {
         score++;
       });
     }
-
-    print('!!!');
-    print('Question No: $questionIndex');
-    print('Score: $score');
-
     if (questionIndex < questionList!.length-1) {
       setState(() {
         questionIndex++;
@@ -64,13 +69,6 @@ class _GrammarScreenState extends State<GrammarScreen> {
     } else {
       _endGameScreen(context);
     }
-  }
-
-  Future<void> _generateQuestions() async {
-    questionBank = QuestionBank(fluency: widget.fluency);
-    questionList = await questionBank.getGrammarQuestions(10);
-    print(questionList!.length);
-    setState(()  {});
   }
 
   @override
