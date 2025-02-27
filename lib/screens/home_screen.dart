@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => GrammarScreen(),
+                        builder: (context) => GrammarScreen(fluency: userData.fluency!),
                       ),
                     ),
                   ),
