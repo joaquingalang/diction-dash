@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 
+// TODO: Fix bug where the audio still plays even after minigame is cancelled because the timer is still active
+
 class CountdownBar extends StatefulWidget {
   const CountdownBar({
     super.key,
@@ -57,6 +59,10 @@ class _CountdownBarState extends State<CountdownBar>
     _controller.reverse(from: 1);
   }
 
+  void _resetTimer() {
+    _controller.reset();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -69,6 +75,9 @@ class _CountdownBarState extends State<CountdownBar>
     super.didUpdateWidget(oldWidget);
     if (widget.isStopped) {
       _controller.stop();
+      _resetTimer();
+    } else {
+      _startTimer();
     }
   }
 
