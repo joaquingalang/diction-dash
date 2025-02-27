@@ -30,6 +30,16 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
   List<Color> buttonColors = [kOrangeColor600, Colors.white];
   TextStyle incorrectButtonTextStyle = kOrangeButtonTextStyle;
 
+  // Play Answer Sound
+  void _playAnswerSound(bool answer) {
+    if (answer == widget.isCorrect) {
+      _gameAudio.correctAnswer();
+    } else {
+      _gameAudio.incorrectAnswer();
+    }
+  }
+
+  // Resets Question Properties
   void _resetQuestion() {
     setState(() {
       _isAnswered = false;
@@ -38,6 +48,7 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
     });
   }
 
+  // Marks Question As Incorrect After Countdown
   void _questionTimeout() async {
     if (!_isAnswered) {
       if (widget.isCorrect) {
@@ -57,14 +68,6 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
       _resetQuestion();
       bool incorrectAnswer = !widget.isCorrect;
       widget.onAnswer(incorrectAnswer);
-    }
-  }
-
-  void _playAnswerSound(bool answer) {
-    if (answer == widget.isCorrect) {
-      _gameAudio.correctAnswer();
-    } else {
-      _gameAudio.incorrectAnswer();
     }
   }
 

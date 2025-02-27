@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/services/game_audio.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
-
 
 class VocabularyQuestion extends StatefulWidget {
   const VocabularyQuestion({
@@ -16,26 +16,85 @@ class VocabularyQuestion extends StatefulWidget {
   final String word;
   final List<String> choices;
   final String answer;
-  final VoidCallback onAnswer;
+  final Function(String) onAnswer;
 
   @override
   State<VocabularyQuestion> createState() => _VocabularyQuestionState();
 }
 
 class _VocabularyQuestionState extends State<VocabularyQuestion> {
+  // Game Audio
+  final GameAudio _gameAudio = GameAudio();
+
+  // Question State Data
+  bool _isAnswered = false;
+  List<Color> buttonColors = [
+    kOrangeColor600,
+    kOrangeColor600,
+    kOrangeColor600,
+    kOrangeColor600
+  ];
+
+  // Play Answer Sound
+  void _playAnswerSound(String answer) {
+    if (answer == widget.answer) {
+      _gameAudio.correctAnswer();
+    } else {
+      _gameAudio.incorrectAnswer();
+    }
+  }
+
+  // Marks Question As Incorrect After Countdown
+  void _questionTimeout() async {
+    if (!_isAnswered) {
+      setState(() {
+        _isAnswered = true;
+        buttonColors[widget.choices.indexOf(widget.answer)] = Colors.red;
+      });
+      _gameAudio.incorrectAnswer();
+      await Future.delayed(Duration(seconds: 2));
+      _resetQuestion();
+      widget.onAnswer('');
+    }
+  }
+
+  // Resets Question Properties
+  void _resetQuestion() {
+    setState(() {
+      _isAnswered = false;
+      buttonColors = [
+        kOrangeColor600,
+        kOrangeColor600,
+        kOrangeColor600,
+        kOrangeColor600
+      ];
+    });
+  }
+
+  Future<void> _selectChoice(int choiceIndex) async {
+    if (!_isAnswered) {
+      setState(() {
+        _isAnswered = true;
+        buttonColors[choiceIndex] = (widget.answer == widget.choices[choiceIndex]) ? Colors.green : Colors.red;
+        buttonColors[widget.choices.indexOf(widget.answer)] = Colors.green;
+      });
+      _playAnswerSound(widget.choices[choiceIndex]);
+      await Future.delayed(Duration(seconds: 2));
+      _resetQuestion();
+      widget.onAnswer(widget.choices[choiceIndex]);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
           // Countdown Bar
           CountdownBar(
-            isStopped: false,
-            onTimerComplete: () {
-              print('Timer Complete!');
-            },
+            isStopped: _isAnswered,
+            onTimerComplete: _questionTimeout,
           ),
 
           // Vocabulary Minigame Instructions
@@ -74,25 +133,29 @@ class _VocabularyQuestionState extends State<VocabularyQuestion> {
             child: Column(
               children: [
                 OvalButton(
-                  onPressed: () {},
+                  onPressed: () => _selectChoice(0),
+                  color: buttonColors[0],
                   child: Center(
                     child: Text(widget.choices[0], style: kButtonTextStyle),
                   ),
                 ),
                 OvalButton(
-                  onPressed: () {},
+                  onPressed: () => _selectChoice(1),
+                  color: buttonColors[1],
                   child: Center(
                     child: Text(widget.choices[1], style: kButtonTextStyle),
                   ),
                 ),
                 OvalButton(
-                  onPressed: () {},
+                  onPressed: () => _selectChoice(2),
+                  color: buttonColors[2],
                   child: Center(
                     child: Text(widget.choices[2], style: kButtonTextStyle),
                   ),
                 ),
                 OvalButton(
-                  onPressed: () {},
+                  onPressed: () => _selectChoice(3),
+                  color: buttonColors[3],
                   child: Center(
                     child: Text(widget.choices[3], style: kButtonTextStyle),
                   ),

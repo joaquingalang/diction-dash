@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+import 'package:diction_dash/services/game_audio.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/text_fields/spelling_answer_text_field.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
@@ -14,7 +16,7 @@ class SpellingQuestion extends StatefulWidget {
 
   final String word;
   final String definition;
-  final VoidCallback onAnswer;
+  final Function(String) onAnswer;
 
   @override
   State<SpellingQuestion> createState() => _SpellingQuestionState();
@@ -22,7 +24,72 @@ class SpellingQuestion extends StatefulWidget {
 
 class _SpellingQuestionState extends State<SpellingQuestion> {
 
+  // Spelling Answer Text Editing Controller
   final TextEditingController _spellingAnswerController = TextEditingController();
+
+  // Text To Speech
+  final FlutterTts _flutterTts = FlutterTts();
+
+  // Game Audio
+  final GameAudio _gameAudio = GameAudio();
+
+  // Question State Data
+  bool _isAnswered = false;
+  String? result;
+  Color buttonColor = kOrangeColor600;
+
+  Future<void> _initFlutterTts() async {
+    await _flutterTts.setLanguage('en-US');
+    await _flutterTts.setPitch(1);
+    await _flutterTts.setSpeechRate(0.5);
+  }
+
+  Future<void> _speakWord(String word) async {
+    if (word.isNotEmpty) {
+      print(word);
+      await _flutterTts.speak(word);
+    }
+  }
+
+  // Play Answer Sound
+  void _playAnswerSound(String answer) {
+    if (answer == widget.word) {
+      _gameAudio.correctAnswer();
+    } else {
+      _gameAudio.incorrectAnswer();
+    }
+  }
+
+  // Resets Question Properties
+  void _resetQuestion() {
+    setState(() {
+      _spellingAnswerController.text = '';
+      _isAnswered = false;
+      result = null;
+      buttonColor = kOrangeColor600;
+    });
+  }
+
+  // Marks Question As Incorrect After Countdown
+  void _questionTimeout() async {
+    if (!_isAnswered) {
+      setState(() {
+        _isAnswered = true;
+        buttonColor = Colors.red;
+        result = 'Wrong';
+      });
+      _gameAudio.incorrectAnswer();
+      await Future.delayed(Duration(seconds: 2));
+      _resetQuestion();
+      widget.onAnswer('');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initFlutterTts();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +108,8 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
                 // Countdown Bar
                 CountdownBar(
                   durationInSeconds: 20,
-                  isStopped: false,
-                  onTimerComplete: () {
-                    print('Timer Complete!');
-                  },
+                  isStopped: _isAnswered,
+                  onTimerComplete: _questionTimeout,
                 ),
 
                 // Spelling Minigame Instructions
@@ -61,7 +126,7 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
                         text: ' the following word:\n',
                       ),
                       TextSpan(
-                          text: ('_ ' * widget.word.length).trim(),
+                          text: (_isAnswered) ? widget.word : ('_ ' * widget.word.length).trim(),
                           style: kHiddenWordTextStyle),
                     ],
                   ),
@@ -85,7 +150,7 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
 
                 // Audio Button
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => _speakWord(widget.word),
                   child: Container(
                     width: 200,
                     height: 200,
@@ -118,9 +183,24 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
 
                     // Submit Button
                     RoundedRectangleButton(
-                      onPressed: widget.onAnswer,
+                      onPressed: () async {
+                        if (!_isAnswered) {
+                          String answer = _spellingAnswerController.text.toLowerCase();
+                          _playAnswerSound(answer);
+                          setState(() {
+                            _isAnswered = true;
+                            bool isCorrect = (answer == widget.word);
+                            result = isCorrect ? 'Correct' : 'Wrong';
+                            buttonColor = isCorrect ? Colors.green : Colors.red;
+                          });
+                          await Future.delayed(Duration(seconds: 2));
+                          _resetQuestion();
+                          widget.onAnswer(answer);
+                        }
+                      },
+                      backgroundColor: buttonColor,
                       child: Center(
-                        child: Text('Submit', style: kButtonTextStyle),
+                        child: Text(_isAnswered ? result! : 'Submit', style: kButtonTextStyle),
                       ),
                     ),
                   ],
