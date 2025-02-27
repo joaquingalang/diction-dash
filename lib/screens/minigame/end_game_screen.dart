@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:confetti/confetti.dart';
-import 'package:diction_dash/screens/home_screen.dart';
+import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/score_bar.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
@@ -9,7 +9,10 @@ import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 // TODO: Add success or fail audio clips
 
 class EndGameScreen extends StatefulWidget {
-  const EndGameScreen({super.key});
+  const EndGameScreen({super.key, required this.maxScore, required this.score});
+
+  final int maxScore;
+  final int score;
 
   @override
   State<EndGameScreen> createState() => _EndGameScreenState();
@@ -90,7 +93,7 @@ class _EndGameScreenState extends State<EndGameScreen> {
                   children: [
                     // Score
                     Text('SCORE', style: kOswaldMedium),
-                    ScoreBar(score: 8, maxScore: 10),
+                    ScoreBar(score: widget.score, maxScore: widget.maxScore),
 
                     // Offset
                     SizedBox(height: 20),
@@ -118,11 +121,12 @@ class _EndGameScreenState extends State<EndGameScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: RoundedRectangleButton(
-                    onPressed: () => Navigator.push(
-                      context,
+                    onPressed: () => // Return To AuthManager Without Route History
+                    Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
+                        builder: (context) => AuthManager(),
                       ),
+                          (Route<dynamic> route) => false,
                     ),
                     child: Center(
                       child: Text('Continue', style: kButtonTextStyle),

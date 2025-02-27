@@ -23,7 +23,7 @@ class SpellingScreen extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => EndGameScreen(),
+        builder: (context) => EndGameScreen(score: 5, maxScore: 10),
       ),
     );
   }
