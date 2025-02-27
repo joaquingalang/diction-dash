@@ -21,7 +21,8 @@ class QuestionBar extends StatelessWidget {
       backgroundColor: kOrangeColor100,
       barRadius: Radius.circular(90),
       animation: true,
-      animationDuration: 1000,
+      animationDuration: 500,
+      animateFromLastPercent: true,
       percent: currentItem / maxItems,
       center: Text(
         '$currentItem / $maxItems',
