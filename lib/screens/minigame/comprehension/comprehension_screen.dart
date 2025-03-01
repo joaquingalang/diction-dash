@@ -22,6 +22,7 @@ class _ComprehensionScreenState extends State<ComprehensionScreen> {
   List<Map<String, dynamic>>? questionList;
   int questionIndex = 0;
   int score = 0;
+  int bonusPoints = 0;
 
   void _displayInstructions(BuildContext context) {
     showModalBottomSheet(
@@ -35,10 +36,15 @@ class _ComprehensionScreenState extends State<ComprehensionScreen> {
   }
 
   void _endGameScreen(BuildContext context) {
+    int maxScore = questionList!.length;
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => EndGameScreen(score: score, maxScore: 10),
+        builder: (context) => EndGameScreen(
+          score: score,
+          maxScore: maxScore,
+          bonusPoints: bonusPoints,
+        ),
       ),
     );
   }
@@ -55,13 +61,14 @@ class _ComprehensionScreenState extends State<ComprehensionScreen> {
   }
 
   // Check If Current Question Is Correct & Move To Next Question
-  void _checkAnswer(String answer) {
+  void _scoreAnswer(String answer, int bonusPoints) {
     if (answer == questionList![questionIndex]['answer']) {
       setState(() {
         score++;
+        this.bonusPoints += bonusPoints;
       });
     }
-    if (questionIndex < questionList!.length-1) {
+    if (questionIndex < questionList!.length - 1) {
       setState(() {
         questionIndex++;
       });
@@ -112,12 +119,11 @@ class _ComprehensionScreenState extends State<ComprehensionScreen> {
 
             // Page Body
             body: ComprehensionQuestion(
-              paragraph:
-                  questionList![questionIndex]['paragraph'],
+              paragraph: questionList![questionIndex]['paragraph'],
               question: questionList![questionIndex]['question'],
               choices: questionList![questionIndex]['choices'],
               answer: questionList![questionIndex]['answer'],
-              onAnswer: _checkAnswer,
+              onAnswer: _scoreAnswer,
             ),
           )
         : Foxloadingindicator();

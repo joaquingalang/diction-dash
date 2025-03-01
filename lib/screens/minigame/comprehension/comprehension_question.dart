@@ -18,7 +18,7 @@ class ComprehensionQuestion extends StatefulWidget {
   final String question;
   final List choices;
   final String answer;
-  final Function(String) onAnswer;
+  final Function(String, int) onAnswer;
 
   @override
   State<ComprehensionQuestion> createState() => _ComprehensionQuestionState();
@@ -31,6 +31,8 @@ class _ComprehensionQuestionState extends State<ComprehensionQuestion> {
 
   // Question State Data
   bool _isAnswered = false;
+  DateTime _startTime = DateTime.now();
+  DateTime? _endTime;
   List<Color> buttonColors = [
     kOrangeColor600,
     kOrangeColor600,
@@ -57,7 +59,9 @@ class _ComprehensionQuestionState extends State<ComprehensionQuestion> {
       _gameAudio.incorrectAnswer();
       await Future.delayed(Duration(seconds: 2));
       _resetQuestion();
-      widget.onAnswer('');
+      String wrongAnswer = '';
+      int bonusPoints = 0;
+      widget.onAnswer(wrongAnswer, bonusPoints);
     }
   }
 
@@ -65,6 +69,8 @@ class _ComprehensionQuestionState extends State<ComprehensionQuestion> {
   void _resetQuestion() {
     setState(() {
       _isAnswered = false;
+      _startTime = DateTime.now();
+      _endTime = null;
       buttonColors = [
         kOrangeColor600,
         kOrangeColor600,
@@ -74,17 +80,30 @@ class _ComprehensionQuestionState extends State<ComprehensionQuestion> {
     });
   }
 
+  // Calculates Time Bonus Points
+  int calculateBonusPoints() {
+    Duration finalTime = _endTime!.difference(_startTime);
+    int bonusPoints = ((15 - finalTime.inSeconds) / 3).toInt();
+    // +1 point buffer for loading
+    bonusPoints = bonusPoints + 1;
+    // Bonus points should still max out at 5
+    bonusPoints = (bonusPoints > 5) ? 5 : bonusPoints;
+    return bonusPoints;
+  }
+
   Future<void> _selectChoice(int choiceIndex) async {
     if (!_isAnswered) {
       setState(() {
         _isAnswered = true;
+        _endTime = DateTime.now();
         buttonColors[choiceIndex] = (widget.answer == widget.choices[choiceIndex]) ? Colors.green : Colors.red;
         buttonColors[widget.choices.indexOf(widget.answer)] = Colors.green;
       });
+      int bonusPoints = calculateBonusPoints();
       _playAnswerSound(widget.choices[choiceIndex]);
       await Future.delayed(Duration(seconds: 2));
       _resetQuestion();
-      widget.onAnswer(widget.choices[choiceIndex]);
+      widget.onAnswer(widget.choices[choiceIndex], bonusPoints);
     }
   }
 
