@@ -14,21 +14,22 @@ class GrammarQuestion extends StatefulWidget {
 
   final String phrase;
   final bool isCorrect;
-  final Function(bool) onAnswer;
+  final Function(bool, int) onAnswer;
 
   @override
   State<GrammarQuestion> createState() => _GrammarQuestionState();
 }
 
 class _GrammarQuestionState extends State<GrammarQuestion> {
-
   // Game Audio
   final GameAudio _gameAudio = GameAudio();
 
   // Question State Data
   bool _isAnswered = false;
-  List<Color> buttonColors = [kOrangeColor600, Colors.white];
-  TextStyle incorrectButtonTextStyle = kOrangeButtonTextStyle;
+  DateTime _startTime = DateTime.now();
+  DateTime? _endTime;
+  List<Color> _buttonColors = [kOrangeColor600, Colors.white];
+  TextStyle _incorrectButtonTextStyle = kOrangeButtonTextStyle;
 
   // Play Answer Sound
   void _playAnswerSound(bool answer) {
@@ -43,8 +44,10 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
   void _resetQuestion() {
     setState(() {
       _isAnswered = false;
-      buttonColors = [kOrangeColor600, Colors.white];
-      incorrectButtonTextStyle = kOrangeButtonTextStyle;
+      _startTime = DateTime.now();
+      _endTime = null;
+      _buttonColors = [kOrangeColor600, Colors.white];
+      _incorrectButtonTextStyle = kOrangeButtonTextStyle;
     });
   }
 
@@ -54,20 +57,52 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
       if (widget.isCorrect) {
         setState(() {
           _isAnswered = true;
-          buttonColors[0] = Colors.red;
+          _buttonColors[0] = Colors.red;
         });
       } else {
         setState(() {
           _isAnswered = true;
-          buttonColors[1] = Colors.red;
-          incorrectButtonTextStyle = kButtonTextStyle;
+          _buttonColors[1] = Colors.red;
+          _incorrectButtonTextStyle = kButtonTextStyle;
         });
       }
       _gameAudio.incorrectAnswer();
       await Future.delayed(Duration(seconds: 2));
       _resetQuestion();
-      bool incorrectAnswer = !widget.isCorrect;
-      widget.onAnswer(incorrectAnswer);
+      bool wrongAnswer = !widget.isCorrect;
+      int bonusPoints = 0;
+      widget.onAnswer(wrongAnswer, bonusPoints);
+    }
+  }
+
+  // Calculates Time Bonus Points
+  int calculateBonusPoints() {
+    Duration finalTime = _endTime!.difference(_startTime);
+    int bonusPoints = ((15 - finalTime.inSeconds) / 3).toInt();
+    // +1 point buffer for loading
+    bonusPoints = bonusPoints + 1;
+    // Bonus points should still max out at 5
+    bonusPoints = (bonusPoints > 5) ? 5 : bonusPoints;
+    return bonusPoints;
+  }
+
+  void _selectChoice(bool answer) async {
+    if (!_isAnswered) {
+      int choiceIndex = answer ? 0 : 1;
+      setState(() {
+        _isAnswered = true;
+        _endTime = DateTime.now();
+        _buttonColors[choiceIndex] =
+            (answer == widget.isCorrect) ? Colors.green : Colors.red;
+        if (choiceIndex == 1) {
+          _incorrectButtonTextStyle = kButtonTextStyle;
+        }
+      });
+      int bonusPoints = calculateBonusPoints();
+      _playAnswerSound(answer);
+      await Future.delayed(Duration(seconds: 2));
+      _resetQuestion();
+      widget.onAnswer(answer, bonusPoints);
     }
   }
 
@@ -120,41 +155,20 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
             child: Column(
               children: [
                 OvalButton(
-                  onPressed: () async {
-                    if (!_isAnswered) {
-                      setState(() {
-                        _isAnswered = true;
-                        buttonColors[0] = (true == widget.isCorrect) ? Colors.green : Colors.red;
-                      });
-                      _playAnswerSound(true);
-                      await Future.delayed(Duration(seconds: 2));
-                      _resetQuestion();
-                      widget.onAnswer(true);
-                    }
-                  },
-                  color: buttonColors[0],
+                  onPressed: () => _selectChoice(true),
+                  color: _buttonColors[0],
                   child: Center(
                     child: Text('CORRECT', style: kButtonTextStyle),
                   ),
                 ),
                 OvalButton(
-                  color: buttonColors[1],
-                  borderColor: (buttonColors[1] == Colors.white) ? kOrangeColor600 : null,
-                  onPressed: () async {
-                    if (!_isAnswered) {
-                      setState(() {
-                        _isAnswered = true;
-                        buttonColors[1] = (false == widget.isCorrect) ? Colors.green : Colors.red;
-                        incorrectButtonTextStyle = kButtonTextStyle;
-                      });
-                      _playAnswerSound(false);
-                      await Future.delayed(Duration(seconds: 2));
-                      _resetQuestion();
-                      widget.onAnswer(false);
-                    }
-                  },
+                  color: _buttonColors[1],
+                  borderColor: (_buttonColors[1] == Colors.white)
+                      ? kOrangeColor600
+                      : null,
+                  onPressed: () => _selectChoice(false),
                   child: Center(
-                    child: Text('INCORRECT', style: incorrectButtonTextStyle),
+                    child: Text('INCORRECT', style: _incorrectButtonTextStyle),
                   ),
                 ),
               ],

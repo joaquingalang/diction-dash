@@ -18,12 +18,12 @@ class GrammarScreen extends StatefulWidget {
 }
 
 class _GrammarScreenState extends State<GrammarScreen> {
-
   // Questions & Score Manager
   late final QuestionBank _questionBank;
   List<Map<String, dynamic>>? questionList;
   int questionIndex = 0;
   int score = 0;
+  int bonusPoints = 0;
 
   // Displays Minigame Instructions
   void _displayInstructions(BuildContext context) {
@@ -43,7 +43,11 @@ class _GrammarScreenState extends State<GrammarScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => EndGameScreen(score: score, maxScore: maxScore),
+        builder: (context) => EndGameScreen(
+          score: score,
+          maxScore: maxScore,
+          bonusPoints: bonusPoints,
+        ),
       ),
     );
   }
@@ -52,17 +56,18 @@ class _GrammarScreenState extends State<GrammarScreen> {
   Future<void> _generateQuestions() async {
     _questionBank = QuestionBank(fluency: widget.fluency);
     questionList = await _questionBank.getGrammarQuestions(10);
-    setState(()  {});
+    setState(() {});
   }
 
   // Check If Current Question Is Correct & Move To Next Question
-  void _checkAnswer(bool answer) {
+  void _scoreAnswer(bool answer, int bonusPoints) {
     if (answer == questionList![questionIndex]['isCorrect']) {
       setState(() {
         score++;
+        this.bonusPoints += bonusPoints;
       });
     }
-    if (questionIndex < questionList!.length-1) {
+    if (questionIndex < questionList!.length - 1) {
       setState(() {
         questionIndex++;
       });
@@ -95,7 +100,9 @@ class _GrammarScreenState extends State<GrammarScreen> {
                   size: 35,
                 ),
               ),
-              title: QuestionBar(currentItem: questionIndex + 1, maxItems: questionList!.length),
+              title: QuestionBar(
+                  currentItem: questionIndex + 1,
+                  maxItems: questionList!.length),
               actions: [
                 IconButton(
                   onPressed: () => _displayInstructions(context),
@@ -115,7 +122,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
             body: GrammarQuestion(
               phrase: questionList![questionIndex]['phrase'],
               isCorrect: questionList![questionIndex]['isCorrect'],
-              onAnswer: _checkAnswer,
+              onAnswer: _scoreAnswer,
             ),
           )
         : Foxloadingindicator();
