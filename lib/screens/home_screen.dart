@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Stat Cards
                   StatCard(
                     text: 'SPELLING',
-                    image: AssetImage('assets/images/app_icon.png'),
+                    image: AssetImage('assets/images/spelling.png'),
                     level: spellingStats.level,
                     currentExp: spellingStats.exp,
                     maxExp: spellingStats.maxExp,
@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   StatCard(
                     text: 'VOCABULARY',
-                    image: AssetImage('assets/images/app_icon.png'),
+                    image: AssetImage('assets/images/vocabulary.png'),
                     level: vocabularyStats.level,
                     currentExp: vocabularyStats.exp,
                     maxExp: vocabularyStats.maxExp,
@@ -134,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   StatCard(
                     text: 'GRAMMAR',
-                    image: AssetImage('assets/images/app_icon.png'),
+                    image: AssetImage('assets/images/grammar.png'),
                     level: grammarStats.level,
                     currentExp: grammarStats.exp,
                     maxExp: grammarStats.maxExp,
@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   StatCard(
                     text: 'COMPREHENSION',
-                    image: AssetImage('assets/images/app_icon.png'),
+                    image: AssetImage('assets/images/comprehension.png'),
                     level: comprehensionStats.level,
                     currentExp: comprehensionStats.exp,
                     maxExp: comprehensionStats.maxExp,
