@@ -16,28 +16,34 @@ class VocabularyScreen extends StatefulWidget {
 }
 
 class _VocabularyScreenState extends State<VocabularyScreen> {
-
   // Questions & Score Manager
   late final QuestionBank _questionBank;
   List<Map<String, dynamic>>? questionList;
   int questionIndex = 0;
   int score = 0;
+  int bonusPoints = 0;
 
   void _displayInstructions(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (context) => MinigameInstructionSheet(
         title: 'Vocabulary',
-        description: 'Select the choice that has the same meaning as the provided word.',
+        description:
+            'Select the choice that has the same meaning as the provided word.',
       ),
     );
   }
 
   void _endGameScreen(BuildContext context) {
+    int maxScore = questionList!.length;
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => EndGameScreen(score: score, maxScore: 10),
+        builder: (context) => EndGameScreen(
+          score: score,
+          maxScore: maxScore,
+          bonusPoints: bonusPoints,
+        ),
       ),
     );
   }
@@ -50,13 +56,14 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
   }
 
   // Check If Current Question Is Correct & Move To Next Question
-  void _checkAnswer(String answer) {
+  void _scoreAnswer(String answer, int bonusPoints) {
     if (answer == questionList![questionIndex]['answer']) {
       setState(() {
         score++;
+        this.bonusPoints += bonusPoints;
       });
     }
-    if (questionIndex < questionList!.length-1) {
+    if (questionIndex < questionList!.length - 1) {
       setState(() {
         questionIndex++;
       });
@@ -74,7 +81,6 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       // Minigame App Bar
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -110,7 +116,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
         word: questionList![questionIndex]['word'],
         choices: questionList![questionIndex]['choices'],
         answer: questionList![questionIndex]['answer'],
-        onAnswer: _checkAnswer,
+        onAnswer: _scoreAnswer,
       ),
     );
   }
