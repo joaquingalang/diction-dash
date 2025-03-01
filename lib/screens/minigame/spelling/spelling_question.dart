@@ -16,7 +16,7 @@ class SpellingQuestion extends StatefulWidget {
 
   final String word;
   final String definition;
-  final Function(String) onAnswer;
+  final Function(String, int) onAnswer;
 
   @override
   State<SpellingQuestion> createState() => _SpellingQuestionState();
@@ -35,6 +35,8 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
 
   // Question State Data
   bool _isAnswered = false;
+  DateTime _startTime = DateTime.now();
+  DateTime? _endTime;
   String? result;
   Color buttonColor = kOrangeColor600;
 
@@ -65,6 +67,8 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
     setState(() {
       _spellingAnswerController.text = '';
       _isAnswered = false;
+      _startTime = DateTime.now();
+      _endTime = null;
       result = null;
       buttonColor = kOrangeColor600;
     });
@@ -81,8 +85,21 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
       _gameAudio.incorrectAnswer();
       await Future.delayed(Duration(seconds: 2));
       _resetQuestion();
-      widget.onAnswer('');
+      String wrongAnswer = '';
+      int bonusPoints = 0;
+      widget.onAnswer(wrongAnswer, bonusPoints);
     }
+  }
+
+  // Calculates Time Bonus Points
+  int calculateBonusPoints() {
+    Duration finalTime = _endTime!.difference(_startTime);
+    int bonusPoints = ((20 - finalTime.inSeconds) / 4).toInt();
+    // +1 point buffer for loading
+    bonusPoints = bonusPoints + 1;
+    // Bonus points should still max out at 5
+    bonusPoints = (bonusPoints > 5) ? 5 : bonusPoints;
+    return bonusPoints;
   }
 
   @override
@@ -186,16 +203,18 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
                       onPressed: () async {
                         if (!_isAnswered) {
                           String answer = _spellingAnswerController.text.toLowerCase();
-                          _playAnswerSound(answer);
                           setState(() {
                             _isAnswered = true;
+                            _endTime = DateTime.now();
                             bool isCorrect = (answer == widget.word);
                             result = isCorrect ? 'Correct' : 'Wrong';
                             buttonColor = isCorrect ? Colors.green : Colors.red;
                           });
+                          int bonusPoints = calculateBonusPoints();
+                          _playAnswerSound(answer);
                           await Future.delayed(Duration(seconds: 2));
                           _resetQuestion();
-                          widget.onAnswer(answer);
+                          widget.onAnswer(answer, bonusPoints);
                         }
                       },
                       backgroundColor: buttonColor,

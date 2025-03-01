@@ -22,6 +22,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   List<Map<String, dynamic>>? questionList;
   int questionIndex = 0;
   int score = 0;
+  int bonusPoints = 0;
 
   void _displayInstructions(BuildContext context) {
     showModalBottomSheet(
@@ -35,22 +36,28 @@ class _SpellingScreenState extends State<SpellingScreen> {
   }
 
   void _endGameScreen(BuildContext context) {
+    int maxScore = questionList!.length;
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => EndGameScreen(score: score, maxScore: 10),
+        builder: (context) => EndGameScreen(
+          score: score,
+          maxScore: maxScore,
+          bonusPoints: bonusPoints,
+        ),
       ),
     );
   }
 
-  void _checkAnswer(String answer) {
+  void _scoreAnswer(String answer, int bonusPoints) {
     answer = answer.toLowerCase().trim();
     if (answer == questionList![questionIndex]['word']) {
       setState(() {
         score++;
+        this.bonusPoints += bonusPoints;
       });
     }
-    if (questionIndex < questionList!.length-1) {
+    if (questionIndex < questionList!.length - 1) {
       setState(() {
         questionIndex++;
       });
@@ -110,7 +117,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
             body: SpellingQuestion(
               word: questionList![questionIndex]['word'],
               definition: questionList![questionIndex]['definition'],
-              onAnswer: _checkAnswer,
+              onAnswer: _scoreAnswer,
             ),
           )
         : Foxloadingindicator();
