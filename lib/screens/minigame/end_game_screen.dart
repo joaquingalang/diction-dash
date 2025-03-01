@@ -10,17 +10,22 @@ import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
 // TODO: Add success or fail audio clips
 
 class EndGameScreen extends StatefulWidget {
-  const EndGameScreen({super.key, required this.maxScore, required this.score});
+  const EndGameScreen({
+    super.key,
+    required this.score,
+    required this.maxScore,
+    this.bonusPoints = 0,
+  });
 
-  final int maxScore;
   final int score;
+  final int maxScore;
+  final int bonusPoints;
 
   @override
   State<EndGameScreen> createState() => _EndGameScreenState();
 }
 
 class _EndGameScreenState extends State<EndGameScreen> {
-
   // Game Audio
   final GameAudio _gameAudio = GameAudio();
 
@@ -32,7 +37,6 @@ class _EndGameScreenState extends State<EndGameScreen> {
   List<Color> starColors = [Colors.grey, Colors.grey, Colors.grey];
 
   void _playConfetti() async {
-
     if (widget.score >= 5) {
       // Play Confetti
       _confettiController.play();
@@ -135,7 +139,7 @@ class _EndGameScreenState extends State<EndGameScreen> {
                 SizedBox(height: 30),
 
                 // Performance Evaluation
-                Text(performance!, style: kOswaldXLarge),
+                Text(performance, style: kOswaldXLarge),
 
                 // Performance & Rewards
                 Column(
@@ -150,7 +154,7 @@ class _EndGameScreenState extends State<EndGameScreen> {
                     // Experience Points
                     Text('EXPERIENCE POINTS', style: kOswaldMedium),
                     Text(
-                      '+ ${widget.score * 10} XP',
+                      '+ ${(widget.score * 10) + widget.bonusPoints} XP',
                       style: kOrangeButtonTextStyle.copyWith(fontSize: 36),
                     ),
                   ],
@@ -170,12 +174,13 @@ class _EndGameScreenState extends State<EndGameScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: RoundedRectangleButton(
-                    onPressed: () => // Return To AuthManager Without Route History
-                    Navigator.of(context).pushAndRemoveUntil(
+                    onPressed:
+                        () => // Return To AuthManager Without Route History
+                            Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
                         builder: (context) => AuthManager(),
                       ),
-                          (Route<dynamic> route) => false,
+                      (Route<dynamic> route) => false,
                     ),
                     child: Center(
                       child: Text('Continue', style: kButtonTextStyle),
