@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/services/question_bank.dart';
-import 'package:diction_dash/services/game_audio.dart';
 import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 import 'package:diction_dash/screens/minigame/grammar/grammar_question.dart';
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
@@ -18,6 +17,7 @@ class GrammarScreen extends StatefulWidget {
 }
 
 class _GrammarScreenState extends State<GrammarScreen> {
+
   // Questions & Score Manager
   late final QuestionBank _questionBank;
   List<Map<String, dynamic>>? questionList;
@@ -37,7 +37,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
     );
   }
 
-  // Navigate to End Game Screen w/ Score
+  // Navigate To End Game Screen w/ Score, Bonus Points, and Minigame Type
   void _endGameScreen(BuildContext context) {
     int maxScore = questionList!.length;
     Navigator.push(
@@ -47,6 +47,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
           score: score,
           maxScore: maxScore,
           bonusPoints: bonusPoints,
+          game: 'grammar',
         ),
       ),
     );
@@ -59,7 +60,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
     setState(() {});
   }
 
-  // Check If Current Question Is Correct & Move To Next Question
+  // Score Answer & Move To Next Question (Or End Game Screen)
   void _scoreAnswer(bool answer, int bonusPoints) {
     if (answer == questionList![questionIndex]['isCorrect']) {
       setState(() {

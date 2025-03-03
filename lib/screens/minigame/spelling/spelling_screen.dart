@@ -1,4 +1,3 @@
-import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/services/question_bank.dart';
@@ -6,6 +5,7 @@ import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 import 'package:diction_dash/screens/minigame/spelling/spelling_question.dart';
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
+import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 
 class SpellingScreen extends StatefulWidget {
   const SpellingScreen({super.key, required this.fluency});
@@ -17,6 +17,7 @@ class SpellingScreen extends StatefulWidget {
 }
 
 class _SpellingScreenState extends State<SpellingScreen> {
+
   // Questions & Score Manager
   late final QuestionBank _questionBank;
   List<Map<String, dynamic>>? questionList;
@@ -24,6 +25,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
   int score = 0;
   int bonusPoints = 0;
 
+  // Display Minigame Instructions
   void _displayInstructions(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -35,6 +37,7 @@ class _SpellingScreenState extends State<SpellingScreen> {
     );
   }
 
+  // Navigate To End Game Screen w/ Score, Bonus Points, and Minigame Type
   void _endGameScreen(BuildContext context) {
     int maxScore = questionList!.length;
     Navigator.push(
@@ -44,11 +47,13 @@ class _SpellingScreenState extends State<SpellingScreen> {
           score: score,
           maxScore: maxScore,
           bonusPoints: bonusPoints,
+          game: 'spelling',
         ),
       ),
     );
   }
 
+  // Score Answer & Move To Next Question (Or End Game Screen)
   void _scoreAnswer(String answer, int bonusPoints) {
     answer = answer.toLowerCase().trim();
     if (answer == questionList![questionIndex]['word']) {

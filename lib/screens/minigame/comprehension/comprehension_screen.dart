@@ -17,6 +17,7 @@ class ComprehensionScreen extends StatefulWidget {
 }
 
 class _ComprehensionScreenState extends State<ComprehensionScreen> {
+
   // Questions & Score Manager
   late final QuestionBank _questionBank;
   List<Map<String, dynamic>>? questionList;
@@ -24,6 +25,7 @@ class _ComprehensionScreenState extends State<ComprehensionScreen> {
   int score = 0;
   int bonusPoints = 0;
 
+  // Display Minigame Instructions
   void _displayInstructions(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -35,6 +37,7 @@ class _ComprehensionScreenState extends State<ComprehensionScreen> {
     );
   }
 
+  // Navigate To End Game Screen w/ Score, Bonus Points, and Minigame Type
   void _endGameScreen(BuildContext context) {
     int maxScore = questionList!.length;
     Navigator.push(
@@ -44,6 +47,7 @@ class _ComprehensionScreenState extends State<ComprehensionScreen> {
           score: score,
           maxScore: maxScore,
           bonusPoints: bonusPoints,
+          game: 'vocabulary',
         ),
       ),
     );
@@ -60,7 +64,7 @@ class _ComprehensionScreenState extends State<ComprehensionScreen> {
     setState(() {});
   }
 
-  // Check If Current Question Is Correct & Move To Next Question
+  // Score Answer & Move To Next Question (Or End Game Screen)
   void _scoreAnswer(String answer, int bonusPoints) {
     if (answer == questionList![questionIndex]['answer']) {
       setState(() {

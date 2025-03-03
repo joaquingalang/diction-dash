@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:confetti/confetti.dart';
+import 'package:diction_dash/services/auth_service.dart';
+import 'package:diction_dash/services/firestore_service.dart';
 import 'package:diction_dash/services/game_audio.dart';
 import 'package:diction_dash/screens/authentication/auth_manager.dart';
 import 'package:diction_dash/widgets/progress_bars/question_bar.dart';
 import 'package:diction_dash/widgets/progress_bars/score_bar.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
-
-// TODO: Add success or fail audio clips
 
 class EndGameScreen extends StatefulWidget {
   const EndGameScreen({
@@ -15,17 +15,26 @@ class EndGameScreen extends StatefulWidget {
     required this.score,
     required this.maxScore,
     this.bonusPoints = 0,
+    required this.game,
   });
 
   final int score;
   final int maxScore;
   final int bonusPoints;
+  final String game;
 
   @override
   State<EndGameScreen> createState() => _EndGameScreenState();
 }
 
 class _EndGameScreenState extends State<EndGameScreen> {
+
+  // Firebase Authentication Instance
+  final AuthService _auth = AuthService();
+
+  // Cloud Firestore Service
+  final FirestoreService _firestore = FirestoreService();
+
   // Game Audio
   final GameAudio _gameAudio = GameAudio();
 
@@ -35,7 +44,9 @@ class _EndGameScreenState extends State<EndGameScreen> {
   // Performance & Star Colors
   String performance = 'GOOD EFFORT!';
   List<Color> starColors = [Colors.grey, Colors.grey, Colors.grey];
+  int totalExp = 0;
 
+  // Plays Confetti If Score Is 5+
   void _playConfetti() async {
     if (widget.score >= 5) {
       // Play Confetti
@@ -49,6 +60,7 @@ class _EndGameScreenState extends State<EndGameScreen> {
     }
   }
 
+  // Plays Congratulations or Flop Jingle
   Future<void> _playJingle() async {
     if (widget.score > 0) {
       _gameAudio.congratulations();
@@ -57,6 +69,7 @@ class _EndGameScreenState extends State<EndGameScreen> {
     }
   }
 
+  // Set Performance Description
   void _setPerformance() {
     if (widget.score == 0) {
       performance = 'TRY AGAIN!';
@@ -69,8 +82,8 @@ class _EndGameScreenState extends State<EndGameScreen> {
     }
   }
 
+  // Set Star Colors Based On Score
   void _setStarColors() {
-    // Set star colors based on score
     if (widget.score == 0) {
       starColors = [Colors.grey, Colors.grey, Colors.grey];
     } else if (widget.score <= 4) {
@@ -82,12 +95,20 @@ class _EndGameScreenState extends State<EndGameScreen> {
     }
   }
 
+  // Calculate Total EXP w/ Time Bonus Points
+  void _calculateEXP() {
+    setState(() {
+      totalExp = (widget.score * 10) + widget.bonusPoints;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     _setPerformance();
-    _playJingle();
+    _calculateEXP();
     _setStarColors();
+    _playJingle();
     _playConfetti();
   }
 
@@ -154,7 +175,7 @@ class _EndGameScreenState extends State<EndGameScreen> {
                     // Experience Points
                     Text('EXPERIENCE POINTS', style: kOswaldMedium),
                     Text(
-                      '+ ${(widget.score * 10) + widget.bonusPoints} XP',
+                      '+ $totalExp XP',
                       style: kOrangeButtonTextStyle.copyWith(fontSize: 36),
                     ),
                   ],
@@ -164,9 +185,9 @@ class _EndGameScreenState extends State<EndGameScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.star, size: 120, color: starColors![0]),
-                    Icon(Icons.star, size: 120, color: starColors![1]),
-                    Icon(Icons.star, size: 120, color: starColors![2]),
+                    Icon(Icons.star, size: 120, color: starColors[0]),
+                    Icon(Icons.star, size: 120, color: starColors[1]),
+                    Icon(Icons.star, size: 120, color: starColors[2]),
                   ],
                 ),
 
@@ -174,14 +195,19 @@ class _EndGameScreenState extends State<EndGameScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: RoundedRectangleButton(
-                    onPressed:
-                        () => // Return To AuthManager Without Route History
-                            Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(
-                        builder: (context) => AuthManager(),
-                      ),
-                      (Route<dynamic> route) => false,
-                    ),
+                    onPressed: () async {
+
+                      // Add EXP To User's Minigame EXP & Level Up If Necessary
+                      await _firestore.addGameEXP(userID: _auth.currentUserID, game: widget.game, exp: totalExp);
+
+                      // Return To AuthManager Without Route History
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                          builder: (context) => AuthManager(),
+                        ),
+                        (Route<dynamic> route) => false,
+                      );
+                    },
                     child: Center(
                       child: Text('Continue', style: kButtonTextStyle),
                     ),

@@ -1,6 +1,6 @@
-import 'package:diction_dash/services/question_bank.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/services/question_bank.dart';
 import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 import 'package:diction_dash/screens/minigame/vocabulary/vocabulary_question.dart';
 import 'package:diction_dash/widgets/bottom_sheets/minigame_instruction_sheet.dart';
@@ -16,6 +16,7 @@ class VocabularyScreen extends StatefulWidget {
 }
 
 class _VocabularyScreenState extends State<VocabularyScreen> {
+
   // Questions & Score Manager
   late final QuestionBank _questionBank;
   List<Map<String, dynamic>>? questionList;
@@ -23,6 +24,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
   int score = 0;
   int bonusPoints = 0;
 
+  // Displays Minigame Instructions
   void _displayInstructions(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -34,6 +36,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
     );
   }
 
+  // Navigate To End Game Screen w/ Score, Bonus Points, and Minigame Type
   void _endGameScreen(BuildContext context) {
     int maxScore = questionList!.length;
     Navigator.push(
@@ -43,6 +46,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
           score: score,
           maxScore: maxScore,
           bonusPoints: bonusPoints,
+          game: 'vocabulary',
         ),
       ),
     );
@@ -55,7 +59,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
     setState(() {});
   }
 
-  // Check If Current Question Is Correct & Move To Next Question
+  // Score Answer & Move To Next Question (Or End Game Screen)
   void _scoreAnswer(String answer, int bonusPoints) {
     if (answer == questionList![questionIndex]['answer']) {
       setState(() {
