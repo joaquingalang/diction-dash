@@ -3,27 +3,24 @@ import 'package:diction_dash/models/user_model.dart';
 import 'package:diction_dash/models/minigame_stats.dart';
 
 class FirestoreService {
-
   final CollectionReference _users =
       FirebaseFirestore.instance.collection('users');
 
   // Get User Stream
   Stream<UserModel> getUserData({required String userID}) {
-    Stream<UserModel> userData=  _users
-        .doc(userID)
-        .snapshots()
-        .map(UserModel.fromFirestore);
+    Stream<UserModel> userData =
+        _users.doc(userID).snapshots().map(UserModel.fromFirestore);
     print(userData);
     return userData;
   }
 
   Stream<SpellingStats> getSpellingData({required String userID}) {
-      return _users
-          .doc(userID)
-          .collection('spelling')
-          .doc('spelling_data')
-          .snapshots()
-          .map(SpellingStats.fromFirestore);
+    return _users
+        .doc(userID)
+        .collection('spelling')
+        .doc('spelling_data')
+        .snapshots()
+        .map(SpellingStats.fromFirestore);
   }
 
   Stream<VocabularyStats> getVocabularyData({required String userID}) {
@@ -107,6 +104,34 @@ class FirestoreService {
     });
   }
 
+  // Add EXP To Specific Minigame (Increments Level Once Over Max EXP Threshold)
+  Future<void> addGameEXP({required String userID, required String game, required int exp}) async {
+    Map<String, dynamic>? gameData;
+    DocumentReference gameDocument =
+    _users.doc(userID).collection(game).doc('${game}_data');
+    await gameDocument.get().then(
+          (DocumentSnapshot doc) {
+        gameData = doc.data() as Map<String, dynamic>;
+      },
+      onError: (e) => print('Error Fetching ${game.toUpperCase()} Data'),
+    );
+
+    print('!!! GAME DATA BEFORE');
+    print(gameData!);
+
+    gameData!['exp'] = gameData!['exp'] + exp;
+    if (gameData!['exp'] > gameData!['max_exp']) {
+      gameData!['level']++;
+      gameData!['exp'] =  gameData!['exp'] - gameData!['max_exp'];
+      gameData!['max_exp'] = gameData!['max_exp'] + 100;
+    }
+
+    print('!!! GAME DATA AFTER');
+    print(gameData!);
+
+    await gameDocument.update(gameData!);
+  }
+
   // Delete User
   Future<void> deleteUser({required String userID}) async {
     // User Document Reference
@@ -115,14 +140,16 @@ class FirestoreService {
   }
 
   // Update Username
-  Future<void> updateUsername({required String userID, required String newUsername}) async {
+  Future<void> updateUsername(
+      {required String userID, required String newUsername}) async {
     // User Document Reference
     DocumentReference user = _users.doc(userID);
     await user.update({'username': newUsername});
   }
 
   // Update Fluency
-  Future<void> updateFluency({required String userID, required String fluency}) async {
+  Future<void> updateFluency(
+      {required String userID, required String fluency}) async {
     // User Document Reference
     DocumentReference user = _users.doc(userID);
     await user.update({'fluency': fluency});
