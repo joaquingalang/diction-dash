@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/utils/minigames.dart';
 import 'package:confetti/confetti.dart';
 import 'package:diction_dash/services/auth_service.dart';
 import 'package:diction_dash/services/firestore_service.dart';
@@ -21,7 +22,7 @@ class EndGameScreen extends StatefulWidget {
   final int score;
   final int maxScore;
   final int bonusPoints;
-  final String game;
+  final Minigame game;
 
   @override
   State<EndGameScreen> createState() => _EndGameScreenState();
@@ -41,10 +42,11 @@ class _EndGameScreenState extends State<EndGameScreen> {
   // Confetti Controller
   final ConfettiController _confettiController = ConfettiController();
 
-  // Performance & Star Colors
+  // Performance Data
   String performance = 'GOOD EFFORT!';
   List<Color> starColors = [Colors.grey, Colors.grey, Colors.grey];
   int totalExp = 0;
+  bool _isSubmitted = false;
 
   // Plays Confetti If Score Is 5+
   void _playConfetti() async {
@@ -198,7 +200,13 @@ class _EndGameScreenState extends State<EndGameScreen> {
                     onPressed: () async {
 
                       // Add EXP To User's Minigame EXP & Level Up If Necessary
-                      await _firestore.addGameEXP(userID: _auth.currentUserID, game: widget.game, exp: totalExp);
+                      if (!_isSubmitted) {
+                        setState(() {
+                          _isSubmitted = true;
+                        });
+                        await _firestore.setGamePerformanceRatio(userID: _auth.currentUserID, game: widget.game, score: widget.score);
+                        await _firestore.addGameEXP(userID: _auth.currentUserID, game: widget.game, exp: totalExp);
+                      }
 
                       // Return To AuthManager Without Route History
                       Navigator.of(context).pushAndRemoveUntil(

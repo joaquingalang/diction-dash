@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/utils/minigames.dart';
 import 'package:diction_dash/services/question_bank.dart';
 import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 import 'package:diction_dash/screens/minigame/vocabulary/vocabulary_question.dart';
@@ -46,7 +47,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
           score: score,
           maxScore: maxScore,
           bonusPoints: bonusPoints,
-          game: 'vocabulary',
+          game: Minigame.vocabulary,
         ),
       ),
     );

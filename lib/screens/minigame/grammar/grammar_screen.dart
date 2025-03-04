@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
+import 'package:diction_dash/utils/minigames.dart';
 import 'package:diction_dash/services/question_bank.dart';
 import 'package:diction_dash/screens/minigame/end_game_screen.dart';
 import 'package:diction_dash/screens/minigame/grammar/grammar_question.dart';
@@ -47,7 +48,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
           score: score,
           maxScore: maxScore,
           bonusPoints: bonusPoints,
-          game: 'grammar',
+          game: Minigame.grammar,
         ),
       ),
     );
