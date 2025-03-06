@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:diction_dash/services/game_audio.dart';
+import 'package:diction_dash/services/settings_service.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/text_fields/spelling_answer_text_field.dart';
 import 'package:diction_dash/widgets/buttons/rounded_rectangle_button.dart';
@@ -24,6 +25,9 @@ class SpellingQuestion extends StatefulWidget {
 
 class _SpellingQuestionState extends State<SpellingQuestion> {
 
+  // Settings Instance
+  final SettingsService _settings = SettingsService();
+
   // Spelling Answer Text Editing Controller
   final TextEditingController _spellingAnswerController = TextEditingController();
 
@@ -32,6 +36,7 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
 
   // Game Audio
   final GameAudio _gameAudio = GameAudio();
+  bool _gameAudioEnabled = true;
 
   // Question State Data
   bool _isAnswered = false;
@@ -39,6 +44,13 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
   DateTime? _endTime;
   String? result;
   Color buttonColor = kOrangeColor600;
+
+  void _initSettings() async {
+    bool gameAudio = await _settings.getGameAudio();
+    setState(() {
+      _gameAudioEnabled = gameAudio;
+    });
+  }
 
   Future<void> _initFlutterTts() async {
     await _flutterTts.setLanguage('en-US');
@@ -48,7 +60,6 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
 
   Future<void> _speakWord(String word) async {
     if (word.isNotEmpty) {
-      print(word);
       await _flutterTts.speak(word);
     }
   }
@@ -82,7 +93,9 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
         buttonColor = Colors.red;
         result = 'Wrong';
       });
-      _gameAudio.incorrectAnswer();
+      if (_gameAudioEnabled) {
+        _gameAudio.incorrectAnswer();
+      }
       await Future.delayed(Duration(seconds: 2));
       _resetQuestion();
       String wrongAnswer = '';
@@ -105,6 +118,7 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
   @override
   void initState() {
     super.initState();
+    _initSettings();
     _initFlutterTts();
   }
 
@@ -211,7 +225,9 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
                             buttonColor = isCorrect ? Colors.green : Colors.red;
                           });
                           int bonusPoints = calculateBonusPoints();
-                          _playAnswerSound(answer);
+                          if (_gameAudioEnabled) {
+                            _playAnswerSound(answer);
+                          }
                           await Future.delayed(Duration(seconds: 2));
                           _resetQuestion();
                           widget.onAnswer(answer, bonusPoints);

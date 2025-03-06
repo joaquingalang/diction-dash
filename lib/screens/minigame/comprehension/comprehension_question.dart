@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/services/game_audio.dart';
+import 'package:diction_dash/services/settings_service.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
 
@@ -26,8 +27,12 @@ class ComprehensionQuestion extends StatefulWidget {
 
 class _ComprehensionQuestionState extends State<ComprehensionQuestion> {
 
+  // Settings Instance
+  final SettingsService _settings = SettingsService();
+
   // Game Audio
   final GameAudio _gameAudio = GameAudio();
+  bool _gameAudioEnabled = true;
 
   // Question State Data
   bool _isAnswered = false;
@@ -39,6 +44,13 @@ class _ComprehensionQuestionState extends State<ComprehensionQuestion> {
     kOrangeColor600,
     kOrangeColor600
   ];
+
+  void _initSettings() async {
+    bool gameAudio = await _settings.getGameAudio();
+    setState(() {
+      _gameAudioEnabled = gameAudio;
+    });
+  }
 
   // Play Answer Sound
   void _playAnswerSound(String answer) {
@@ -56,7 +68,9 @@ class _ComprehensionQuestionState extends State<ComprehensionQuestion> {
         _isAnswered = true;
         buttonColors[widget.choices.indexOf(widget.answer)] = Colors.red;
       });
-      _gameAudio.incorrectAnswer();
+      if (_gameAudioEnabled) {
+        _gameAudio.incorrectAnswer();
+      }
       await Future.delayed(Duration(seconds: 2));
       _resetQuestion();
       String wrongAnswer = '';
@@ -100,11 +114,19 @@ class _ComprehensionQuestionState extends State<ComprehensionQuestion> {
         buttonColors[widget.choices.indexOf(widget.answer)] = Colors.green;
       });
       int bonusPoints = calculateBonusPoints();
-      _playAnswerSound(widget.choices[choiceIndex]);
+      if (_gameAudioEnabled) {
+        _playAnswerSound(widget.choices[choiceIndex]);
+      }
       await Future.delayed(Duration(seconds: 2));
       _resetQuestion();
       widget.onAnswer(widget.choices[choiceIndex], bonusPoints);
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initSettings();
   }
 
   @override

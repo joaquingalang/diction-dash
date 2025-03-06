@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/services/game_audio.dart';
+import 'package:diction_dash/services/settings_service.dart';
 import 'package:diction_dash/widgets/progress_bars/countdown_bar.dart';
 import 'package:diction_dash/widgets/buttons/oval_button.dart';
 
@@ -21,8 +22,13 @@ class GrammarQuestion extends StatefulWidget {
 }
 
 class _GrammarQuestionState extends State<GrammarQuestion> {
+
+  // Settings Instance
+  final SettingsService _settings = SettingsService();
+
   // Game Audio
   final GameAudio _gameAudio = GameAudio();
+  bool _gameAudioEnabled = true;
 
   // Question State Data
   bool _isAnswered = false;
@@ -30,6 +36,13 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
   DateTime? _endTime;
   List<Color> _buttonColors = [kOrangeColor600, Colors.white];
   TextStyle _incorrectButtonTextStyle = kOrangeButtonTextStyle;
+
+  void _initSettings() async {
+    bool gameAudio = await _settings.getGameAudio();
+    setState(() {
+      _gameAudioEnabled = gameAudio;
+    });
+  }
 
   // Play Answer Sound
   void _playAnswerSound(bool answer) {
@@ -66,7 +79,9 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
           _incorrectButtonTextStyle = kButtonTextStyle;
         });
       }
-      _gameAudio.incorrectAnswer();
+      if (_gameAudioEnabled) {
+        _gameAudio.incorrectAnswer();
+      }
       await Future.delayed(Duration(seconds: 2));
       _resetQuestion();
       bool wrongAnswer = !widget.isCorrect;
@@ -99,11 +114,19 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
         }
       });
       int bonusPoints = calculateBonusPoints();
-      _playAnswerSound(answer);
+      if (_gameAudioEnabled) {
+        _playAnswerSound(answer);
+      }
       await Future.delayed(Duration(seconds: 2));
       _resetQuestion();
       widget.onAnswer(answer, bonusPoints);
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initSettings();
   }
 
   @override
