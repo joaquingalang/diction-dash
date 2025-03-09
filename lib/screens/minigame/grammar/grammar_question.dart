@@ -22,13 +22,16 @@ class GrammarQuestion extends StatefulWidget {
 }
 
 class _GrammarQuestionState extends State<GrammarQuestion> {
-
   // Settings Instance
   final SettingsService _settings = SettingsService();
 
+  // Settings
+  bool _isLoading = true;
+  bool _gameAudioEnabled = true;
+  bool _capslockEnabled = false;
+
   // Game Audio
   final GameAudio _gameAudio = GameAudio();
-  bool _gameAudioEnabled = true;
 
   // Question State Data
   bool _isAnswered = false;
@@ -38,9 +41,16 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
   TextStyle _incorrectButtonTextStyle = kOrangeButtonTextStyle;
 
   void _initSettings() async {
+    // Get Game Audio Setting
     bool gameAudio = await _settings.getGameAudio();
+
+    // Get Capslock Setting
+    bool capslock = await _settings.getCapslock();
+
     setState(() {
       _gameAudioEnabled = gameAudio;
+      _capslockEnabled = capslock;
+      _isLoading = false;
     });
   }
 
@@ -131,74 +141,86 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Countdown Bar
-          CountdownBar(
-            isStopped: _isAnswered,
-            onTimerComplete: _questionTimeout,
-          ),
-
-          // Grammar Minigame Instructions
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              style: kSubtext20,
-              children: [
-                TextSpan(
-                  text: 'Identify if the sentence\nis ',
-                ),
-                TextSpan(
-                    text: 'grammatically correct.', style: kFontWeightBold),
-              ],
-            ),
-          ),
-
-          // Offset
-          SizedBox(height: 30),
-
-          // Grammar Question
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Text(
-              widget.phrase,
-              style: kSubtext20,
-              textAlign: TextAlign.center,
-            ),
-          ),
-
-          // Offset
-          SizedBox(height: 30),
-
-          // Choices
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+    return (!_isLoading)
+        ? SafeArea(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                OvalButton(
-                  onPressed: () => _selectChoice(true),
-                  color: _buttonColors[0],
-                  child: Center(
-                    child: Text('CORRECT', style: kButtonTextStyle),
+                // Countdown Bar
+                CountdownBar(
+                  isStopped: _isAnswered,
+                  onTimerComplete: _questionTimeout,
+                ),
+
+                // Grammar Minigame Instructions
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    style: kSubtext20,
+                    children: [
+                      TextSpan(
+                        text: (!_capslockEnabled)
+                            ? 'Identify if the sentence\nis '
+                            : 'Identify if the sentence\nis '.toUpperCase(),
+                      ),
+                      TextSpan(
+                        text: (!_capslockEnabled)
+                            ? 'grammatically correct.'
+                            : 'grammatically correct.'.toUpperCase(),
+                        style: kFontWeightBold,
+                      ),
+                    ],
                   ),
                 ),
-                OvalButton(
-                  color: _buttonColors[1],
-                  borderColor: (_buttonColors[1] == Colors.white)
-                      ? kOrangeColor600
-                      : null,
-                  onPressed: () => _selectChoice(false),
-                  child: Center(
-                    child: Text('INCORRECT', style: _incorrectButtonTextStyle),
+
+                // Offset
+                SizedBox(height: 30),
+
+                // Grammar Question
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Text(
+                    (!_capslockEnabled)
+                        ? widget.phrase
+                        : widget.phrase.toUpperCase(),
+                    style: kSubtext20,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+
+                // Offset
+                SizedBox(height: 30),
+
+                // Choices
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Column(
+                    children: [
+                      OvalButton(
+                        onPressed: () => _selectChoice(true),
+                        color: _buttonColors[0],
+                        child: Center(
+                          child: Text('CORRECT', style: kButtonTextStyle),
+                        ),
+                      ),
+                      OvalButton(
+                        color: _buttonColors[1],
+                        borderColor: (_buttonColors[1] == Colors.white)
+                            ? kOrangeColor600
+                            : null,
+                        onPressed: () => _selectChoice(false),
+                        child: Center(
+                          child: Text('INCORRECT',
+                              style: _incorrectButtonTextStyle),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-          ),
-        ],
-      ),
-    );
+          )
+        : CircularProgressIndicator(color: kOrangeColor300);
   }
 }

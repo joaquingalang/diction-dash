@@ -1,12 +1,10 @@
-import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:diction_dash/utils/constants.dart';
 import 'package:diction_dash/services/settings_service.dart';
 import 'package:diction_dash/screens/settings/profile_screen.dart';
 import 'package:diction_dash/widgets/list_tiles/setting_tile.dart';
 import 'package:diction_dash/widgets/list_tiles/switch_setting_tile.dart';
-
-// TODO: Integrate shared preferences
+import 'package:diction_dash/widgets/loading_indicators/fox_loading_indicator.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -24,13 +22,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   // Toggle Variables
   bool _notifsEnabled = true;
-  bool _capslockEnabled = true;
+  bool _capslockEnabled = false;
   bool _gameAudioEnabled = true;
 
   void _initSettings() async {
-    bool? gameAudio = await _settings.getGameAudio();
+    // Get Game Audio Setting
+    bool gameAudio = await _settings.getGameAudio();
+
+    // Get Capslock Setting
+    bool capslock = await _settings.getCapslock();
+
     setState(() {
       _gameAudioEnabled = gameAudio;
+      _capslockEnabled = capslock;
       _isLoading = false;
     });
   }
@@ -58,7 +62,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   size: 35,
                 ),
               ),
-              title: Text('Settings', style: kOswaldMedium),
+              title: Text(
+                (!_capslockEnabled) ? 'Settings' : 'Settings'.toUpperCase(),
+                style: kOswaldMedium,
+              ),
             ),
 
             // Page Body
@@ -66,7 +73,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 children: [
                   SettingTile(
-                    title: 'Profile',
+                    title: (!_capslockEnabled) ? 'Profile' : 'Profile'.toUpperCase(),
                     iconData: Icons.person,
                     onTap: () => Navigator.push(
                       context,
@@ -76,12 +83,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   SettingTile(
-                    title: 'Preferences',
+                    title: (!_capslockEnabled) ? 'Preferences' : 'Preferences'.toUpperCase(),
                     iconData: Icons.photo,
                     onTap: () {},
                   ),
                   SwitchSettingTile(
-                    title: 'Notifications',
+                    title: (!_capslockEnabled) ? 'Notifications' : 'Notifications'.toUpperCase(),
                     iconData: Icons.notifications,
                     value: _notifsEnabled,
                     onChanged: (value) {
@@ -91,17 +98,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     },
                   ),
                   SwitchSettingTile(
-                    title: 'Auto caps-lock',
+                    title: (!_capslockEnabled) ? 'Auto caps-lock' : 'Auto caps-lock'.toUpperCase(),
                     iconData: Icons.notifications,
                     value: _capslockEnabled,
                     onChanged: (value) {
                       setState(() {
                         _capslockEnabled = value;
                       });
+                      _settings.setCapslock(_capslockEnabled);
                     },
                   ),
                   SwitchSettingTile(
-                    title: 'Game Audio',
+                    title: (!_capslockEnabled) ? 'Game Audio' : 'Game Audio'.toUpperCase(),
                     iconData: Icons.volume_up,
                     value: _gameAudioEnabled,
                     onChanged: (value) {
@@ -112,12 +120,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     },
                   ),
                   SettingTile(
-                    title: 'FAQ',
+                    title: (!_capslockEnabled) ? 'FAQs' : 'FAQs'.toUpperCase(),
                     iconData: Icons.help,
                     onTap: () {},
                   ),
                   SettingTile(
-                    title: 'Help & Support',
+                    title: (!_capslockEnabled) ? 'Help & Support' : 'Help & Support'.toUpperCase(),
                     iconData: Icons.info,
                     onTap: () {},
                   ),

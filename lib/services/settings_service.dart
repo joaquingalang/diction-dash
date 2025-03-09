@@ -10,9 +10,24 @@ class SettingsService {
     return audioEnabled;
   }
 
-  // Toggle Game Audio
+  // Set Game Audio
   void setGameAudio(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('audioEnabled', value);
   }
+
+  // Get Capslock Setting
+  Future<bool> getCapslock() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? capslockEnabled = prefs.getBool('capslockEnabled');
+    capslockEnabled ??= false;
+    return capslockEnabled;
+  }
+
+  // Set Capslock Setting
+  void setCapslock(bool value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('capslockEnabled', value);
+  }
+
 }

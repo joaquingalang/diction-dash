@@ -24,19 +24,23 @@ class SpellingQuestion extends StatefulWidget {
 }
 
 class _SpellingQuestionState extends State<SpellingQuestion> {
-
   // Settings Instance
   final SettingsService _settings = SettingsService();
 
+  // Settings
+  bool _isLoading = true;
+  bool _gameAudioEnabled = true;
+  bool _capslockEnabled = false;
+
   // Spelling Answer Text Editing Controller
-  final TextEditingController _spellingAnswerController = TextEditingController();
+  final TextEditingController _spellingAnswerController =
+      TextEditingController();
 
   // Text To Speech
   final FlutterTts _flutterTts = FlutterTts();
 
   // Game Audio
   final GameAudio _gameAudio = GameAudio();
-  bool _gameAudioEnabled = true;
 
   // Question State Data
   bool _isAnswered = false;
@@ -46,9 +50,16 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
   Color buttonColor = kOrangeColor600;
 
   void _initSettings() async {
+    // Get Game Audio Setting
     bool gameAudio = await _settings.getGameAudio();
+
+    // Get Capslock Setting
+    bool capslock = await _settings.getCapslock();
+
     setState(() {
       _gameAudioEnabled = gameAudio;
+      _capslockEnabled = capslock;
+      _isLoading = false;
     });
   }
 
@@ -91,7 +102,7 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
       setState(() {
         _isAnswered = true;
         buttonColor = Colors.red;
-        result = 'Wrong';
+        result = (!_capslockEnabled) ? 'Wrong' : 'Wrong'.toUpperCase();
       });
       if (_gameAudioEnabled) {
         _gameAudio.incorrectAnswer();
@@ -124,127 +135,154 @@ class _SpellingQuestionState extends State<SpellingQuestion> {
 
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      // Builder used to get max appbar height and subtract it from screen height
-      // This difference is used to set a scrollable fixed body height
-      builder: (context) => SafeArea(
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height -
-                Scaffold.of(context).appBarMaxHeight! - 20,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Countdown Bar
-                CountdownBar(
-                  durationInSeconds: 20,
-                  isStopped: _isAnswered,
-                  onTimerComplete: _questionTimeout,
-                ),
-
-                // Spelling Minigame Instructions
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    style: kSubtext20,
+    return (!_isLoading)
+        ? Builder(
+            // Builder used to get max appbar height and subtract it from screen height
+            // This difference is used to set a scrollable fixed body height
+            builder: (context) => SafeArea(
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height -
+                      Scaffold.of(context).appBarMaxHeight! -
+                      20,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextSpan(
-                        text: 'Spell',
-                        style: kFontWeightBold,
+                      // Countdown Bar
+                      CountdownBar(
+                        durationInSeconds: 20,
+                        isStopped: _isAnswered,
+                        onTimerComplete: _questionTimeout,
                       ),
-                      TextSpan(
-                        text: ' the following word:\n',
+
+                      // Spelling Minigame Instructions
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: kSubtext20,
+                          children: [
+                            TextSpan(
+                              text: (!_capslockEnabled)
+                                  ? 'Spell'
+                                  : 'Spell'.toUpperCase(),
+                              style: kFontWeightBold,
+                            ),
+                            TextSpan(
+                              text: (!_capslockEnabled)
+                                  ? ' the following word:\n'
+                                  : ' the following word:\n'.toUpperCase(),
+                            ),
+                            TextSpan(
+                                text: (_isAnswered)
+                                    ? (!_capslockEnabled)
+                                        ? widget.word
+                                        : widget.word.toUpperCase()
+                                    : ('_ ' * widget.word.length).trim(),
+                                style: kHiddenWordTextStyle),
+                          ],
+                        ),
                       ),
-                      TextSpan(
-                          text: (_isAnswered) ? widget.word : ('_ ' * widget.word.length).trim(),
-                          style: kHiddenWordTextStyle),
+
+                      // Offset
+                      SizedBox(height: 30),
+
+                      // Definition Text
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: Text(
+                          (!_capslockEnabled)
+                              ? widget.definition
+                              : widget.definition.toUpperCase(),
+                          style: kSubtext20,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+
+                      // Offset
+                      SizedBox(height: 30),
+
+                      // Audio Button
+                      GestureDetector(
+                        onTap: () => _speakWord(widget.word),
+                        child: Container(
+                          width: 200,
+                          height: 200,
+                          decoration: BoxDecoration(
+                            color: kOrangeColor600,
+                            borderRadius: BorderRadius.circular(24),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.volume_up,
+                              color: kOrangeColor200,
+                              size: 130,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // Offset
+                      SizedBox(height: 30),
+
+                      // Offset
+                      SizedBox(height: 30),
+
+                      // Answer Text Field & Submit Button (Grouped for layout purposes)
+                      Column(
+                        children: [
+                          // Spelling Answer Text Field
+                          SpellingAnswerTextField(
+                              controller: _spellingAnswerController),
+
+                          // Submit Button
+                          RoundedRectangleButton(
+                            onPressed: () async {
+                              if (!_isAnswered) {
+                                String answer = _spellingAnswerController.text
+                                    .toLowerCase();
+                                setState(() {
+                                  _isAnswered = true;
+                                  _endTime = DateTime.now();
+                                  bool isCorrect = (answer == widget.word);
+                                  result = isCorrect
+                                      ? (!_capslockEnabled)
+                                          ? 'Correct'
+                                          : 'Correct'.toUpperCase()
+                                      : (!_capslockEnabled)
+                                          ? 'Wrong'
+                                          : 'Wrong'.toUpperCase();
+                                  buttonColor =
+                                      isCorrect ? Colors.green : Colors.red;
+                                });
+                                int bonusPoints = calculateBonusPoints();
+                                if (_gameAudioEnabled) {
+                                  _playAnswerSound(answer);
+                                }
+                                await Future.delayed(Duration(seconds: 2));
+                                _resetQuestion();
+                                widget.onAnswer(answer, bonusPoints);
+                              }
+                            },
+                            backgroundColor: buttonColor,
+                            child: Center(
+                              child: Text(
+                                  _isAnswered
+                                      ? result!
+                                      : (!_capslockEnabled)
+                                          ? 'Submit'
+                                          : 'Submit'.toUpperCase(),
+                                  style: kButtonTextStyle),
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
-
-                // Offset
-                SizedBox(height: 30),
-
-                // Definition Text
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Text(
-                    widget.definition,
-                    style: kSubtext20,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-
-                // Offset
-                SizedBox(height: 30),
-
-                // Audio Button
-                GestureDetector(
-                  onTap: () => _speakWord(widget.word),
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      color: kOrangeColor600,
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.volume_up,
-                        color: kOrangeColor200,
-                        size: 130,
-                      ),
-                    ),
-                  ),
-                ),
-
-                // Offset
-                SizedBox(height: 30),
-
-                // Offset
-                SizedBox(height: 30),
-
-                // Answer Text Field & Submit Button (Grouped for layout purposes)
-                Column(
-                  children: [
-                    // Spelling Answer Text Field
-                    SpellingAnswerTextField(
-                        controller: _spellingAnswerController),
-
-                    // Submit Button
-                    RoundedRectangleButton(
-                      onPressed: () async {
-                        if (!_isAnswered) {
-                          String answer = _spellingAnswerController.text.toLowerCase();
-                          setState(() {
-                            _isAnswered = true;
-                            _endTime = DateTime.now();
-                            bool isCorrect = (answer == widget.word);
-                            result = isCorrect ? 'Correct' : 'Wrong';
-                            buttonColor = isCorrect ? Colors.green : Colors.red;
-                          });
-                          int bonusPoints = calculateBonusPoints();
-                          if (_gameAudioEnabled) {
-                            _playAnswerSound(answer);
-                          }
-                          await Future.delayed(Duration(seconds: 2));
-                          _resetQuestion();
-                          widget.onAnswer(answer, bonusPoints);
-                        }
-                      },
-                      backgroundColor: buttonColor,
-                      child: Center(
-                        child: Text(_isAnswered ? result! : 'Submit', style: kButtonTextStyle),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+              ),
             ),
-          ),
-        ),
-      ),
-    );
+          )
+        : CircularProgressIndicator(color: kOrangeColor300);
   }
 }

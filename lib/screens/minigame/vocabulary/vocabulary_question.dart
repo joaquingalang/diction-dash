@@ -24,13 +24,16 @@ class VocabularyQuestion extends StatefulWidget {
 }
 
 class _VocabularyQuestionState extends State<VocabularyQuestion> {
-
   // Settings Instance
   final SettingsService _settings = SettingsService();
 
+  // Settings
+  bool _isLoading = true;
+  bool _gameAudioEnabled = true;
+  bool _capslockEnabled = false;
+
   // Game Audio
   final GameAudio _gameAudio = GameAudio();
-  bool _gameAudioEnabled = true;
 
   // Question State Data
   bool _isAnswered = false;
@@ -44,9 +47,16 @@ class _VocabularyQuestionState extends State<VocabularyQuestion> {
   ];
 
   void _initSettings() async {
+    // Get Game Audio Setting
     bool gameAudio = await _settings.getGameAudio();
+
+    // Get Capslock Setting
+    bool capslock = await _settings.getCapslock();
+
     setState(() {
       _gameAudioEnabled = gameAudio;
+      _capslockEnabled = capslock;
+      _isLoading = false;
     });
   }
 
@@ -108,7 +118,10 @@ class _VocabularyQuestionState extends State<VocabularyQuestion> {
       setState(() {
         _isAnswered = true;
         _endTime = DateTime.now();
-        buttonColors[choiceIndex] = (widget.answer == widget.choices[choiceIndex]) ? Colors.green : Colors.red;
+        buttonColors[choiceIndex] =
+            (widget.answer == widget.choices[choiceIndex])
+                ? Colors.green
+                : Colors.red;
         buttonColors[widget.choices.indexOf(widget.answer)] = Colors.green;
       });
       int bonusPoints = _calculateBonusPoints();
@@ -129,84 +142,111 @@ class _VocabularyQuestionState extends State<VocabularyQuestion> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Countdown Bar
-          CountdownBar(
-            isStopped: _isAnswered,
-            onTimerComplete: _questionTimeout,
-          ),
-
-          // Vocabulary Minigame Instructions
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              style: kSubtext20,
-              children: [
-                TextSpan(
-                  text: 'Select the appropriate',
-                ),
-                TextSpan(
-                  text: '\nsynonym.',
-                  style: kFontWeightBold,
-                ),
-              ],
-            ),
-          ),
-
-          // Offset
-          SizedBox(height: 30),
-
-          // Provided Word
-          Text(
-            widget.word,
-            style: kOswaldLarge,
-            textAlign: TextAlign.center,
-          ),
-
-          // Offset
-          SizedBox(height: 30),
-
-          // Choices
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+    return (!_isLoading)
+        ? SafeArea(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                OvalButton(
-                  onPressed: () => _selectChoice(0),
-                  color: buttonColors[0],
-                  child: Center(
-                    child: Text(widget.choices[0], style: kButtonTextStyle),
+                // Countdown Bar
+                CountdownBar(
+                  isStopped: _isAnswered,
+                  onTimerComplete: _questionTimeout,
+                ),
+
+                // Vocabulary Minigame Instructions
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    style: kSubtext20,
+                    children: [
+                      TextSpan(
+                        text: (!_capslockEnabled)
+                            ? 'Select the appropriate'
+                            : 'Select the appropriate'.toUpperCase(),
+                      ),
+                      TextSpan(
+                        text: (!_capslockEnabled)
+                            ? '\nsynonym.'
+                            : '\nsynonym.'.toUpperCase(),
+                        style: kFontWeightBold,
+                      ),
+                    ],
                   ),
                 ),
-                OvalButton(
-                  onPressed: () => _selectChoice(1),
-                  color: buttonColors[1],
-                  child: Center(
-                    child: Text(widget.choices[1], style: kButtonTextStyle),
-                  ),
+
+                // Offset
+                SizedBox(height: 30),
+
+                // Provided Word
+                Text(
+                  (!_capslockEnabled) ? widget.word : widget.word.toUpperCase(),
+                  style: kOswaldLarge,
+                  textAlign: TextAlign.center,
                 ),
-                OvalButton(
-                  onPressed: () => _selectChoice(2),
-                  color: buttonColors[2],
-                  child: Center(
-                    child: Text(widget.choices[2], style: kButtonTextStyle),
-                  ),
-                ),
-                OvalButton(
-                  onPressed: () => _selectChoice(3),
-                  color: buttonColors[3],
-                  child: Center(
-                    child: Text(widget.choices[3], style: kButtonTextStyle),
+
+                // Offset
+                SizedBox(height: 30),
+
+                // Choices
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: Column(
+                    children: [
+                      OvalButton(
+                        onPressed: () => _selectChoice(0),
+                        color: buttonColors[0],
+                        child: Center(
+                          child: Text(
+                            (!_capslockEnabled)
+                                ? widget.choices[0]
+                                : widget.choices[0].toString().toUpperCase(),
+                            style: kButtonTextStyle,
+                          ),
+                        ),
+                      ),
+                      OvalButton(
+                        onPressed: () => _selectChoice(1),
+                        color: buttonColors[1],
+                        child: Center(
+                          child: Text(
+                            (!_capslockEnabled)
+                                ? widget.choices[1]
+                                : widget.choices[1].toString().toUpperCase(),
+                            style: kButtonTextStyle,
+                          ),
+                        ),
+                      ),
+                      OvalButton(
+                        onPressed: () => _selectChoice(2),
+                        color: buttonColors[2],
+                        child: Center(
+                          child: Text(
+                            (!_capslockEnabled)
+                                ? widget.choices[2]
+                                : widget.choices[2].toString().toUpperCase(),
+                            style: kButtonTextStyle,
+                          ),
+                        ),
+                      ),
+                      OvalButton(
+                        onPressed: () => _selectChoice(3),
+                        color: buttonColors[3],
+                        child: Center(
+                          child: Text(
+                            (!_capslockEnabled)
+                                ? widget.choices[3]
+                                : widget.choices[3].toString().toUpperCase(),
+                            style: kButtonTextStyle,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-          ),
-        ],
-      ),
-    );
+          )
+        : CircularProgressIndicator(color: kOrangeColor300);
   }
 }
