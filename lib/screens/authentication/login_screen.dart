@@ -26,6 +26,10 @@ class _LoginScreenState extends State<LoginScreen> {
   String _password = '';
 
   Future<void> _login() async {
+
+    // Dismiss Keyboard
+    FocusScope.of(context).unfocus();
+
     // Get Form Data
     FormState formData = _loginFormKey.currentState!;
 

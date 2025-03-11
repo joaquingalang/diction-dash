@@ -35,6 +35,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String _confirmPassword = '';
 
   Future<void> _register() async {
+
+    // Dismiss Keyboard
+    FocusScope.of(context).unfocus();
+
     // Get Form Data
     FormState formData = _registrationFormKey.currentState!;
 
