@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class UserModel {
   // Constructor
   const UserModel({
-    required this.username,
-    required this.email,
+    this.username,
+    this.email,
     this.fluency,
     this.profilePicture,
     this.level = 1,
@@ -25,8 +25,8 @@ class UserModel {
     if (snapshot.data() != null) {
       Map<String, dynamic> userData = snapshot.data() as Map<String, dynamic>;
       return UserModel(
-        username: userData['username'] ?? 'Unknown',
-        email: userData['email'] ?? 'Unknown',
+        username: userData['username'],
+        email: userData['email'],
         fluency: userData['fluency'],
         profilePicture: userData['profile_picture'],
         level: userData['level'],

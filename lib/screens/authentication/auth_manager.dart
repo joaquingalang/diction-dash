@@ -40,7 +40,7 @@ class _AuthManagerState extends State<AuthManager> {
               StreamProvider<UserModel>(
                 create: (context) => _firestore.getUserData(userID: userID),
                 initialData:
-                    UserModel(username: 'Loading...', email: 'Loading...'),
+                    UserModel(),
               ),
               StreamProvider<SpellingStats>(
                 create: (context) => _firestore.getSpellingData(userID: userID),
