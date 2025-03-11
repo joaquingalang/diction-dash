@@ -74,6 +74,9 @@ class _UpdateUsernameSheetState extends State<UpdateUsernameSheet> {
             RoundedRectangleButton(
               onPressed: () {
 
+                // Dismiss Keyboard
+                FocusScope.of(context).unfocus();
+
                 // Update The Password
                 _updateUsername();
 

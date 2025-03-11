@@ -25,6 +25,11 @@ class _UpdatePasswordSheetState extends State<UpdatePasswordSheet> {
   final TextEditingController _confirmPasswordController = TextEditingController();
 
   Future<void> _changePassword() async {
+
+    // Dismiss Keyboard
+    FocusScope.of(context).unfocus();
+
+    // Text Controllers
     String currentPassword = _currentPasswordController.text;
     String newPassword = _newPasswordController.text;
     String confirmPassword = _confirmPasswordController.text;

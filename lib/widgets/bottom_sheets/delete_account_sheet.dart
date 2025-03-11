@@ -25,6 +25,10 @@ class _DeleteAccountSheetState extends State<DeleteAccountSheet> {
   final TextEditingController _passwordController = TextEditingController();
 
   Future<void> _deleteAccount() async {
+
+    // Dismiss Keyboard
+    FocusScope.of(context).unfocus();
+
     String password = _passwordController.text;
     String userID = _auth.currentUserID;
     await _auth.deleteUser(password: password);
