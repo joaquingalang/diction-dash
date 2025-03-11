@@ -29,7 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     // Widget Dimensions For Responsiveness
     double screenHeight = MediaQuery.sizeOf(context).height;
     double cardHeight = (screenHeight / 6.7).toInt() * 5;
@@ -40,7 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final SpellingStats spellingStats = context.watch<SpellingStats>();
     final VocabularyStats vocabularyStats = context.watch<VocabularyStats>();
     final GrammarStats grammarStats = context.watch<GrammarStats>();
-    final ComprehensionStats comprehensionStats = context.watch<ComprehensionStats>();
+    final ComprehensionStats comprehensionStats =
+        context.watch<ComprehensionStats>();
 
     return Scaffold(
       // Page Background Color
@@ -94,13 +94,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // Username
                   Text(
-                    userData.username!,
+                    userData.username ?? '',
                     textAlign: TextAlign.center,
                     style: kOswaldLarge,
                   ),
 
                   // User Level Bar
-                  UserLevelBar(level: userData.level, currentExp: userData.exp, maxExp: userData.maxExp),
+                  UserLevelBar(
+                    level: userData.level,
+                    currentExp: userData.exp,
+                    maxExp: userData.maxExp,
+                  ),
 
                   // Offset
                   SizedBox(height: 10),
@@ -115,7 +119,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SpellingScreen(fluency: userData.fluency!),
+                        builder: (context) =>
+                            SpellingScreen(fluency: userData.fluency!),
                       ),
                     ),
                   ),
@@ -128,7 +133,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => VocabularyScreen(fluency: userData.fluency!),
+                        builder: (context) =>
+                            VocabularyScreen(fluency: userData.fluency!),
                       ),
                     ),
                   ),
@@ -141,7 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => GrammarScreen(fluency: userData.fluency!),
+                        builder: (context) =>
+                            GrammarScreen(fluency: userData.fluency!),
                       ),
                     ),
                   ),
@@ -154,7 +161,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ComprehensionScreen(fluency: userData.fluency!),
+                        builder: (context) =>
+                            ComprehensionScreen(fluency: userData.fluency!),
                       ),
                     ),
                   ),
