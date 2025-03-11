@@ -202,7 +202,7 @@ class FirestoreService {
     if (gameData!['exp'] > gameData!['max_exp']) {
       gameData!['level']++;
       gameData!['exp'] = gameData!['exp'] - gameData!['max_exp'];
-      gameData!['max_exp'] = gameData!['max_exp'] + 100;
+      gameData!['max_exp'] = gameData!['max_exp'] + (100 * gameData!['level']);
     }
 
     await gameDocument.update(gameData!);
@@ -222,7 +222,7 @@ class FirestoreService {
       // Update exp and level
       userData!['level']++;
       userData!['exp'] = userData!['exp'] - userData!['max_exp'];
-      userData!['max_exp'] = userData!['max_exp'] + 100;
+      userData!['max_exp'] = userData!['max_exp'] + (100 * userData!['level']);
 
       // Check if eligible for fluency promotion
       String fluency = userData!['fluency'];
