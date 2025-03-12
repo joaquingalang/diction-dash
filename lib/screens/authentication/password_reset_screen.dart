@@ -96,9 +96,10 @@ class _PasswordResetScreenState extends State<PasswordResetScreen> {
 
               // Page Message
               Column(
+                spacing: 10,
                 children: [
                   Text(
-                    'Forgot your password?',
+                    'FORGOT YOUR PASSWORD?',
                     style: kOswaldMedium,
                     textAlign: TextAlign.center,
                   ),
