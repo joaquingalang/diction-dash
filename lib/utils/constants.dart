@@ -47,6 +47,11 @@ const TextStyle kOswaldMediumBold = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const TextStyle kOswaldMediumL = TextStyle(
+  fontFamily: 'Oswald',
+  fontSize: 38,
+);
+
 const TextStyle kOswaldLarge = TextStyle(
   fontFamily: 'Oswald',
   fontSize: 46,
