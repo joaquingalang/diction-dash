@@ -76,8 +76,14 @@ class _FluencyScreenState extends State<FluencyScreen> {
               ),
             ),
 
+            Text(
+              'HOW FLUENT ARE\nYOU IN ENGLISH?',
+              style: kOswaldMediumL,
+              textAlign: TextAlign.center,
+            ),
+
             // Offset
-            SizedBox(height: 15),
+            SizedBox(height: 30),
 
             // Beginner Fluency Button
             OvalInfoButton(
