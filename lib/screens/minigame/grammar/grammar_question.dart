@@ -142,83 +142,94 @@ class _GrammarQuestionState extends State<GrammarQuestion> {
   @override
   Widget build(BuildContext context) {
     return (!_isLoading)
-        ? SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Countdown Bar
-                CountdownBar(
-                  isStopped: _isAnswered,
-                  onTimerComplete: _questionTimeout,
-                ),
-
-                // Grammar Minigame Instructions
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    style: kSubtext20,
-                    children: [
-                      TextSpan(
-                        text: (!_capslockEnabled)
-                            ? 'Identify if the sentence\nis '
-                            : 'Identify if the sentence\nis '.toUpperCase(),
-                      ),
-                      TextSpan(
-                        text: (!_capslockEnabled)
-                            ? 'grammatically correct.'
-                            : 'grammatically correct.'.toUpperCase(),
-                        style: kFontWeightBold,
-                      ),
-                    ],
+        ? PopScope(
+            canPop: true,
+            onPopInvokedWithResult: (didPop, result) {
+              // On page exit, mark question answered to dispose countdown timer
+              if (didPop) {
+                setState(() {
+                  _isAnswered = true;
+                });
+              }
+            },
+            child: SafeArea(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Countdown Bar
+                  CountdownBar(
+                    isStopped: _isAnswered,
+                    onTimerComplete: _questionTimeout,
                   ),
-                ),
 
-                // Offset
-                SizedBox(height: 30),
-
-                // Grammar Question
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Text(
-                    (!_capslockEnabled)
-                        ? widget.phrase
-                        : widget.phrase.toUpperCase(),
-                    style: kSubtext20,
+                  // Grammar Minigame Instructions
+                  RichText(
                     textAlign: TextAlign.center,
-                  ),
-                ),
-
-                // Offset
-                SizedBox(height: 30),
-
-                // Choices
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  child: Column(
-                    children: [
-                      OvalButton(
-                        onPressed: () => _selectChoice(true),
-                        color: _buttonColors[0],
-                        child: Center(
-                          child: Text('CORRECT', style: kButtonTextStyle),
+                    text: TextSpan(
+                      style: kSubtext20,
+                      children: [
+                        TextSpan(
+                          text: (!_capslockEnabled)
+                              ? 'Identify if the sentence\nis '
+                              : 'Identify if the sentence\nis '.toUpperCase(),
                         ),
-                      ),
-                      OvalButton(
-                        color: _buttonColors[1],
-                        borderColor: (_buttonColors[1] == Colors.white)
-                            ? kOrangeColor600
-                            : null,
-                        onPressed: () => _selectChoice(false),
-                        child: Center(
-                          child: Text('INCORRECT',
-                              style: _incorrectButtonTextStyle),
+                        TextSpan(
+                          text: (!_capslockEnabled)
+                              ? 'grammatically correct.'
+                              : 'grammatically correct.'.toUpperCase(),
+                          style: kFontWeightBold,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+
+                  // Offset
+                  SizedBox(height: 30),
+
+                  // Grammar Question
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Text(
+                      (!_capslockEnabled)
+                          ? widget.phrase
+                          : widget.phrase.toUpperCase(),
+                      style: kSubtext20,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+
+                  // Offset
+                  SizedBox(height: 30),
+
+                  // Choices
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
+                    child: Column(
+                      children: [
+                        OvalButton(
+                          onPressed: () => _selectChoice(true),
+                          color: _buttonColors[0],
+                          child: Center(
+                            child: Text('CORRECT', style: kButtonTextStyle),
+                          ),
+                        ),
+                        OvalButton(
+                          color: _buttonColors[1],
+                          borderColor: (_buttonColors[1] == Colors.white)
+                              ? kOrangeColor600
+                              : null,
+                          onPressed: () => _selectChoice(false),
+                          child: Center(
+                            child: Text('INCORRECT',
+                                style: _incorrectButtonTextStyle),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           )
         : CircularProgressIndicator(color: kOrangeColor300);

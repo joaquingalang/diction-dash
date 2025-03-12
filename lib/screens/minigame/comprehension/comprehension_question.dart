@@ -145,119 +145,130 @@ class _ComprehensionQuestionState extends State<ComprehensionQuestion> {
   @override
   Widget build(BuildContext context) {
     return (!_isLoading)
-        ? SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Countdown Bar
-                CountdownBar(
-                  isStopped: _isAnswered,
-                  onTimerComplete: _questionTimeout,
-                ),
-
-                // Comprehension Minigame Instruction
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    style: kSubtext20,
-                    children: [
-                      TextSpan(
-                        text: (!_capslockEnabled)
-                            ? 'Comprehend '
-                            : 'Comprehend '.toUpperCase(),
-                        style: kFontWeightBold,
-                      ),
-                      TextSpan(
-                        text: (!_capslockEnabled)
-                            ? 'the sentence\nand answer the given question.'
-                            : 'the sentence\nand answer the given question.'
-                                .toUpperCase(),
-                      ),
-                    ],
+        ? PopScope(
+            canPop: true,
+            onPopInvokedWithResult: (didPop, result) {
+              // On page exit, mark question answered to dispose countdown timer
+              if (didPop) {
+                setState(() {
+                  _isAnswered = true;
+                });
+              }
+            },
+            child: SafeArea(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Countdown Bar
+                  CountdownBar(
+                    isStopped: _isAnswered,
+                    onTimerComplete: _questionTimeout,
                   ),
-                ),
 
-                // Offset
-                SizedBox(height: 30),
-
-                // Comprehension Question
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    (!_capslockEnabled)
-                        ? '${widget.paragraph}\n\n${widget.question}'
-                        : '${widget.paragraph}\n\n${widget.question}'
-                            .toUpperCase(),
-                    style: kSubtext20,
+                  // Comprehension Minigame Instruction
+                  RichText(
                     textAlign: TextAlign.center,
+                    text: TextSpan(
+                      style: kSubtext20,
+                      children: [
+                        TextSpan(
+                          text: (!_capslockEnabled)
+                              ? 'Comprehend '
+                              : 'Comprehend '.toUpperCase(),
+                          style: kFontWeightBold,
+                        ),
+                        TextSpan(
+                          text: (!_capslockEnabled)
+                              ? 'the sentence\nand answer the given question.'
+                              : 'the sentence\nand answer the given question.'
+                                  .toUpperCase(),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
 
-                // Offset
-                SizedBox(height: 30),
+                  // Offset
+                  SizedBox(height: 30),
 
-                // Choices
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  child: Column(
-                    children: [
-                      OvalButton(
-                        onPressed: () => _selectChoice(0),
-                        color: buttonColors[0],
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 25),
-                          child: Text(
-                            (!_capslockEnabled)
-                                ? widget.choices[0]
-                                : widget.choices[0].toString().toUpperCase(),
-                            style: kButtonTextStyle,
-                          ),
-                        ),
-                      ),
-                      OvalButton(
-                        onPressed: () => _selectChoice(1),
-                        color: buttonColors[1],
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 25),
-                          child: Text(
-                            (!_capslockEnabled)
-                                ? widget.choices[1]
-                                : widget.choices[1].toString().toUpperCase(),
-                            style: kButtonTextStyle,
-                          ),
-                        ),
-                      ),
-                      OvalButton(
-                        onPressed: () => _selectChoice(2),
-                        color: buttonColors[2],
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 25),
-                          child: Text(
-                            (!_capslockEnabled)
-                                ? widget.choices[2]
-                                : widget.choices[2].toString().toUpperCase(),
-                            style: kButtonTextStyle,
-                          ),
-                        ),
-                      ),
-                      OvalButton(
-                        onPressed: () => _selectChoice(3),
-                        color: buttonColors[3],
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 25),
-                          child: Text(
-                            (!_capslockEnabled)
-                                ? widget.choices[3]
-                                : widget.choices[3].toString().toUpperCase(),
-                            style: kButtonTextStyle,
-                          ),
-                        ),
-                      ),
-                    ],
+                  // Comprehension Question
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      (!_capslockEnabled)
+                          ? '${widget.paragraph}\n\n${widget.question}'
+                          : '${widget.paragraph}\n\n${widget.question}'
+                              .toUpperCase(),
+                      style: kSubtext20,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                ),
-              ],
+
+                  // Offset
+                  SizedBox(height: 30),
+
+                  // Choices
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
+                    child: Column(
+                      children: [
+                        OvalButton(
+                          onPressed: () => _selectChoice(0),
+                          color: buttonColors[0],
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 25),
+                            child: Text(
+                              (!_capslockEnabled)
+                                  ? widget.choices[0]
+                                  : widget.choices[0].toString().toUpperCase(),
+                              style: kButtonTextStyle,
+                            ),
+                          ),
+                        ),
+                        OvalButton(
+                          onPressed: () => _selectChoice(1),
+                          color: buttonColors[1],
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 25),
+                            child: Text(
+                              (!_capslockEnabled)
+                                  ? widget.choices[1]
+                                  : widget.choices[1].toString().toUpperCase(),
+                              style: kButtonTextStyle,
+                            ),
+                          ),
+                        ),
+                        OvalButton(
+                          onPressed: () => _selectChoice(2),
+                          color: buttonColors[2],
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 25),
+                            child: Text(
+                              (!_capslockEnabled)
+                                  ? widget.choices[2]
+                                  : widget.choices[2].toString().toUpperCase(),
+                              style: kButtonTextStyle,
+                            ),
+                          ),
+                        ),
+                        OvalButton(
+                          onPressed: () => _selectChoice(3),
+                          color: buttonColors[3],
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 25),
+                            child: Text(
+                              (!_capslockEnabled)
+                                  ? widget.choices[3]
+                                  : widget.choices[3].toString().toUpperCase(),
+                              style: kButtonTextStyle,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           )
         : CircularProgressIndicator(color: kOrangeColor200);

@@ -98,6 +98,7 @@ class _CountdownBarState extends State<CountdownBar>
   @override
   void dispose() {
     super.dispose();
+    _controller.stop();
     _controller.dispose();
   }
 }
