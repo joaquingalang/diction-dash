@@ -73,7 +73,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 children: [
                   SettingTile(
-                    title: (!_capslockEnabled) ? 'Profile' : 'Profile'.toUpperCase(),
+                    title: (!_capslockEnabled)
+                        ? 'Profile'
+                        : 'Profile'.toUpperCase(),
                     iconData: Icons.person,
                     onTap: () => Navigator.push(
                       context,
@@ -83,12 +85,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   SettingTile(
-                    title: (!_capslockEnabled) ? 'Preferences' : 'Preferences'.toUpperCase(),
+                    title: (!_capslockEnabled)
+                        ? 'Preferences'
+                        : 'Preferences'.toUpperCase(),
                     iconData: Icons.photo,
                     onTap: () {},
                   ),
                   SwitchSettingTile(
-                    title: (!_capslockEnabled) ? 'Notifications' : 'Notifications'.toUpperCase(),
+                    title: (!_capslockEnabled)
+                        ? 'Notifications'
+                        : 'Notifications'.toUpperCase(),
                     iconData: Icons.notifications,
                     value: _notifsEnabled,
                     onChanged: (value) {
@@ -98,7 +104,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     },
                   ),
                   SwitchSettingTile(
-                    title: (!_capslockEnabled) ? 'Auto caps-lock' : 'Auto caps-lock'.toUpperCase(),
+                    title: (!_capslockEnabled)
+                        ? 'Auto caps-lock'
+                        : 'Auto caps-lock'.toUpperCase(),
                     iconData: Icons.notifications,
                     value: _capslockEnabled,
                     onChanged: (value) {
@@ -109,7 +117,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     },
                   ),
                   SwitchSettingTile(
-                    title: (!_capslockEnabled) ? 'Game Audio' : 'Game Audio'.toUpperCase(),
+                    title: (!_capslockEnabled)
+                        ? 'Game Audio'
+                        : 'Game Audio'.toUpperCase(),
                     iconData: Icons.volume_up,
                     value: _gameAudioEnabled,
                     onChanged: (value) {
@@ -125,7 +135,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     onTap: () {},
                   ),
                   SettingTile(
-                    title: (!_capslockEnabled) ? 'Help & Support' : 'Help & Support'.toUpperCase(),
+                    title: (!_capslockEnabled)
+                        ? 'Help & Support'
+                        : 'Help & Support'.toUpperCase(),
                     iconData: Icons.info,
                     onTap: () {},
                   ),
@@ -133,6 +145,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
           )
-        : Foxloadingindicator();
+        : Center(
+            child: CircularProgressIndicator(
+              color: kOrangeColor300,
+            ),
+          );
   }
 }

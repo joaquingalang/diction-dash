@@ -166,7 +166,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             );
           } else {
-            return Foxloadingindicator();
+            return Center(
+              child: CircularProgressIndicator(
+                color: kOrangeColor300,
+              ),
+            );
           }
         }
       ),
